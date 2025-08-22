@@ -1,4 +1,10 @@
-# MkDocs 프로젝트용 Makefile
+ifeq ($(OS),Windows_NT)
+	SCRIPTS := .venv/Scripts
+	ORIGIN_PYTHON := py
+else
+	SCRIPTS := .venv/bin
+	ORIGIN_PYTHON := python3
+endif
 
 # 로컬 서버 실행 (실시간 미리보기)
 serve:
@@ -21,9 +27,9 @@ clean:
 	rm -rf site/
 
 window-install:
-	python -m venv .venv
-	.venv/Scripts/pip install -r requirements.min.txt
+	$(ORIGIN_PYTHON) -m venv .venv
+	$(SCRIPTS)/pip install -r requirements.min.txt
 
 window-serve:
-	.venv/Scripts/mkdocs serve
+	${SCRIPTS}/python -m mkdocs serve
 
