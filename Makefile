@@ -1,6 +1,6 @@
 ifeq ($(OS),Windows_NT)
 	SCRIPTS := .venv/Scripts
-	ORIGIN_PYTHON := py
+	ORIGIN_PYTHON := python
 else
 	SCRIPTS := .venv/bin
 	ORIGIN_PYTHON := python3
@@ -26,10 +26,10 @@ lint:
 clean:
 	rm -rf site/
 
-window-install:
+install-env:
 	$(ORIGIN_PYTHON) -m venv .venv
 	$(SCRIPTS)/pip install -r requirements.min.txt
 
-window-serve:
+mkdoc-serve:
 	${SCRIPTS}/python -m mkdocs serve
 
