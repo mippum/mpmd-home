@@ -5,7 +5,9 @@
       "label": "Make window-serve",
       "type": "shell",
       "command": "make",
-      "args": ["window-serve"],
+      "args": [
+        "mkdoc-serve"
+      ],
       "group": {
         "kind": "build",
         "isDefault": true
