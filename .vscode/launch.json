@@ -3,13 +3,15 @@
     "configurations": [
         {
             "name": "Run Make Window Serve",
-            "type": "cppdbg",
+            "type": "node",
             "request": "launch",
             "program": "/bin/bash",
-            "args": ["-c", "echo 'Use preLaunchTask to run make serve'"],
+            "args": [
+                "-c",
+                "echo 'Use preLaunchTask to run make serve'"
+            ],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Make window-serve",
-            "stopAtEntry": false
+            "preLaunchTask": "Make mkdoc-window-serve"
         }
     ]
 }
