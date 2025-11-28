@@ -10,6 +10,8 @@ endif
 serve:
 	mkdocs serve
 
+mkdoc-window-serve:
+	$(SCRIPTS)/mkdocs serve
 # 정적 사이트 빌드 (site/ 폴더 생성)
 build:
 	mkdocs build
