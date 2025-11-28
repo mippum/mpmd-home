@@ -28,6 +28,19 @@ extra:
 
 plugins:
   - search
+  # - i18n:
+  #     docs_structure: suffix
+  #     languages:
+  #       - name: 한국어
+  #         locale: ko
+  #         build: true
+  #         default: true 
+  #       - locale: en
+  #         name: English
+  #         build: true
+  #         default: false
+  #         site_name: "Documentation du plugin MkDocs static i18n (en)"
+  #         site_description: "Description Française"
 
 # 옵션: 배포 브랜치 설정 (기본값이 gh-pages)
 # remote_branch: gh-pages
