@@ -11,6 +11,8 @@ theme:
 nav:
   - Home: index.md
   - About: about.md
+  - 서비스:
+    - 듣기 트레이너: service/listening-trainer/index.md
 
 markdown_extensions:
   - toc:
