@@ -16,9 +16,15 @@ mkdoc-window-serve:
 build:
 	mkdocs build
 
+build-window:
+	$(SCRIPTS)/mkdocs build
+
 # 강제 배포 (기존 gh-pages 브랜치 덮어쓰기)
 deploy-force:
 	mkdocs gh-deploy --force
+
+deploy-force-window:
+	$(SCRIPTS)/mkdocs gh-deploy --force
 
 # 문서 검사 (lint 설치 명령: "npm install -g markdownlint-cli", "npm install -g cspell")
 lint:
