@@ -1,0 +1,79 @@
+{
+    "quizTitle": "영문 시제 퀴즈",
+    "quizId": "m8mo5yxfmphm0",
+    "version": 1,
+    "questions": [{
+        "questionBody": "<p style='font-size:smaller;'>be 동사를 알맞은 형태로 채워주세요.</p><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>Have you ever _____ to Italy?</p>",
+        "type": "ShortAnswer",
+        "correctAnswer": "been",
+        "help": {
+            "hint": "이탈리아에 가본 적 있니?",
+            "summary": "<p><u>Have</u> you <u>ever been</u> to Italy?</p><p>이탈리아에 가본 적 있니?</p>",
+            "explanation": "<ul><li>현재 완료(Present Perfect) 형태는 「주어 + have/has + 과거 분사(past participle)」로 구성된다.</li><li><b>현재 완료(Present Perfect)</b>는 과거의 특정 사건이나 행동이 현재와 연결됨을 나타낸다.<ul><li><b>과거의 경험</b> \"I have visited Paris.\" (나는 파리를 방문한 적이 있다.)</li><li><b>현재까지 지속</b> \"She has lived here for five years.\" (그녀는 여기서 5년째 살고 있다.)</li><li><b>최근의 사건</b> \"He has just finished his homework.\" (그는 방금 숙제를 마쳤다.)</li></ul></li></ul>"
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>work 동사를 알맞은 형태로 채워주세요.</p><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>He's working out. He said he got to the gym two hours ago. He must _____ out for two hours.</p>",
+        "type": "ShortAnswer",
+        "correctAnswer": ["have been working", "'ve been working"],
+        "help": {
+            "hint": "그는 운동을 하고 있다. 그는 헬스장에 2시간 전에 왔다고 했다. 2시간 동안 운동을 하고 있었나 보다.",
+            "summary": "<ul><li>have been working 또는 've been working</li><li>He's working out. He said he got to the gym two hours ago. He must <u>have been working</u> out for two hours.</li><li>그는 운동을 하고 있다. 그는 헬스장에 2시간 전에 왔다고 했다. 2시간 동안 운동을 하고 있었나 보다.</li></ul>",
+            "explanation": "<ul><li>현재 완료 진행(Present Perfect Continuous) 형태는 「주어 + have/has been + 동사 -ing」로 구성된다.</li><li><b>현재 완료 진행(Present Perfect Continuous)</b>은 과거부터 시작하여 현재까지 계속 진행되고 있는 행동이나 상황을 나타낸다. 얼마나 오래 계속되었는지를 강조할 때 주로 사용한다.<ul><li><b>지속적인 행동</b> \"I have been studying for three hours.\" (나는 3시간 동안 공부하고 있다.)</li><li><b>최근의 변화나 결과로 현재에 영향</b> \"She looks tired because she has been running.\" (그녀는 달리고 있었기 때문에 피곤해 보인다.)</li><li><b>특정 기간 동안 여러번 반복적 행동</b> \"They have been going to the gym regularly.\" (그들은 정기적으로 체육관에 가고 있다.)</li></ul></li></ul>"
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>go 동사를 알맞은 형태로 채워주세요.</p><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>When I brought my son a gift, he _____ to bed.  I put the present by his bedside.</p>",
+        "type": "ShortAnswer",
+        "correctAnswer": ["had gone", "'d gone"],
+        "help": {
+            "hint": "나는 어제 아들을 위한 선물을 사 왔다. 아들은 이미 잠에 들어 있었다. 아이의 머리맡에 선물을 두었다.",
+            "summary": "<ul><li>had gone  또는 'd gone</li><li>When I brought my son a gift, he <u>had gone</u> to bed.  I put the present by his bedside.</li><li>나는 어제 아들을 위한 선물을 사 왔다. 아들은 이미 잠에 들어 있었다. 아이의 머리맡에 선물을 두었다.</li></ul>",
+            "explanation": "<ul><li>When I brought my son a gift, he <u>had gone</u> to bed.  I put the present by his bedside.</li><li>나는 어제 아들을 위한 선물을 사 왔다. 아들은 이미 잠에 들어 있었다. 아이의 머리맡에 선물을 두었다.</li></ul>"
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>알맞은 형태를 모두 선택해 주세요.</p><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>When my trainer called me, I _____ out for three hours.</p>",
+        "type": "Checkboxes",
+        "options": ["had already been working", "'d already been working", "had been working", "'d been working"],
+        "correctAnswer": [1, 2],
+        "help": {
+            "hint": "트레이너가 나에게 전화했을 때, 나는 이미 3시간 동안 운동을 하고 있었다.",
+            "summary": "<ul><li>When my trainer called me, I <u>had already been working</u> out for three hours.</li><li>트레이너가 나에게 전화했을 때, 나는 이미 3시간 동안 운동을 하고 있었다.</li></ul>",
+            "explanation": "<ul><li>형태는 「주어 + had been + 동사-ing」로 구성된다.</li><li><b>과거 진행 완료(Past Perfect Continuous)</b>는 주로 어떤 일이 과거의 특정 시점까지 계속해온 상황이나 행동을 표현할 때 사용됩니다. 이 시제는 \"had been + ~ing\" 형태로 구성됩니다.<ul><li><b>과거의 특정 시점 이전에 지속된 행동</b> \"She had been studying for three hours before the exam started.\" (시험이 시작되기 전에 그녀는 3시간 동안 공부하고 있었다.)</li><li><b>과거의 다른 사건과 연결</b> \"They were tired because they had been working all day.\" (그들은 하루 종일 일했기 때문에 피곤했다.)</li></ul></ul>"
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>go 동사를 알맞은 형태로 채워주세요.</p><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>I _____ to bed at 11 o'clock every night.</p>",
+        "type": "ShortAnswer",
+        "correctAnswer": "go",
+        "help": {
+            "hint": "나는 매일 밤 11시에 잠에 든다.",
+            "summary": "<ul><li>go</li><li>I <u>go</u> to bed at 11 o'clock every night.</li><li>나는 매일 밤 11시에 잠에 든다.</li></ul>",
+            "explanation": "<b>단순 현재(Present Simple)</b>는 주로 현재의 사실, 습관, 반복적인 행동 등을 표현한다.<ul><li><b>일반적인 사실이나 진리</b> \"Water boils at 100 degrees Celsius.\" (물은 100도에서 끓는다.)</li><li><b>습관이나 반복적인 행동</b> \"She goes to the gym every morning.\" (그녀는 매일 아침 체육관에 간다.)</li><li><b>고정된 일정</b> \"The train leaves at 6 PM.\" (기차는 오후 6시에 출발한다.)</li></ul>"
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>write 동사를 알맞은 형태로 채워주세요.</p><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>Einstein _____ the annus mirabilis four papers and made important contributions to the foundation of modern physics.</p>",
+        "type": "ShortAnswer",
+        "correctAnswer": "wrote",
+        "help": {
+            "hint": "아인슈타인은 기적의 해(Annus mirabilis) 논문 4편을 썼고, 현대 물리학의 기초에 중요한 공헌을 했다.",
+            "summary": "<ul><li>wrote</li><li>Einstein <u>wrote</u> the annus mirabilis four papers and made important contributions to the foundation of modern physics.</li><li>아인슈타인은 기적의 해(Annus mirabilis) 논문 4편을 썼고, 현대 물리학의 기초에 중요한 공헌을 했다.</li></ul>",
+            "explanation": "<ul><li><b>단순 과거(Past Simple)</b>는 과거에 일어난 사건이나 행동을 표현하는 데 사용됩니다. 이 시제는 과거의 특정 시점에 일어난 일들을 명확하게 나타냅니다.<ul><li><b>과거에 일어난 사건</b> I visited my friend yesterday. (나는 어제 친구를 방문했다.)</li><li><b>과거의 상태</b> She was happy last year. (그녀는 작년에 행복했다.)</li><li><b>반복적인 과거의 행동</b> They often played soccer when they were kids. (그들은 어렸을 때 자주 축구를 했다.)</li></ul></li>\n<li>시간 부사(예: yesterday, last week, in 2020 등)를 종종 함께 사용</li></ul>"
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>watch 동사를 알맞은 형태로 채워주세요.</p><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>We _____ a movie when the power went out.</p>",
+        "type": "ShortAnswer",
+        "correctAnswer": ["were watching", "'re watching"],
+        "help": {
+            "hint": "우리는 영화를 보던 중 전기가 끊겼다.",
+            "summary": "<ul><li>We <u>were watching</u> a movie when the power went out.</li><li>우리는 영화를 보던 중 전기가 끊겼다.</li></ul>",
+            "explanation": "<ul><li><b>과거 진행(Past Continuous)</b> 형태는 「주어 + was/were + 동사-ing」로 구성된다.</li><li><b>과거 진행(Past Continuous)</b>은 과거의 특정 시점에 진행 중이던 행동이나 상황을 나타낼 때 사용됩니다. 이 시제는 주로 두 가지 행동이 동시에 발생하거나, 과거의 특정 시점에 어떤 일이 진행 중이었다는 것을 강조할 때 쓰입니다.<ul><li><b>과거의 특정 시점에 진행 중인 행동</b> \"I was studying at 8 PM last night.\" (어젯밤 8시에 나는 공부하고 있었다.)</li><li><b>두 개 이상의 행동이 동시에 진행 중일 때</b> \"While she was cooking, he was setting the table.\" (그녀가 요리를 하는 동안 그는 테이블을 차리고 있었다.)</li><li><b>과거의 배경을 설명할 때</b> \"It was raining when we left the house.\" (우리가 집을 나설 때 비가 오고 있었다.)</li></ul></li></ul>"
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>study 동사를 알맞은 형태로 채워주세요.</p><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'></p>",
+        "type": "ShortAnswer",
+        "correctAnswer": ["have been studying", "‘ve been studying"],
+        "help": {
+            "hint": "이번 주는 영어를 열심히 공부하고 있다. 영어 실력이 느는 것이 느껴진다.",
+            "summary": "<ul><li>have been studying 또는 've been studying</li><li>I<u>'ve been studying</u> English hard this week. I can feel my English skills improving.</li><li>이번 주는 영어를 열심히 공부하고 있다. 영어 실력이 느는 것이 느껴진다.</li></ul>",
+            "explanation": "<ul><li><b>현재 진행(Present Continuous)</b> 형태는 「주어 + am/is/are + 동사-ing」로 구성된다.</li><li><b>현재 진행(Present Continuous)</b>은 현재 진행 중인 행동이나 상황을 나타낸다. 가까운 미래에 예정된 사건을 표현할 때도 활용됩니다.<ul><li><b>현재 진행 중인 행동</b> \"I am studying for my exam.\" (나는 시험 공부를 하고 있다.)</li><li><b>현재의 상태나 상황</b> \"She is feeling happy today.\" (그녀는 오늘 기분이 좋다.)</li><li><b>가까운 미래의 계획이나 일정</b> \"We are meeting friends tomorrow.\" (우리는 내일 친구들을 만날 예정이다.)</li></ul></li></ul>"
+        }
+    }]
+}
