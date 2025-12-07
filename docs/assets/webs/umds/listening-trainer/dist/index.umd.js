@@ -52301,7 +52301,7 @@ export default theme;`;
     var templateObject_1;
 
     var ListeningTrainerPage = function () {
-        return React.createElement(Box, { sx: { display: 'flex' } },
+        return React.createElement(Box, { sx: { display: 'block' } },
             React.createElement(ListeningTrainerView, null));
     };
 

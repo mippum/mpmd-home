@@ -3,6 +3,8 @@
 
 <div id="root"></div>
 
+<script src="/assets/webs/libs/tailwind.umd.min.js"></script>
+
 <script src="/assets/webs/libs/react.umd.js"></script>
 <script src="/assets/webs/libs/react-dom.umd.js"></script>
 <script src="/assets/webs/umds/listening-trainer/dist/index.umd.js"></script>
