@@ -5,8 +5,8 @@ site_author: mippum
 theme:
   name: material
   language: ko
-  logo: assets/logo.jpg
-  favicon: assets/logo.jpg
+  logo: assets/logo.png
+  favicon: assets/logo.png
 
 nav:
   - Home: index.md
