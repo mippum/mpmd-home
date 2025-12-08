@@ -14,6 +14,8 @@ nav:
   - 서비스:
     - 듣기 트레이너: service/listening-trainer/index.md
     - 퀴즈: service/quiz/index.md
+  - 전자책:
+    - 자기긍정확언: epub/self-affirmation.md
 
 markdown_extensions:
   - toc:
