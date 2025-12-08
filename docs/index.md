@@ -1,7 +1,10 @@
-# 미쁨에듀 온라인
-
-### 콘텐츠 바로가기
-
+---
+hide:
+  - toc
+---
+<p style="padding:0px; margin:0px 0px 10px 0px;">
+콘텐츠 바로가기
+</p>
 <div style="display: grid;
   gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(162px, 1fr));">
@@ -87,38 +90,10 @@
 </div>
 
 ---
+# 바로가기 요약
+  - 서비스
+    - [듣기 트레이너](service/listening-trainer/index.md)  
+      <small>특정 문구를 외우기 위해 혹은 명상을 위해, 반복 듣기를 할 수 있어요.</small>
 
-# 서비스
-
-<div style="display: flex; gap: 32px; align-items: flex-start; margin-bottom: 32px;">
-
-<div style="flex: 1;">
-<img src="listening.png" style="width:100%; border:1px solid #ccc;" />
-</div>
-
-<div style="flex: 1;">
-
-### 듣기 트레이너
-특정 문구를 외우기 위해  
-혹은 명상을 위해  
-자주 반복 듣기가 필요해요.
-
-듣기 트레이너로 반복 듣기를 해보세요.
-</div>
-
-</div>
-
-<div style="display: flex; gap: 32px; align-items: flex-start;">
-
-<div style="flex: 1;">
-<img src="quiz.png" style="width:100%; border:1px solid #ccc;" />
-</div>
-
-<div style="flex: 1;">
-
-### 퀴즈
-한문제씩 답을 확인하며  
-퀴즈를 풀어 볼 수 있는 서비스 입니다.
-</div>
-
-</div>
+    - [미쁨 퀴즈](service/quiz/index.md)  
+      <small>한 문제씩 답을 확인하며 퀴즈를 풀어 볼 수 있는 서비스 입니다.</small>
