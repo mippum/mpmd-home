@@ -44,7 +44,7 @@ plugins:
 # 옵션: 배포 브랜치 설정 (기본값이 gh-pages)
 # remote_branch: gh-pages
 
-copyright:  © Mippum Docs. All rights reserved.
+copyright:  © Mippum Edu Corporation. All rights reserved.
 
 extra:
   generator: false
