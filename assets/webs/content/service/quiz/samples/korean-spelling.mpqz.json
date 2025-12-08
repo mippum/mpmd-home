@@ -1,0 +1,248 @@
+{
+    "quizTitle": "맞춤법 퀴즈",
+    "quizId": "m8mo6d1ni16es",
+    "version": 1,
+    "questions": [{
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>치킨이 나온게 언제인데 <u><b>금새</b></u> 다 먹었냐?</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>금세</b>\"가 맞는 맞춤법입니다.</p><p>치킨이 나온 게 언제인데 <u><b>금세</b></u> 다 먹었냐?</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>파전을 크게 부치려고 하는데 <u><b>넓직한</b></u> 프라이팬이 있을까?</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>널찍한</b>\"이 맞는 맞춤법입니다.</p><p>파전을 크게 부치려고 하는데 <u><b>널찍한</b></u> 프라이팬이 있을까?</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>배가 <u><b>몇일째</b></u> 아픈지 모르겠어요.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>며칠</b>\"이 맞는 맞춤법입니다.</p><p>정답 : 배가 며칠째 아픈지 모르겠어요.</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'><u><b>오랜만에</b></u> 등산을 해볼까?</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 1,
+        "help": {
+            "summary": "<p>\"<b>오랜만에</b>\"는 맞는 맞춤법입니다.</p><p>헷갈리기 쉬운 오답: 오랫만에(X)</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>저번엔 냄비가 없어서 라면을 못 먹었는데, 오늘은 <u><b>어이없게도</b></u> 라면이 다 떨어졌네.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 1,
+        "help": {
+            "summary": "<p>\"<b>어이없게도</b>\"는 맞는 맞춤법입니다.</p><p>헷갈리기 쉬운 오답: 어의없게도(X)</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>그 선생님은 성격이 <u><b>무난해서</b></u> 소통이 어렵진 않을 겁니다.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 1,
+        "help": {
+            "summary": "<p>\"<b>무난해서</b>\"는 맞는 맞춤법입니다.</p><p>헷갈리기 쉬운 오답: 문안해서</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>어제 나 혼자서 <u><b>차돌배기</b></u> 5인분을 다 먹었어.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>차돌박이</b>\"가 맞는 맞춤법입니다.</p><p>어제 나 혼자서 차돌박이 5인분을 다 먹었어.</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>팔이 아팠는데, 이 약을 먹었으니 <u><b>희한하게</b></u> 괜찮아졌다.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 1,
+        "help": {
+            "summary": "<p>\"<b>희한하게</b>\"는 맞는 맞춤법입니다.</p><p>헷갈리기 쉬운 오답: 희안하게</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>채소는 먹기 전에 <u><b>깨끗히</b></u> 닦는 것이 좋다.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>깨끗이</b>\"가 맞는 맞춤법입니다.</p><p>깨끗이</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>오늘은 <u><b>왠지</b></u> 좋은 일이 일어날 것 같아.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 1,
+        "help": {
+            "summary": "<p>\"<b>왠지</b>\"는 맞는 맞춤법입니다.</p><p>헷갈리기 쉬운 오답: 웬지- 왠지(왜인지,  왜 그런지 모르게, 무슨 까닭인지). 웬(어떤, 어찌 된)</p><p>자주쓰는 표현 : 왠지/웬일</p><p>웬만하다 : 우연만하다의 준말, 웬과 관련 없음</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>밥을 <u><b>먹던지 말던지</b></u> 나는 디저트를 먹을 것이다.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>먹든지 말든지</b>\"가 맞는 맞춤법입니다.</p><p>정답: 밥을 먹든지 말든지 나는 디저트를 먹을 것이다.</p><p>\"<b>던지</b>\"는 과거회상. 양자택일시에는 \"<b>든지</b>\"</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'><u><b>뇌졸증</b></u>은 뇌에 혈액 공급이 줄거나 출혈이 발생으로 의식 장애나 마비를 일으키는 증상이다.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>뇌졸중</b>\"이 맞는 맞춤법입니다.</p><p>뇌졸중은 뇌에 혈액 공급이 줄거나 출혈이 발생으로 의식 장애나 마비를 일으키는 증상이다.</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'><u><b>얻다 대고</b></u> 반말이야?</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 1,
+        "help": {
+            "summary": "<p>\"<b>얻다 대고</b>\"는 맞는 맞춤법입니다.</p><p>헷갈리기 쉬운 오답: 어따대고(X)</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>왜 때려? 아까 내가 욕했다고 <u><b>되갚음</b></u>하는 거야?</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>대갚음</b>\"이 맞는 맞춤법입니다.</p><p>왜 떄려? 아까 내가 욕했다고 <u><b>대갚음</b></u>하는 거야?</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>서류 봉투에 종이를 <u><b>욱여넣다가</b></u> 서류 봉투가 터져버렸다.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 1,
+        "help": {
+            "summary": "<p>\"<b>욱여넣다가</b>\"는 맞는 맞춤법입니다.</p><p>헷갈리기 쉬운 오답: 우겨넣다가(X)</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>집안에서 흡연을 하면 <u><b>어떡해</b></u>!</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 1,
+        "help": {
+            "summary": "<p>\"<b>어떡해</b>\"는 맞는 맞춤법입니다. \"<b>어떻게 해</b>\"의 줄임말입니다.</p><p>헷갈리기 쉬운 오답: 어떻해(X).</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>그는 우리 반의 테리우스라 <u><b>불리운다</b></u>.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>- </b>\"불린다</b>\"가 맞는 맞춤법입니다.</p><p>그는 우리 반의 테리우스라 <u><b>불린다</b></u>.</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>어제 손목이 아팠는데 오늘은 조금 <u><b>낫아졌다</b></u>.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>나아졌다</b>\"가 맞는 맞춤법입니다.</p><p>정답 : 어제 손목이 아팠는데 오늘은 조금 <u><b>나아졌다</b></u>.</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>우리 반엔 <u><b>내노라하는</b></u> 축구 선수가 없다.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>내로라하는</b>\"이 맞는 맞춤법입니다.</p><p>정답: 우리 반엔 <u><b>내로라하는</b></u> 축구 선수가 없다.</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>너 <u><b>일부로</b></u> 날 밀었지?</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>일부러</b>\"가 맞는 맞춤법입니다.</p><p>너 <u><b>일부러</b></u> 날 밀었지?</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>보양식으로 <u><b>육계장</b></u>은 좋은 선택이다.</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 2,
+        "help": {
+            "summary": "<p>\"<b>육개장</b>\"이 맞는 맞춤법입니다.</p><p>보양식으로 <u><b>육개장</b></u>은 좋은 선택이다.</p><p>개고기를 여러 가지 양념, 채소와 함께 고아 끓인 국을 개장국이라고 하며, 그 줄임말이 개장이다. 여기에 고기 육(肉)자를 붙인 것이 육개장이다. 육개장은 개장국의 개고기 대신에 소고기를 넣은 요리이다.</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+   }, {
+        "questionBody": "<p style='font-size:smaller;'>밑줄의 맞춤법이 맞을까요?<p/><p style='padding-left:30px;padding-top:20px;padding-bottom:10px;'>너는 <u><b>만날</b></u> 동생하고 싸우니?</p>",
+        "type": "MultipleChoice",
+        "options": ["O","X"],
+        "correctAnswer": 1,
+        "help": {
+            "summary": "<p>\"<b>만날</b>\"은 맞는 맞춤법입니다.</p><p>2011년 이전에는 <b>매일/만날</b>이 표준어이고, <b>맨날</b>은 비표준어였으나, 2011년 국립국어원에서 <b>맨날</b>도 복수 표준어로 인정하였습니다.</p>"
+        },
+        "extraSetting": {
+            "optionSymbols": ["", ""]
+        }
+    }]
+}

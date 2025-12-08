@@ -1,0 +1,90 @@
+{
+    "quizTitle": "사칙연산 암산 훈련",
+    "quizId": "m8mo6iupwxw8e",
+    "version": 1,
+    "questions": [{
+        "questionBody": "16 + 28",
+        "type": "NumberAnswer",
+        "correctAnswer": 44,
+        "help": {
+            "summary": "정답은 44"
+        }
+    }, {
+        "questionBody": "34 - 18",
+        "type": "NumberAnswer",
+        "correctAnswer": 16,
+        "help": {
+            "summary": "정답은 16"
+        }
+    }, {
+        "questionBody": "14 × 3",
+        "type": "NumberAnswer",
+        "correctAnswer": 42,
+        "help": {
+            "summary": "정답은 42"
+        }
+    }, {
+        "questionBody": "42 - 17",
+        "type": "NumberAnswer",
+        "correctAnswer": 25,
+        "help": {
+            "summary": "정답은 25"
+        }
+    }, {
+        "questionBody": "38 + 26",
+        "type": "NumberAnswer",
+        "correctAnswer": 64,
+        "help": {
+            "summary": "정답은 64"
+        }
+    }, {
+        "questionBody": "8 × 22",
+        "type": "NumberAnswer",
+        "correctAnswer": 176,
+        "help": {
+            "summary": "정답은 176"
+        }
+    }, {
+        "questionBody": "51 ÷ 3",
+        "type": "NumberAnswer",
+        "correctAnswer": 17,
+        "help": {
+            "summary": "정답은 17"
+        }
+    }, {
+        "questionBody": "417 - 132",
+        "type": "NumberAnswer",
+        "correctAnswer": 285,
+        "help": {
+            "summary": "정답은 285"
+        }
+    }, {
+        "questionBody": "198 + 225",
+        "type": "NumberAnswer",
+        "correctAnswer": 423,
+        "help": {
+            "summary": "정답은 423"
+        }
+    }, {
+        "questionBody": "437 ÷ 23",
+        "type": "NumberAnswer",
+        "correctAnswer": 19,
+        "help": {
+            "summary": "정답은 19"
+        }
+    }, {
+        "questionBody": "25 × 32",
+        "type": "NumberAnswer",
+        "correctAnswer": 800,
+        "help": {
+            "summary": "정답은 800"
+        }
+    }, {
+        "questionBody": "3927 + 4395",
+        "type": "NumberAnswer",
+        "correctAnswer": 8322,
+        "help": {
+            "summary": "정답은 8322"
+        }
+    }]
+}

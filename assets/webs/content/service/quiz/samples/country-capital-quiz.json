@@ -1,0 +1,214 @@
+{
+  "quizTitle": "수도 퀴즈",
+  "quizId": "m8lzq6y7iqbv0",
+  "version": 1,
+  "questions": [{
+    "questionBody": "영국(\uD83C\uDDEC\uD83C\uDDE7)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["런던","파리","로마","베를린","마드리드"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "영국의 수도는 런던입니다."
+    }
+  }, {
+    "questionBody": "프랑스(\uD83C\uDDEB\uD83C\uDDF7)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["바르셀로나","런던","파리","브뤼셀","암스테르담"],
+    "correctAnswer": 3,
+    "help": {
+      "summary": "프랑스의 수도는 파리입니다."
+    }
+  }, {
+    "questionBody": "이탈리아(\uD83C\uDDEE\uD83C\uDDF9)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["로마","밀라노","나폴리","피렌체","베니스"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "이탈리아의 수도는 로마입니다."
+    }
+  }, {
+    "questionBody": "캐나다(\uD83C\uDDE8\uD83C\uDDE6)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["밴쿠버","몬트리올","토론토","오타와","퀘벡 시티"],
+    "correctAnswer": 4,
+    "help": {
+      "summary": "캐나다의 수도는 오타와입니다."
+    }
+  }, {
+    "questionBody": "독일(\uD83C\uDDE9\uD83C\uDDEA)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["프랑크푸르트","뮌헨","베를린","함부르크","쾰른"],
+    "correctAnswer": 3,
+    "help": {
+      "summary": "독일의 수도는 베를린입니다."
+    }
+  }, {
+    "questionBody": "중국(\uD83C\uDDE8\uD83C\uDDF3)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["상하이","홍콩","베이징","광저우","선전"],
+    "correctAnswer": 3,
+    "help": {
+      "summary": "중국의 수도는 베이징입니다."
+    }
+  }, {
+    "questionBody": "호주(\uD83C\uDDE6\uD83C\uDDFA)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["시드니","멜버른","브리즈번","애들레이드","캔버라"],
+    "correctAnswer": 5,
+    "help": {
+      "summary": "호주의 수도는 캔버라입니다."
+    }
+  }, {
+    "questionBody": "러시아(\uD83C\uDDF7\uD83C\uDDFA)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["상트페테르부르크","모스크바","노보시비르스크","카잔","블라디보스토크"],
+    "correctAnswer": 2,
+    "help": {
+      "summary": "러시아의 수도는 모스크바입니다."
+    }
+  }, {
+    "questionBody": "브라질(\uD83C\uDDE7\uD83C\uDDF7)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["리우데자네이루","상파울루","브라질리아","살바도르","포르투알레그리"],
+    "correctAnswer": 3,
+    "help": {
+      "summary": "브라질의 수도는 브라질리아입니다."
+    }
+  }, {
+    "questionBody": "멕시코(\uD83C\uDDF2\uD83C\uDDFD)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["카보산루카스","멕시코시티","과달라하라","몬테레이","푸에블라"],
+    "correctAnswer": 2,
+    "help": {
+      "summary": "멕시코의 수도는 멕시코시티입니다."
+    }
+  }, {
+    "questionBody": "인도(\uD83C\uDDEE\uD83C\uDDF3)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["뭄바이","뉴델리","벵갈루루","콜카타","첸나이"],
+    "correctAnswer": 2,
+    "help": {
+      "summary": "인도의 수도는 뉴델리입니다."
+    }
+  }, {
+    "questionBody": "이란(\uD83C\uDDEE\uD83C\uDDF7)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["테헤란","이스파한","마시하드","셰라즈","야즈드"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "이란의 수도는 테헤란입니다."
+    }
+  }, {
+    "questionBody": "터키(\uD83C\uDDF9\uD83C\uDDF7, 튀르키예)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["이스탄불","앙카라","이즈미르","부르사","안탈리아"],
+    "correctAnswer": 2,
+    "help": {
+      "summary": "터키의 수도는 앙카라입니다."
+    }
+  }, {
+    "questionBody": "남아프리카 공화국(\uD83C\uDDFF\uD83C\uDDE6)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["요하네스버그","케이프타운","더반","프리토리아","블룸폰테인"],
+    "correctAnswer": 4,
+    "help": {
+      "summary": "남아프리카 공화국의 수도는 프리토리아입니다."
+    }
+  }, {
+    "questionBody": "스페인(\uD83C\uDDEA\uD83C\uDDF8)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["바르셀로나","발렌시아","마드리드","세비야","말라가"],
+    "correctAnswer": 3,
+    "help": {
+      "summary": "스페인의 수도는 마드리드입니다."
+    }
+  }, {
+    "questionBody": "포르투갈(\uD83C\uDDF5\uD83C\uDDF9)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["리스본","포르투","브라가","코임브라","아빌레이라"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "포르투갈의 수도는 리스본입니다."
+    }
+  }, {
+    "questionBody": "이집트(\uD83C\uDDEA\uD83C\uDDEC)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["카이로","알렉산드리아","포트사이드","스위즈","수에즈"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "이집트의 수도는 카이로입니다."
+    }
+  }, {
+    "questionBody": "사우디아라비아(\uD83C\uDDF8\uD83C\uDDE6)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["메카","제다","리야드","다만","아비하"],
+    "correctAnswer": 3,
+    "help": {
+      "summary": "사우디아라비아의 수도는 리야드입니다."
+    }
+  }, {
+    "questionBody": "노르웨이(\uD83C\uDDF3\uD83C\uDDF4)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["오슬로","베르겐","스타방에르","트론헤임","크리스티안산"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "노르웨이의 수도는 오슬로입니다."
+    }
+  }, {
+    "questionBody": "스웨덴(\uD83C\uDDF8\uD83C\uDDEA)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["고텐버그","말뫼","스톡홀름","우플레타","룰레오"],
+    "correctAnswer": 3,
+    "help": {
+      "summary": "스웨덴의 수도는 스톡홀름입니다."
+    }
+  }, {
+    "questionBody": "핀란드(\uD83C\uDDEB\uD83C\uDDEE)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["헬싱키","타미페라","로바니에미","오울루","칼리"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "핀란드의 수도는 헬싱키입니다."
+    }
+  }, {
+    "questionBody": "덴마크(\uD83C\uDDE9\uD83C\uDDF0)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["코펜하겐","올보르","아르후스","로스킬레","홀바이크"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "덴마크의 수도는 코펜하겐입니다."
+    }
+  }, {
+    "questionBody": "네덜란드(\uD83C\uDDF3\uD83C\uDDF1)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["암스테르담","로테르담","위트레흐트","헤이그","에인트호번,"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "네덜란드의 수도는 암스테르담입니다."
+    }
+  }, {
+    "questionBody": "벨기에(\uD83C\uDDE7\uD83C\uDDEA)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["브뤼셀","안트워프","겐트","브뤼헤","나무르"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "벨기에의 수도는 브뤼셀입니다."
+    }
+  }, {
+    "questionBody": "스위스(\uD83C\uDDE8\uD83C\uDDED)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["제네바","취리히","바젤","루체른","베른"],
+    "correctAnswer": 5,
+    "help": {
+      "summary": "스위스의 수도는 베른입니다."
+    }
+  }, {
+    "questionBody": "오스트리아(\uD83C\uDDE6\uD83C\uDDF9)의 수도는?",
+    "type": "MultipleChoice",
+    "options": ["비엔나","잘츠부르크","인스부르크","그라츠","키츠뷔헬"],
+    "correctAnswer": 1,
+    "help": {
+      "summary": "오스트리아의 수도는 비엔나입니다."
+    }
+  }]
+}
