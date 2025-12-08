@@ -1,4 +1,4 @@
-site_name: Mippum MD Home
+site_name: Mippum Edu Online
 site_description: Mippum's Home from MD Files
 site_author: mippum
 
@@ -9,8 +9,7 @@ theme:
   favicon: assets/logo.png
 
 nav:
-  - Home: index.md
-  - About: about.md
+  - 홈: index.md
   - 서비스:
     - 듣기 트레이너: service/listening-trainer/index.md
     - 퀴즈: service/quiz/index.md
