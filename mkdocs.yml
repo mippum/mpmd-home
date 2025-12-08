@@ -7,6 +7,7 @@ theme:
   language: ko
   logo: assets/logo.png
   favicon: assets/logo.png
+  custom_dir: overrides
 
 nav:
   - 홈: index.md
@@ -24,11 +25,6 @@ markdown_extensions:
   - codehilite
   - pymdownx.superfences
   - pymdownx.tabbed
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/mippum
 
 plugins:
   - search
