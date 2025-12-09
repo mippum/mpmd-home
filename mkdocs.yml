@@ -15,6 +15,7 @@ nav:
     - 퀴즈: service/quiz/index.md
   - 전자책:
     - 자기긍정확언: epub/self-affirmation.md
+    - 1문1답 영문전치사: epub/preposition.md
 
 markdown_extensions:
   - toc:
