@@ -26,6 +26,9 @@ deploy-force:
 deploy-force-window:
 	$(SCRIPTS)/mkdocs gh-deploy --force
 
+deploy-window:
+	$(SCRIPTS)/mkdocs gh-deploy
+
 # 문서 검사 (lint 설치 명령: "npm install -g markdownlint-cli", "npm install -g cspell")
 lint:
 	markdownlint docs/**/*.md
