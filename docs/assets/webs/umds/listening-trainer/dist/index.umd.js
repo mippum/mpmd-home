@@ -255,49 +255,49 @@
     return StyleSheet;
   }();
 
-  var MS$1 = '-ms-';
-  var MOZ$1 = '-moz-';
-  var WEBKIT$1 = '-webkit-';
+  var MS = '-ms-';
+  var MOZ = '-moz-';
+  var WEBKIT = '-webkit-';
 
-  var COMMENT$1 = 'comm';
-  var RULESET$1 = 'rule';
-  var DECLARATION$1 = 'decl';
-  var IMPORT$1 = '@import';
-  var KEYFRAMES$1 = '@keyframes';
-  var LAYER$1 = '@layer';
+  var COMMENT = 'comm';
+  var RULESET = 'rule';
+  var DECLARATION = 'decl';
+  var IMPORT = '@import';
+  var KEYFRAMES = '@keyframes';
+  var LAYER = '@layer';
 
   /**
    * @param {number}
    * @return {number}
    */
-  var abs$2 = Math.abs;
+  var abs$1 = Math.abs;
 
   /**
    * @param {number}
    * @return {string}
    */
-  var from$1 = String.fromCharCode;
+  var from = String.fromCharCode;
 
   /**
    * @param {object}
    * @return {object}
    */
-  var assign$1 = Object.assign;
+  var assign = Object.assign;
 
   /**
    * @param {string} value
    * @param {number} length
    * @return {number}
    */
-  function hash$1 (value, length) {
-  	return charat$1(value, 0) ^ 45 ? (((((((length << 2) ^ charat$1(value, 0)) << 2) ^ charat$1(value, 1)) << 2) ^ charat$1(value, 2)) << 2) ^ charat$1(value, 3) : 0
+  function hash$2 (value, length) {
+  	return charat(value, 0) ^ 45 ? (((((((length << 2) ^ charat(value, 0)) << 2) ^ charat(value, 1)) << 2) ^ charat(value, 2)) << 2) ^ charat(value, 3) : 0
   }
 
   /**
    * @param {string} value
    * @return {string}
    */
-  function trim$2 (value) {
+  function trim$1 (value) {
   	return value.trim()
   }
 
@@ -306,7 +306,7 @@
    * @param {RegExp} pattern
    * @return {string?}
    */
-  function match$1 (value, pattern) {
+  function match (value, pattern) {
   	return (value = pattern.exec(value)) ? value[0] : value
   }
 
@@ -316,7 +316,7 @@
    * @param {string} replacement
    * @return {string}
    */
-  function replace$1 (value, pattern, replacement) {
+  function replace (value, pattern, replacement) {
   	return value.replace(pattern, replacement)
   }
 
@@ -325,7 +325,7 @@
    * @param {string} search
    * @return {number}
    */
-  function indexof$1 (value, search) {
+  function indexof (value, search) {
   	return value.indexOf(search)
   }
 
@@ -334,7 +334,7 @@
    * @param {number} index
    * @return {number}
    */
-  function charat$1 (value, index) {
+  function charat (value, index) {
   	return value.charCodeAt(index) | 0
   }
 
@@ -344,7 +344,7 @@
    * @param {number} end
    * @return {string}
    */
-  function substr$1 (value, begin, end) {
+  function substr (value, begin, end) {
   	return value.slice(begin, end)
   }
 
@@ -352,7 +352,7 @@
    * @param {string} value
    * @return {number}
    */
-  function strlen$1 (value) {
+  function strlen (value) {
   	return value.length
   }
 
@@ -360,7 +360,7 @@
    * @param {any[]} value
    * @return {number}
    */
-  function sizeof$1 (value) {
+  function sizeof (value) {
   	return value.length
   }
 
@@ -369,7 +369,7 @@
    * @param {any[]} array
    * @return {any}
    */
-  function append$1 (value, array) {
+  function append (value, array) {
   	return array.push(value), value
   }
 
@@ -378,16 +378,16 @@
    * @param {function} callback
    * @return {string}
    */
-  function combine$1 (array, callback) {
+  function combine (array, callback) {
   	return array.map(callback).join('')
   }
 
-  var line$1 = 1;
-  var column$1 = 1;
-  var length$1 = 0;
-  var position$1 = 0;
-  var character$1 = 0;
-  var characters$1 = '';
+  var line = 1;
+  var column = 1;
+  var length = 0;
+  var position = 0;
+  var character = 0;
+  var characters = '';
 
   /**
    * @param {string} value
@@ -398,8 +398,8 @@
    * @param {object[] | string} children
    * @param {number} length
    */
-  function node$1 (value, root, parent, type, props, children, length) {
-  	return {value: value, root: root, parent: parent, type: type, props: props, children: children, line: line$1, column: column$1, length: length, return: ''}
+  function node (value, root, parent, type, props, children, length) {
+  	return {value: value, root: root, parent: parent, type: type, props: props, children: children, line: line, column: column, length: length, return: ''}
   }
 
   /**
@@ -407,53 +407,53 @@
    * @param {object} props
    * @return {object}
    */
-  function copy$1 (root, props) {
-  	return assign$1(node$1('', null, null, '', null, null, 0), root, {length: -root.length}, props)
+  function copy (root, props) {
+  	return assign(node('', null, null, '', null, null, 0), root, {length: -root.length}, props)
   }
 
   /**
    * @return {number}
    */
-  function char$1 () {
-  	return character$1
+  function char () {
+  	return character
   }
 
   /**
    * @return {number}
    */
-  function prev$1 () {
-  	character$1 = position$1 > 0 ? charat$1(characters$1, --position$1) : 0;
+  function prev () {
+  	character = position > 0 ? charat(characters, --position) : 0;
 
-  	if (column$1--, character$1 === 10)
-  		column$1 = 1, line$1--;
+  	if (column--, character === 10)
+  		column = 1, line--;
 
-  	return character$1
+  	return character
   }
 
   /**
    * @return {number}
    */
-  function next$1 () {
-  	character$1 = position$1 < length$1 ? charat$1(characters$1, position$1++) : 0;
+  function next () {
+  	character = position < length ? charat(characters, position++) : 0;
 
-  	if (column$1++, character$1 === 10)
-  		column$1 = 1, line$1++;
+  	if (column++, character === 10)
+  		column = 1, line++;
 
-  	return character$1
+  	return character
   }
 
   /**
    * @return {number}
    */
-  function peek$1 () {
-  	return charat$1(characters$1, position$1)
+  function peek () {
+  	return charat(characters, position)
   }
 
   /**
    * @return {number}
    */
-  function caret$1 () {
-  	return position$1
+  function caret () {
+  	return position
   }
 
   /**
@@ -461,15 +461,15 @@
    * @param {number} end
    * @return {string}
    */
-  function slice$1 (begin, end) {
-  	return substr$1(characters$1, begin, end)
+  function slice (begin, end) {
+  	return substr(characters, begin, end)
   }
 
   /**
    * @param {number} type
    * @return {number}
    */
-  function token$1 (type) {
+  function token (type) {
   	switch (type) {
   		// \0 \t \n \r \s whitespace token
   		case 0: case 9: case 10: case 13: case 32:
@@ -497,38 +497,38 @@
    * @param {string} value
    * @return {any[]}
    */
-  function alloc$1 (value) {
-  	return line$1 = column$1 = 1, length$1 = strlen$1(characters$1 = value), position$1 = 0, []
+  function alloc (value) {
+  	return line = column = 1, length = strlen(characters = value), position = 0, []
   }
 
   /**
    * @param {any} value
    * @return {any}
    */
-  function dealloc$1 (value) {
-  	return characters$1 = '', value
+  function dealloc (value) {
+  	return characters = '', value
   }
 
   /**
    * @param {number} type
    * @return {string}
    */
-  function delimit$1 (type) {
-  	return trim$2(slice$1(position$1 - 1, delimiter$1(type === 91 ? type + 2 : type === 40 ? type + 1 : type)))
+  function delimit (type) {
+  	return trim$1(slice(position - 1, delimiter(type === 91 ? type + 2 : type === 40 ? type + 1 : type)))
   }
 
   /**
    * @param {number} type
    * @return {string}
    */
-  function whitespace$1 (type) {
-  	while (character$1 = peek$1())
-  		if (character$1 < 33)
-  			next$1();
+  function whitespace (type) {
+  	while (character = peek())
+  		if (character < 33)
+  			next();
   		else
   			break
 
-  	return token$1(type) > 2 || token$1(character$1) > 3 ? '' : ' '
+  	return token(type) > 2 || token(character) > 3 ? '' : ' '
   }
 
   /**
@@ -536,42 +536,42 @@
    * @param {number} count
    * @return {string}
    */
-  function escaping$1 (index, count) {
-  	while (--count && next$1())
+  function escaping (index, count) {
+  	while (--count && next())
   		// not 0-9 A-F a-f
-  		if (character$1 < 48 || character$1 > 102 || (character$1 > 57 && character$1 < 65) || (character$1 > 70 && character$1 < 97))
+  		if (character < 48 || character > 102 || (character > 57 && character < 65) || (character > 70 && character < 97))
   			break
 
-  	return slice$1(index, caret$1() + (count < 6 && peek$1() == 32 && next$1() == 32))
+  	return slice(index, caret() + (count < 6 && peek() == 32 && next() == 32))
   }
 
   /**
    * @param {number} type
    * @return {number}
    */
-  function delimiter$1 (type) {
-  	while (next$1())
-  		switch (character$1) {
+  function delimiter (type) {
+  	while (next())
+  		switch (character) {
   			// ] ) " '
   			case type:
-  				return position$1
+  				return position
   			// " '
   			case 34: case 39:
   				if (type !== 34 && type !== 39)
-  					delimiter$1(character$1);
+  					delimiter(character);
   				break
   			// (
   			case 40:
   				if (type === 41)
-  					delimiter$1(type);
+  					delimiter(type);
   				break
   			// \
   			case 92:
-  				next$1();
+  				next();
   				break
   		}
 
-  	return position$1
+  	return position
   }
 
   /**
@@ -579,35 +579,35 @@
    * @param {number} index
    * @return {number}
    */
-  function commenter$1 (type, index) {
-  	while (next$1())
+  function commenter (type, index) {
+  	while (next())
   		// //
-  		if (type + character$1 === 47 + 10)
+  		if (type + character === 47 + 10)
   			break
   		// /*
-  		else if (type + character$1 === 42 + 42 && peek$1() === 47)
+  		else if (type + character === 42 + 42 && peek() === 47)
   			break
 
-  	return '/*' + slice$1(index, position$1 - 1) + '*' + from$1(type === 47 ? type : next$1())
+  	return '/*' + slice(index, position - 1) + '*' + from(type === 47 ? type : next())
   }
 
   /**
    * @param {number} index
    * @return {string}
    */
-  function identifier$1 (index) {
-  	while (!token$1(peek$1()))
-  		next$1();
+  function identifier (index) {
+  	while (!token(peek()))
+  		next();
 
-  	return slice$1(index, position$1)
+  	return slice(index, position)
   }
 
   /**
    * @param {string} value
    * @return {object[]}
    */
-  function compile$1 (value) {
-  	return dealloc$1(parse$2('', null, null, null, [''], value = alloc$1(value), 0, [0], value))
+  function compile (value) {
+  	return dealloc(parse$1('', null, null, null, [''], value = alloc(value), 0, [0], value))
   }
 
   /**
@@ -622,7 +622,7 @@
    * @param {string[]} declarations
    * @return {object}
    */
-  function parse$2 (value, root, parent, rule, rules, rulesets, pseudo, points, declarations) {
+  function parse$1 (value, root, parent, rule, rules, rulesets, pseudo, points, declarations) {
   	var index = 0;
   	var offset = 0;
   	var length = pseudo;
@@ -640,31 +640,31 @@
   	var characters = type;
 
   	while (scanning)
-  		switch (previous = character, character = next$1()) {
+  		switch (previous = character, character = next()) {
   			// (
   			case 40:
-  				if (previous != 108 && charat$1(characters, length - 1) == 58) {
-  					if (indexof$1(characters += replace$1(delimit$1(character), '&', '&\f'), '&\f') != -1)
+  				if (previous != 108 && charat(characters, length - 1) == 58) {
+  					if (indexof(characters += replace(delimit(character), '&', '&\f'), '&\f') != -1)
   						ampersand = -1;
   					break
   				}
   			// " ' [
   			case 34: case 39: case 91:
-  				characters += delimit$1(character);
+  				characters += delimit(character);
   				break
   			// \t \n \r \s
   			case 9: case 10: case 13: case 32:
-  				characters += whitespace$1(previous);
+  				characters += whitespace(previous);
   				break
   			// \
   			case 92:
-  				characters += escaping$1(caret$1() - 1, 7);
+  				characters += escaping(caret() - 1, 7);
   				continue
   			// /
   			case 47:
-  				switch (peek$1()) {
+  				switch (peek()) {
   					case 42: case 47:
-  						append$1(comment$1(commenter$1(next$1(), caret$1()), root, parent), declarations);
+  						append(comment(commenter(next(), caret()), root, parent), declarations);
   						break
   					default:
   						characters += '/';
@@ -672,34 +672,34 @@
   				break
   			// {
   			case 123 * variable:
-  				points[index++] = strlen$1(characters) * ampersand;
+  				points[index++] = strlen(characters) * ampersand;
   			// } ; \0
   			case 125 * variable: case 59: case 0:
   				switch (character) {
   					// \0 }
   					case 0: case 125: scanning = 0;
   					// ;
-  					case 59 + offset: if (ampersand == -1) characters = replace$1(characters, /\f/g, '');
-  						if (property > 0 && (strlen$1(characters) - length))
-  							append$1(property > 32 ? declaration$1(characters + ';', rule, parent, length - 1) : declaration$1(replace$1(characters, ' ', '') + ';', rule, parent, length - 2), declarations);
+  					case 59 + offset: if (ampersand == -1) characters = replace(characters, /\f/g, '');
+  						if (property > 0 && (strlen(characters) - length))
+  							append(property > 32 ? declaration(characters + ';', rule, parent, length - 1) : declaration(replace(characters, ' ', '') + ';', rule, parent, length - 2), declarations);
   						break
   					// @ ;
   					case 59: characters += ';';
   					// { rule/at-rule
   					default:
-  						append$1(reference = ruleset$1(characters, root, parent, index, offset, rules, points, type, props = [], children = [], length), rulesets);
+  						append(reference = ruleset(characters, root, parent, index, offset, rules, points, type, props = [], children = [], length), rulesets);
 
   						if (character === 123)
   							if (offset === 0)
-  								parse$2(characters, root, reference, reference, props, rulesets, length, points, children);
+  								parse$1(characters, root, reference, reference, props, rulesets, length, points, children);
   							else
-  								switch (atrule === 99 && charat$1(characters, 3) === 110 ? 100 : atrule) {
+  								switch (atrule === 99 && charat(characters, 3) === 110 ? 100 : atrule) {
   									// d l m s
   									case 100: case 108: case 109: case 115:
-  										parse$2(value, reference, reference, rule && append$1(ruleset$1(value, reference, reference, 0, 0, rules, points, type, rules, props = [], length), children), rules, children, length, points, rule ? props : children);
+  										parse$1(value, reference, reference, rule && append(ruleset(value, reference, reference, 0, 0, rules, points, type, rules, props = [], length), children), rules, children, length, points, rule ? props : children);
   										break
   									default:
-  										parse$2(characters, reference, reference, reference, [''], children, 0, points, children);
+  										parse$1(characters, reference, reference, reference, [''], children, 0, points, children);
   								}
   				}
 
@@ -707,34 +707,34 @@
   				break
   			// :
   			case 58:
-  				length = 1 + strlen$1(characters), property = previous;
+  				length = 1 + strlen(characters), property = previous;
   			default:
   				if (variable < 1)
   					if (character == 123)
   						--variable;
-  					else if (character == 125 && variable++ == 0 && prev$1() == 125)
+  					else if (character == 125 && variable++ == 0 && prev() == 125)
   						continue
 
-  				switch (characters += from$1(character), character * variable) {
+  				switch (characters += from(character), character * variable) {
   					// &
   					case 38:
   						ampersand = offset > 0 ? 1 : (characters += '\f', -1);
   						break
   					// ,
   					case 44:
-  						points[index++] = (strlen$1(characters) - 1) * ampersand, ampersand = 1;
+  						points[index++] = (strlen(characters) - 1) * ampersand, ampersand = 1;
   						break
   					// @
   					case 64:
   						// -
-  						if (peek$1() === 45)
-  							characters += delimit$1(next$1());
+  						if (peek() === 45)
+  							characters += delimit(next());
 
-  						atrule = peek$1(), offset = length = strlen$1(type = characters += identifier$1(caret$1())), character++;
+  						atrule = peek(), offset = length = strlen(type = characters += identifier(caret())), character++;
   						break
   					// -
   					case 45:
-  						if (previous === 45 && strlen$1(characters) == 2)
+  						if (previous === 45 && strlen(characters) == 2)
   							variable = 0;
   				}
   		}
@@ -756,17 +756,17 @@
    * @param {number} length
    * @return {object}
    */
-  function ruleset$1 (value, root, parent, index, offset, rules, points, type, props, children, length) {
+  function ruleset (value, root, parent, index, offset, rules, points, type, props, children, length) {
   	var post = offset - 1;
   	var rule = offset === 0 ? rules : [''];
-  	var size = sizeof$1(rule);
+  	var size = sizeof(rule);
 
   	for (var i = 0, j = 0, k = 0; i < index; ++i)
-  		for (var x = 0, y = substr$1(value, post + 1, post = abs$2(j = points[i])), z = value; x < size; ++x)
-  			if (z = trim$2(j > 0 ? rule[x] + ' ' + y : replace$1(y, /&\f/g, rule[x])))
+  		for (var x = 0, y = substr(value, post + 1, post = abs$1(j = points[i])), z = value; x < size; ++x)
+  			if (z = trim$1(j > 0 ? rule[x] + ' ' + y : replace(y, /&\f/g, rule[x])))
   				props[k++] = z;
 
-  	return node$1(value, root, parent, offset === 0 ? RULESET$1 : type, props, children, length)
+  	return node(value, root, parent, offset === 0 ? RULESET : type, props, children, length)
   }
 
   /**
@@ -775,8 +775,8 @@
    * @param {object?} parent
    * @return {object}
    */
-  function comment$1 (value, root, parent) {
-  	return node$1(value, root, parent, COMMENT$1, from$1(char$1()), substr$1(value, 2, -2), 0)
+  function comment (value, root, parent) {
+  	return node(value, root, parent, COMMENT, from(char()), substr(value, 2, -2), 0)
   }
 
   /**
@@ -786,8 +786,8 @@
    * @param {number} length
    * @return {object}
    */
-  function declaration$1 (value, root, parent, length) {
-  	return node$1(value, root, parent, DECLARATION$1, substr$1(value, 0, length), substr$1(value, length + 1, -1), length)
+  function declaration (value, root, parent, length) {
+  	return node(value, root, parent, DECLARATION, substr(value, 0, length), substr(value, length + 1, -1), length)
   }
 
   /**
@@ -795,9 +795,9 @@
    * @param {function} callback
    * @return {string}
    */
-  function serialize$1 (children, callback) {
+  function serialize (children, callback) {
   	var output = '';
-  	var length = sizeof$1(children);
+  	var length = sizeof(children);
 
   	for (var i = 0; i < length; i++)
   		output += callback(children[i], i, children, callback) || '';
@@ -812,24 +812,24 @@
    * @param {function} callback
    * @return {string}
    */
-  function stringify$1 (element, index, children, callback) {
+  function stringify (element, index, children, callback) {
   	switch (element.type) {
-  		case LAYER$1: if (element.children.length) break
-  		case IMPORT$1: case DECLARATION$1: return element.return = element.return || element.value
-  		case COMMENT$1: return ''
-  		case KEYFRAMES$1: return element.return = element.value + '{' + serialize$1(element.children, callback) + '}'
-  		case RULESET$1: element.value = element.props.join(',');
+  		case LAYER: if (element.children.length) break
+  		case IMPORT: case DECLARATION: return element.return = element.return || element.value
+  		case COMMENT: return ''
+  		case KEYFRAMES: return element.return = element.value + '{' + serialize(element.children, callback) + '}'
+  		case RULESET: element.value = element.props.join(',');
   	}
 
-  	return strlen$1(children = serialize$1(element.children, callback)) ? element.return = element.value + '{' + children + '}' : ''
+  	return strlen(children = serialize(element.children, callback)) ? element.return = element.value + '{' + children + '}' : ''
   }
 
   /**
    * @param {function[]} collection
    * @return {function}
    */
-  function middleware$1 (collection) {
-  	var length = sizeof$1(collection);
+  function middleware (collection) {
+  	var length = sizeof(collection);
 
   	return function (element, index, children, callback) {
   		var output = '';
@@ -845,7 +845,7 @@
    * @param {function} callback
    * @return {function}
    */
-  function rulesheet$1 (callback) {
+  function rulesheet (callback) {
   	return function (element) {
   		if (!element.root)
   			if (element = element.return)
@@ -867,20 +867,20 @@
 
     while (true) {
       previous = character;
-      character = peek$1(); // &\f
+      character = peek(); // &\f
 
       if (previous === 38 && character === 12) {
         points[index] = 1;
       }
 
-      if (token$1(character)) {
+      if (token(character)) {
         break;
       }
 
-      next$1();
+      next();
     }
 
-    return slice$1(begin, position$1);
+    return slice(begin, position);
   };
 
   var toRules = function toRules(parsed, points) {
@@ -889,10 +889,10 @@
     var character = 44;
 
     do {
-      switch (token$1(character)) {
+      switch (token(character)) {
         case 0:
           // &\f
-          if (character === 38 && peek$1() === 12) {
+          if (character === 38 && peek() === 12) {
             // this is not 100% correct, we don't account for literal sequences here - like for example quoted strings
             // stylis inserts \f after & to know when & where it should replace this sequence with the context selector
             // and when it should just concatenate the outer and inner selectors
@@ -900,18 +900,18 @@
             points[index] = 1;
           }
 
-          parsed[index] += identifierWithPointTracking(position$1 - 1, points, index);
+          parsed[index] += identifierWithPointTracking(position - 1, points, index);
           break;
 
         case 2:
-          parsed[index] += delimit$1(character);
+          parsed[index] += delimit(character);
           break;
 
         case 4:
           // comma
           if (character === 44) {
             // colon
-            parsed[++index] = peek$1() === 58 ? '&\f' : '';
+            parsed[++index] = peek() === 58 ? '&\f' : '';
             points[index] = parsed[index].length;
             break;
           }
@@ -919,15 +919,15 @@
         // fallthrough
 
         default:
-          parsed[index] += from$1(character);
+          parsed[index] += from(character);
       }
-    } while (character = next$1());
+    } while (character = next());
 
     return parsed;
   };
 
   var getRules = function getRules(value, points) {
-    return dealloc$1(toRules(alloc$1(value), points));
+    return dealloc(toRules(alloc(value), points));
   }; // WeakSet would be more appropriate, but only WeakMap is supported in IE11
 
 
@@ -988,11 +988,11 @@
 
   /* eslint-disable no-fallthrough */
 
-  function prefix$1(value, length) {
-    switch (hash$1(value, length)) {
+  function prefix(value, length) {
+    switch (hash$2(value, length)) {
       // color-adjust
       case 5103:
-        return WEBKIT$1 + 'print-' + value + value;
+        return WEBKIT + 'print-' + value + value;
       // animation, animation-(delay|direction|duration|fill-mode|iteration-count|name|play-state|timing-function)
 
       case 5737:
@@ -1023,7 +1023,7 @@
       case 5365:
       case 5621:
       case 3829:
-        return WEBKIT$1 + value + value;
+        return WEBKIT + value + value;
       // appearance, user-select, transform, hyphens, text-size-adjust
 
       case 5349:
@@ -1031,64 +1031,64 @@
       case 4810:
       case 6968:
       case 2756:
-        return WEBKIT$1 + value + MOZ$1 + value + MS$1 + value + value;
+        return WEBKIT + value + MOZ + value + MS + value + value;
       // flex, flex-direction
 
       case 6828:
       case 4268:
-        return WEBKIT$1 + value + MS$1 + value + value;
+        return WEBKIT + value + MS + value + value;
       // order
 
       case 6165:
-        return WEBKIT$1 + value + MS$1 + 'flex-' + value + value;
+        return WEBKIT + value + MS + 'flex-' + value + value;
       // align-items
 
       case 5187:
-        return WEBKIT$1 + value + replace$1(value, /(\w+).+(:[^]+)/, WEBKIT$1 + 'box-$1$2' + MS$1 + 'flex-$1$2') + value;
+        return WEBKIT + value + replace(value, /(\w+).+(:[^]+)/, WEBKIT + 'box-$1$2' + MS + 'flex-$1$2') + value;
       // align-self
 
       case 5443:
-        return WEBKIT$1 + value + MS$1 + 'flex-item-' + replace$1(value, /flex-|-self/, '') + value;
+        return WEBKIT + value + MS + 'flex-item-' + replace(value, /flex-|-self/, '') + value;
       // align-content
 
       case 4675:
-        return WEBKIT$1 + value + MS$1 + 'flex-line-pack' + replace$1(value, /align-content|flex-|-self/, '') + value;
+        return WEBKIT + value + MS + 'flex-line-pack' + replace(value, /align-content|flex-|-self/, '') + value;
       // flex-shrink
 
       case 5548:
-        return WEBKIT$1 + value + MS$1 + replace$1(value, 'shrink', 'negative') + value;
+        return WEBKIT + value + MS + replace(value, 'shrink', 'negative') + value;
       // flex-basis
 
       case 5292:
-        return WEBKIT$1 + value + MS$1 + replace$1(value, 'basis', 'preferred-size') + value;
+        return WEBKIT + value + MS + replace(value, 'basis', 'preferred-size') + value;
       // flex-grow
 
       case 6060:
-        return WEBKIT$1 + 'box-' + replace$1(value, '-grow', '') + WEBKIT$1 + value + MS$1 + replace$1(value, 'grow', 'positive') + value;
+        return WEBKIT + 'box-' + replace(value, '-grow', '') + WEBKIT + value + MS + replace(value, 'grow', 'positive') + value;
       // transition
 
       case 4554:
-        return WEBKIT$1 + replace$1(value, /([^-])(transform)/g, '$1' + WEBKIT$1 + '$2') + value;
+        return WEBKIT + replace(value, /([^-])(transform)/g, '$1' + WEBKIT + '$2') + value;
       // cursor
 
       case 6187:
-        return replace$1(replace$1(replace$1(value, /(zoom-|grab)/, WEBKIT$1 + '$1'), /(image-set)/, WEBKIT$1 + '$1'), value, '') + value;
+        return replace(replace(replace(value, /(zoom-|grab)/, WEBKIT + '$1'), /(image-set)/, WEBKIT + '$1'), value, '') + value;
       // background, background-image
 
       case 5495:
       case 3959:
-        return replace$1(value, /(image-set\([^]*)/, WEBKIT$1 + '$1' + '$`$1');
+        return replace(value, /(image-set\([^]*)/, WEBKIT + '$1' + '$`$1');
       // justify-content
 
       case 4968:
-        return replace$1(replace$1(value, /(.+:)(flex-)?(.*)/, WEBKIT$1 + 'box-pack:$3' + MS$1 + 'flex-pack:$3'), /s.+-b[^;]+/, 'justify') + WEBKIT$1 + value + value;
+        return replace(replace(value, /(.+:)(flex-)?(.*)/, WEBKIT + 'box-pack:$3' + MS + 'flex-pack:$3'), /s.+-b[^;]+/, 'justify') + WEBKIT + value + value;
       // (margin|padding)-inline-(start|end)
 
       case 4095:
       case 3583:
       case 4068:
       case 2532:
-        return replace$1(value, /(.+)-inline(.+)/, WEBKIT$1 + '$1$2') + value;
+        return replace(value, /(.+)-inline(.+)/, WEBKIT + '$1$2') + value;
       // (min|max)?(width|height|inline-size|block-size)
 
       case 8116:
@@ -1104,92 +1104,92 @@
       case 5021:
       case 4765:
         // stretch, max-content, min-content, fill-available
-        if (strlen$1(value) - 1 - length > 6) switch (charat$1(value, length + 1)) {
+        if (strlen(value) - 1 - length > 6) switch (charat(value, length + 1)) {
           // (m)ax-content, (m)in-content
           case 109:
             // -
-            if (charat$1(value, length + 4) !== 45) break;
+            if (charat(value, length + 4) !== 45) break;
           // (f)ill-available, (f)it-content
 
           case 102:
-            return replace$1(value, /(.+:)(.+)-([^]+)/, '$1' + WEBKIT$1 + '$2-$3' + '$1' + MOZ$1 + (charat$1(value, length + 3) == 108 ? '$3' : '$2-$3')) + value;
+            return replace(value, /(.+:)(.+)-([^]+)/, '$1' + WEBKIT + '$2-$3' + '$1' + MOZ + (charat(value, length + 3) == 108 ? '$3' : '$2-$3')) + value;
           // (s)tretch
 
           case 115:
-            return ~indexof$1(value, 'stretch') ? prefix$1(replace$1(value, 'stretch', 'fill-available'), length) + value : value;
+            return ~indexof(value, 'stretch') ? prefix(replace(value, 'stretch', 'fill-available'), length) + value : value;
         }
         break;
       // position: sticky
 
       case 4949:
         // (s)ticky?
-        if (charat$1(value, length + 1) !== 115) break;
+        if (charat(value, length + 1) !== 115) break;
       // display: (flex|inline-flex)
 
       case 6444:
-        switch (charat$1(value, strlen$1(value) - 3 - (~indexof$1(value, '!important') && 10))) {
+        switch (charat(value, strlen(value) - 3 - (~indexof(value, '!important') && 10))) {
           // stic(k)y
           case 107:
-            return replace$1(value, ':', ':' + WEBKIT$1) + value;
+            return replace(value, ':', ':' + WEBKIT) + value;
           // (inline-)?fl(e)x
 
           case 101:
-            return replace$1(value, /(.+:)([^;!]+)(;|!.+)?/, '$1' + WEBKIT$1 + (charat$1(value, 14) === 45 ? 'inline-' : '') + 'box$3' + '$1' + WEBKIT$1 + '$2$3' + '$1' + MS$1 + '$2box$3') + value;
+            return replace(value, /(.+:)([^;!]+)(;|!.+)?/, '$1' + WEBKIT + (charat(value, 14) === 45 ? 'inline-' : '') + 'box$3' + '$1' + WEBKIT + '$2$3' + '$1' + MS + '$2box$3') + value;
         }
 
         break;
       // writing-mode
 
       case 5936:
-        switch (charat$1(value, length + 11)) {
+        switch (charat(value, length + 11)) {
           // vertical-l(r)
           case 114:
-            return WEBKIT$1 + value + MS$1 + replace$1(value, /[svh]\w+-[tblr]{2}/, 'tb') + value;
+            return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, 'tb') + value;
           // vertical-r(l)
 
           case 108:
-            return WEBKIT$1 + value + MS$1 + replace$1(value, /[svh]\w+-[tblr]{2}/, 'tb-rl') + value;
+            return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, 'tb-rl') + value;
           // horizontal(-)tb
 
           case 45:
-            return WEBKIT$1 + value + MS$1 + replace$1(value, /[svh]\w+-[tblr]{2}/, 'lr') + value;
+            return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, 'lr') + value;
         }
 
-        return WEBKIT$1 + value + MS$1 + value + value;
+        return WEBKIT + value + MS + value + value;
     }
 
     return value;
   }
 
-  var prefixer$1 = function prefixer(element, index, children, callback) {
+  var prefixer = function prefixer(element, index, children, callback) {
     if (element.length > -1) if (!element["return"]) switch (element.type) {
-      case DECLARATION$1:
-        element["return"] = prefix$1(element.value, element.length);
+      case DECLARATION:
+        element["return"] = prefix(element.value, element.length);
         break;
 
-      case KEYFRAMES$1:
-        return serialize$1([copy$1(element, {
-          value: replace$1(element.value, '@', '@' + WEBKIT$1)
+      case KEYFRAMES:
+        return serialize([copy(element, {
+          value: replace(element.value, '@', '@' + WEBKIT)
         })], callback);
 
-      case RULESET$1:
-        if (element.length) return combine$1(element.props, function (value) {
-          switch (match$1(value, /(::plac\w+|:read-\w+)/)) {
+      case RULESET:
+        if (element.length) return combine(element.props, function (value) {
+          switch (match(value, /(::plac\w+|:read-\w+)/)) {
             // :read-(only|write)
             case ':read-only':
             case ':read-write':
-              return serialize$1([copy$1(element, {
-                props: [replace$1(value, /:(read-\w+)/, ':' + MOZ$1 + '$1')]
+              return serialize([copy(element, {
+                props: [replace(value, /:(read-\w+)/, ':' + MOZ + '$1')]
               })], callback);
             // :placeholder
 
             case '::placeholder':
-              return serialize$1([copy$1(element, {
-                props: [replace$1(value, /:(plac\w+)/, ':' + WEBKIT$1 + 'input-$1')]
-              }), copy$1(element, {
-                props: [replace$1(value, /:(plac\w+)/, ':' + MOZ$1 + '$1')]
-              }), copy$1(element, {
-                props: [replace$1(value, /:(plac\w+)/, MS$1 + 'input-$1')]
+              return serialize([copy(element, {
+                props: [replace(value, /:(plac\w+)/, ':' + WEBKIT + 'input-$1')]
+              }), copy(element, {
+                props: [replace(value, /:(plac\w+)/, ':' + MOZ + '$1')]
+              }), copy(element, {
+                props: [replace(value, /:(plac\w+)/, MS + 'input-$1')]
               })], callback);
           }
 
@@ -1198,7 +1198,7 @@
     }
   };
 
-  var defaultStylisPlugins = [prefixer$1];
+  var defaultStylisPlugins = [prefixer];
 
   var createCache = function createCache(options) {
     var key = options.key;
@@ -1254,13 +1254,13 @@
 
     {
       var currentSheet;
-      var finalizingPlugins = [stringify$1, rulesheet$1(function (rule) {
+      var finalizingPlugins = [stringify, rulesheet(function (rule) {
         currentSheet.insert(rule);
       })];
-      var serializer = middleware$1(omnipresentPlugins.concat(stylisPlugins, finalizingPlugins));
+      var serializer = middleware(omnipresentPlugins.concat(stylisPlugins, finalizingPlugins));
 
       var stylis = function stylis(styles) {
-        return serialize$1(compile$1(styles), serializer);
+        return serialize(compile(styles), serializer);
       };
 
       _insert = function insert(selector, serialized, sheet, shouldCache) {
@@ -1881,7 +1881,7 @@
     });
   };
 
-  var ThemeContext = /* #__PURE__ */React__namespace.createContext({});
+  var ThemeContext$1 = /* #__PURE__ */React__namespace.createContext({});
 
   var hasOwn = {}.hasOwnProperty;
 
@@ -1932,7 +1932,7 @@
       className = props.className + " ";
     }
 
-    var serialized = serializeStyles(registeredStyles, undefined, React__namespace.useContext(ThemeContext));
+    var serialized = serializeStyles(registeredStyles, undefined, React__namespace.useContext(ThemeContext$1));
 
     className += cache.key + "-" + serialized.name;
     var newProps = {};
@@ -1990,7 +1990,7 @@
   var Global = /* #__PURE__ */withEmotionCache(function (props, cache) {
 
     var styles = props.styles;
-    var serialized = serializeStyles([styles], undefined, React__namespace.useContext(ThemeContext));
+    var serialized = serializeStyles([styles], undefined, React__namespace.useContext(ThemeContext$1));
     // but it is based on a constant that will never change at runtime
     // it's effectively like having two implementations and switching them out
     // so it's not actually breaking anything
@@ -2180,7 +2180,7 @@
             mergedProps[key] = props[key];
           }
 
-          mergedProps.theme = React__namespace.useContext(ThemeContext);
+          mergedProps.theme = React__namespace.useContext(ThemeContext$1);
         }
 
         if (typeof props.className === 'string') {
@@ -2247,9 +2247,9 @@
   'circle', 'clipPath', 'defs', 'ellipse', 'foreignObject', 'g', 'image', 'line', 'linearGradient', 'mask', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'stop', 'svg', 'text', 'tspan'];
 
   // bind it to avoid mutating the original function
-  var styled$2 = createStyled$1.bind(null);
+  var styled$3 = createStyled$1.bind(null);
   tags.forEach(function (tagName) {
-    styled$2[tagName] = styled$2(tagName);
+    styled$3[tagName] = styled$3(tagName);
   });
 
   var jsxRuntime = {exports: {}};
@@ -2312,8 +2312,8 @@
    * LICENSE file in the root directory of this source tree.
    */
 
-  function styled$1(tag, options) {
-    const stylesFactory = styled$2(tag, options);
+  function styled$2(tag, options) {
+    const stylesFactory = styled$3(tag, options);
     return stylesFactory;
   }
 
@@ -2790,6 +2790,61 @@
       return acc;
     }, style);
   }
+  function mergeBreakpointsInOrder(breakpointsInput, ...styles) {
+    const emptyBreakpoints = createEmptyBreakpointObject(breakpointsInput);
+    const mergedOutput = [emptyBreakpoints, ...styles].reduce((prev, next) => deepmerge(prev, next), {});
+    return removeUnusedBreakpoints(Object.keys(emptyBreakpoints), mergedOutput);
+  }
+
+  // compute base for responsive values; e.g.,
+  // [1,2,3] => {xs: true, sm: true, md: true}
+  // {xs: 1, sm: 2, md: 3} => {xs: true, sm: true, md: true}
+  function computeBreakpointsBase(breakpointValues, themeBreakpoints) {
+    // fixed value
+    if (typeof breakpointValues !== 'object') {
+      return {};
+    }
+    const base = {};
+    const breakpointsKeys = Object.keys(themeBreakpoints);
+    if (Array.isArray(breakpointValues)) {
+      breakpointsKeys.forEach((breakpoint, i) => {
+        if (i < breakpointValues.length) {
+          base[breakpoint] = true;
+        }
+      });
+    } else {
+      breakpointsKeys.forEach(breakpoint => {
+        if (breakpointValues[breakpoint] != null) {
+          base[breakpoint] = true;
+        }
+      });
+    }
+    return base;
+  }
+  function resolveBreakpointValues({
+    values: breakpointValues,
+    breakpoints: themeBreakpoints,
+    base: customBase
+  }) {
+    const base = customBase || computeBreakpointsBase(breakpointValues, themeBreakpoints);
+    const keys = Object.keys(base);
+    if (keys.length === 0) {
+      return breakpointValues;
+    }
+    let previous;
+    return keys.reduce((acc, breakpoint, i) => {
+      if (Array.isArray(breakpointValues)) {
+        acc[breakpoint] = breakpointValues[i] != null ? breakpointValues[i] : breakpointValues[previous];
+        previous = i;
+      } else if (typeof breakpointValues === 'object') {
+        acc[breakpoint] = breakpointValues[breakpoint] != null ? breakpointValues[breakpoint] : breakpointValues[previous];
+        previous = breakpoint;
+      } else {
+        acc[breakpoint] = breakpointValues;
+      }
+      return acc;
+    }, {});
+  }
 
   // It should to be noted that this function isn't equivalent to `text-transform: capitalize`.
   //
@@ -2835,7 +2890,7 @@
     }
     return value;
   }
-  function style$1(options) {
+  function style$2(options) {
     const {
       prop,
       cssProperty = options.prop,
@@ -2990,17 +3045,17 @@
     const propValue = props[prop];
     return handleBreakpoints(props, propValue, styleFromPropValue);
   }
-  function style(props, keys) {
+  function style$1(props, keys) {
     const transformer = createUnarySpacing(props.theme);
     return Object.keys(props).map(prop => resolveCssProperty(props, keys, prop, transformer)).reduce(merge$1, {});
   }
   function margin(props) {
-    return style(props, marginKeys);
+    return style$1(props, marginKeys);
   }
   margin.propTypes = {};
   margin.filterProps = marginKeys;
   function padding(props) {
-    return style(props, paddingKeys);
+    return style$1(props, paddingKeys);
   }
   padding.propTypes = {};
   padding.filterProps = paddingKeys;
@@ -3060,7 +3115,7 @@
     return `${value}px solid`;
   }
   function createBorderStyle(prop, transform) {
-    return style$1({
+    return style$2({
       prop,
       themeKey: 'borders',
       transform
@@ -3139,31 +3194,31 @@
   };
   rowGap.propTypes = {};
   rowGap.filterProps = ['rowGap'];
-  const gridColumn = style$1({
+  const gridColumn = style$2({
     prop: 'gridColumn'
   });
-  const gridRow = style$1({
+  const gridRow = style$2({
     prop: 'gridRow'
   });
-  const gridAutoFlow = style$1({
+  const gridAutoFlow = style$2({
     prop: 'gridAutoFlow'
   });
-  const gridAutoColumns = style$1({
+  const gridAutoColumns = style$2({
     prop: 'gridAutoColumns'
   });
-  const gridAutoRows = style$1({
+  const gridAutoRows = style$2({
     prop: 'gridAutoRows'
   });
-  const gridTemplateColumns = style$1({
+  const gridTemplateColumns = style$2({
     prop: 'gridTemplateColumns'
   });
-  const gridTemplateRows = style$1({
+  const gridTemplateRows = style$2({
     prop: 'gridTemplateRows'
   });
-  const gridTemplateAreas = style$1({
+  const gridTemplateAreas = style$2({
     prop: 'gridTemplateAreas'
   });
-  const gridArea = style$1({
+  const gridArea = style$2({
     prop: 'gridArea'
   });
   compose$2(gap, columnGap, rowGap, gridColumn, gridRow, gridAutoFlow, gridAutoColumns, gridAutoRows, gridTemplateColumns, gridTemplateRows, gridTemplateAreas, gridArea);
@@ -3174,18 +3229,18 @@
     }
     return value;
   }
-  const color = style$1({
+  const color = style$2({
     prop: 'color',
     themeKey: 'palette',
     transform: paletteTransform
   });
-  const bgcolor = style$1({
+  const bgcolor = style$2({
     prop: 'bgcolor',
     cssProperty: 'backgroundColor',
     themeKey: 'palette',
     transform: paletteTransform
   });
-  const backgroundColor = style$1({
+  const backgroundColor = style$2({
     prop: 'backgroundColor',
     themeKey: 'palette',
     transform: paletteTransform
@@ -3195,7 +3250,7 @@
   function sizingTransform(value) {
     return value <= 1 && value !== 0 ? `${value * 100}%` : value;
   }
-  const width = style$1({
+  const width = style$2({
     prop: 'width',
     transform: sizingTransform
   });
@@ -3222,33 +3277,33 @@
     return null;
   };
   maxWidth.filterProps = ['maxWidth'];
-  const minWidth = style$1({
+  const minWidth = style$2({
     prop: 'minWidth',
     transform: sizingTransform
   });
-  const height = style$1({
+  const height = style$2({
     prop: 'height',
     transform: sizingTransform
   });
-  const maxHeight = style$1({
+  const maxHeight = style$2({
     prop: 'maxHeight',
     transform: sizingTransform
   });
-  const minHeight = style$1({
+  const minHeight = style$2({
     prop: 'minHeight',
     transform: sizingTransform
   });
-  style$1({
+  style$2({
     prop: 'size',
     cssProperty: 'width',
     transform: sizingTransform
   });
-  style$1({
+  style$2({
     prop: 'size',
     cssProperty: 'height',
     transform: sizingTransform
   });
-  const boxSizing = style$1({
+  const boxSizing = style$2({
     prop: 'boxSizing'
   });
   compose$2(width, maxWidth, minWidth, height, maxHeight, minHeight, boxSizing);
@@ -3732,7 +3787,7 @@
    *   })
    *```
    */
-  function applyStyles(key, styles) {
+  function applyStyles$2(key, styles) {
     // @ts-expect-error this is 'any' type
     const theme = this;
     if (theme.vars) {
@@ -3784,7 +3839,7 @@
       }
     }, other);
     muiTheme = cssContainerQueries(muiTheme);
-    muiTheme.applyStyles = applyStyles;
+    muiTheme.applyStyles = applyStyles$2;
     muiTheme = args.reduce((acc, argument) => deepmerge(acc, argument), muiTheme);
     muiTheme.unstable_sxConfig = {
       ...defaultSxConfig,
@@ -3802,14 +3857,14 @@
   function isObjectEmpty$2(obj) {
     return Object.keys(obj).length === 0;
   }
-  function useTheme$2(defaultTheme = null) {
-    const contextTheme = React__namespace.useContext(ThemeContext);
+  function useTheme$3(defaultTheme = null) {
+    const contextTheme = React__namespace.useContext(ThemeContext$1);
     return !contextTheme || isObjectEmpty$2(contextTheme) ? defaultTheme : contextTheme;
   }
 
   const systemDefaultTheme$1 = createTheme$1();
-  function useTheme$1(defaultTheme = systemDefaultTheme$1) {
-    return useTheme$2(defaultTheme);
+  function useTheme$2(defaultTheme = systemDefaultTheme$1) {
+    return useTheme$3(defaultTheme);
   }
 
   function wrapGlobalLayer(styles) {
@@ -3828,7 +3883,7 @@
     themeId,
     defaultTheme = {}
   }) {
-    const upperTheme = useTheme$1(defaultTheme);
+    const upperTheme = useTheme$2(defaultTheme);
     const resolvedTheme = themeId ? upperTheme[themeId] || upperTheme : upperTheme;
     let globalStyles = typeof styles === 'function' ? styles(resolvedTheme) : styles;
     if (resolvedTheme.modularCssLayers) {
@@ -3915,7 +3970,7 @@
   };
   const ClassNameGenerator = createClassNameGenerator();
 
-  function r$1(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r$1(e[t]))&&(n&&(n+=" "),n+=f);}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r$1(e))&&(n&&(n+=" "),n+=t);return n}
+  function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f);}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}
 
   function createBox(options = {}) {
     const {
@@ -3924,11 +3979,11 @@
       defaultClassName = 'MuiBox-root',
       generateClassName
     } = options;
-    const BoxRoot = styled$1('div', {
+    const BoxRoot = styled$2('div', {
       shouldForwardProp: prop => prop !== 'theme' && prop !== 'sx' && prop !== 'as'
     })(styleFunctionSx);
     const Box = /*#__PURE__*/React__namespace.forwardRef(function Box(inProps, ref) {
-      const theme = useTheme$1(defaultTheme);
+      const theme = useTheme$2(defaultTheme);
       const {
         className,
         component = 'div',
@@ -4134,7 +4189,7 @@
         // for string (html) tag, preserve the behavior in emotion & styled-components.
         shouldForwardPropOption = undefined;
       }
-      const defaultStyledResolver = styled$1(tag, {
+      const defaultStyledResolver = styled$2(tag, {
         shouldForwardProp: shouldForwardPropOption,
         label: generateStyledLabel(),
         ...options
@@ -4263,6 +4318,8 @@
     return string.charAt(0).toLowerCase() + string.slice(1);
   }
 
+  const styled$1 = createStyled();
+
   /**
    * Add keys, values of `defaultProps` that does not exist in `props`
    * @param defaultProps
@@ -4315,6 +4372,35 @@
       }
     }
     return output;
+  }
+
+  function getThemeProps$1(params) {
+    const {
+      theme,
+      name,
+      props
+    } = params;
+    if (!theme || !theme.components || !theme.components[name] || !theme.components[name].defaultProps) {
+      return props;
+    }
+    return resolveProps(theme.components[name].defaultProps, props);
+  }
+
+  function useThemeProps({
+    props,
+    name,
+    defaultTheme,
+    themeId
+  }) {
+    let theme = useTheme$2(defaultTheme);
+    if (themeId) {
+      theme = theme[themeId] || theme;
+    }
+    return getThemeProps$1({
+      theme,
+      name,
+      props
+    });
   }
 
   /**
@@ -4612,13 +4698,78 @@
     }
   }
 
+  const ThemeContext = /*#__PURE__*/React__namespace.createContext(null);
+
+  function useTheme$1() {
+    const theme = React__namespace.useContext(ThemeContext);
+    return theme;
+  }
+
+  const hasSymbol = typeof Symbol === 'function' && Symbol.for;
+  var nested = hasSymbol ? Symbol.for('mui.nested') : '__THEME_NESTED__';
+
+  function mergeOuterLocalTheme(outerTheme, localTheme) {
+    if (typeof localTheme === 'function') {
+      const mergedTheme = localTheme(outerTheme);
+      return mergedTheme;
+    }
+    return {
+      ...outerTheme,
+      ...localTheme
+    };
+  }
+
+  /**
+   * This component takes a `theme` prop.
+   * It makes the `theme` available down the React tree thanks to React context.
+   * This component should preferably be used at **the root of your component tree**.
+   */
+  function ThemeProvider$2(props) {
+    const {
+      children,
+      theme: localTheme
+    } = props;
+    const outerTheme = useTheme$1();
+    const theme = React__namespace.useMemo(() => {
+      const output = outerTheme === null ? {
+        ...localTheme
+      } : mergeOuterLocalTheme(outerTheme, localTheme);
+      if (output != null) {
+        output[nested] = outerTheme !== null;
+      }
+      return output;
+    }, [localTheme, outerTheme]);
+    return /*#__PURE__*/jsxRuntimeExports.jsx(ThemeContext.Provider, {
+      value: theme,
+      children: children
+    });
+  }
+
   const RtlContext = /*#__PURE__*/React__namespace.createContext();
+  function RtlProvider({
+    value,
+    ...props
+  }) {
+    return /*#__PURE__*/jsxRuntimeExports.jsx(RtlContext.Provider, {
+      value: value ?? true,
+      ...props
+    });
+  }
   const useRtl = () => {
     const value = React__namespace.useContext(RtlContext);
     return value ?? false;
   };
 
   const PropsContext = /*#__PURE__*/React__namespace.createContext(undefined);
+  function DefaultPropsProvider({
+    value,
+    children
+  }) {
+    return /*#__PURE__*/jsxRuntimeExports.jsx(PropsContext.Provider, {
+      value: value,
+      children: children
+    });
+  }
   function getThemeProps(params) {
     const {
       theme,
@@ -4696,6 +4847,109 @@
     return useGlobalId(idOverride);
   }
 
+  function useLayerOrder(theme) {
+    const upperTheme = useTheme$3();
+    const id = useId() || '';
+    const {
+      modularCssLayers
+    } = theme;
+    let layerOrder = 'mui.global, mui.components, mui.theme, mui.custom, mui.sx';
+    if (!modularCssLayers || upperTheme !== null) {
+      // skip this hook if upper theme exists.
+      layerOrder = '';
+    } else if (typeof modularCssLayers === 'string') {
+      layerOrder = modularCssLayers.replace(/mui(?!\.)/g, layerOrder);
+    } else {
+      layerOrder = `@layer ${layerOrder};`;
+    }
+    useEnhancedEffect(() => {
+      const head = document.querySelector('head');
+      if (!head) {
+        return;
+      }
+      const firstChild = head.firstChild;
+      if (layerOrder) {
+        // Only insert if first child doesn't have data-mui-layer-order attribute
+        if (firstChild && firstChild.hasAttribute?.('data-mui-layer-order') && firstChild.getAttribute('data-mui-layer-order') === id) {
+          return;
+        }
+        const styleElement = document.createElement('style');
+        styleElement.setAttribute('data-mui-layer-order', id);
+        styleElement.textContent = layerOrder;
+        head.prepend(styleElement);
+      } else {
+        head.querySelector(`style[data-mui-layer-order="${id}"]`)?.remove();
+      }
+    }, [layerOrder, id]);
+    if (!layerOrder) {
+      return null;
+    }
+    return /*#__PURE__*/jsxRuntimeExports.jsx(GlobalStyles$1, {
+      styles: layerOrder
+    });
+  }
+
+  const EMPTY_THEME = {};
+  function useThemeScoping(themeId, upperTheme, localTheme, isPrivate = false) {
+    return React__namespace.useMemo(() => {
+      const resolvedTheme = themeId ? upperTheme[themeId] || upperTheme : upperTheme;
+      if (typeof localTheme === 'function') {
+        const mergedTheme = localTheme(resolvedTheme);
+        const result = themeId ? {
+          ...upperTheme,
+          [themeId]: mergedTheme
+        } : mergedTheme;
+        // must return a function for the private theme to NOT merge with the upper theme.
+        // see the test case "use provided theme from a callback" in ThemeProvider.test.js
+        if (isPrivate) {
+          return () => result;
+        }
+        return result;
+      }
+      return themeId ? {
+        ...upperTheme,
+        [themeId]: localTheme
+      } : {
+        ...upperTheme,
+        ...localTheme
+      };
+    }, [themeId, upperTheme, localTheme, isPrivate]);
+  }
+
+  /**
+   * This component makes the `theme` available down the React tree.
+   * It should preferably be used at **the root of your component tree**.
+   *
+   * <ThemeProvider theme={theme}> // existing use case
+   * <ThemeProvider theme={{ id: theme }}> // theme scoping
+   */
+  function ThemeProvider$1(props) {
+    const {
+      children,
+      theme: localTheme,
+      themeId
+    } = props;
+    const upperTheme = useTheme$3(EMPTY_THEME);
+    const upperPrivateTheme = useTheme$1() || EMPTY_THEME;
+    const engineTheme = useThemeScoping(themeId, upperTheme, localTheme);
+    const privateTheme = useThemeScoping(themeId, upperPrivateTheme, localTheme, true);
+    const rtlValue = (themeId ? engineTheme[themeId] : engineTheme).direction === 'rtl';
+    const layerOrder = useLayerOrder(engineTheme);
+    return /*#__PURE__*/jsxRuntimeExports.jsx(ThemeProvider$2, {
+      theme: privateTheme,
+      children: /*#__PURE__*/jsxRuntimeExports.jsx(ThemeContext$1.Provider, {
+        value: engineTheme,
+        children: /*#__PURE__*/jsxRuntimeExports.jsx(RtlProvider, {
+          value: rtlValue,
+          children: /*#__PURE__*/jsxRuntimeExports.jsxs(DefaultPropsProvider, {
+            value: themeId ? engineTheme[themeId].components : engineTheme.components,
+            children: [layerOrder, children]
+          })
+        })
+      })
+    });
+  }
+
   /* eslint-disable @typescript-eslint/naming-convention */
 
   // We need to pass an argument as `{ theme }` for PigmentCSS, but we don't want to
@@ -4720,6 +4974,606 @@
         lastTheme = props.theme;
       }
       return value;
+    };
+  }
+
+  const DEFAULT_MODE_STORAGE_KEY = 'mode';
+  const DEFAULT_COLOR_SCHEME_STORAGE_KEY = 'color-scheme';
+  const DEFAULT_ATTRIBUTE = 'data-color-scheme';
+  function InitColorSchemeScript(options) {
+    const {
+      defaultMode = 'system',
+      defaultLightColorScheme = 'light',
+      defaultDarkColorScheme = 'dark',
+      modeStorageKey = DEFAULT_MODE_STORAGE_KEY,
+      colorSchemeStorageKey = DEFAULT_COLOR_SCHEME_STORAGE_KEY,
+      attribute: initialAttribute = DEFAULT_ATTRIBUTE,
+      colorSchemeNode = 'document.documentElement',
+      nonce
+    } = options || {};
+    let setter = '';
+    let attribute = initialAttribute;
+    if (initialAttribute === 'class') {
+      attribute = '.%s';
+    }
+    if (initialAttribute === 'data') {
+      attribute = '[data-%s]';
+    }
+    if (attribute.startsWith('.')) {
+      const selector = attribute.substring(1);
+      setter += `${colorSchemeNode}.classList.remove('${selector}'.replace('%s', light), '${selector}'.replace('%s', dark));
+      ${colorSchemeNode}.classList.add('${selector}'.replace('%s', colorScheme));`;
+    }
+    const matches = attribute.match(/\[([^[\]]+)\]/); // case [data-color-scheme='%s'] or [data-color-scheme]
+    if (matches) {
+      const [attr, value] = matches[1].split('=');
+      if (!value) {
+        setter += `${colorSchemeNode}.removeAttribute('${attr}'.replace('%s', light));
+      ${colorSchemeNode}.removeAttribute('${attr}'.replace('%s', dark));`;
+      }
+      setter += `
+      ${colorSchemeNode}.setAttribute('${attr}'.replace('%s', colorScheme), ${value ? `${value}.replace('%s', colorScheme)` : '""'});`;
+    } else {
+      setter += `${colorSchemeNode}.setAttribute('${attribute}', colorScheme);`;
+    }
+    return /*#__PURE__*/jsxRuntimeExports.jsx("script", {
+      suppressHydrationWarning: true,
+      nonce: typeof window === 'undefined' ? nonce : ''
+      // eslint-disable-next-line react/no-danger
+      ,
+      dangerouslySetInnerHTML: {
+        __html: `(function() {
+try {
+  let colorScheme = '';
+  const mode = localStorage.getItem('${modeStorageKey}') || '${defaultMode}';
+  const dark = localStorage.getItem('${colorSchemeStorageKey}-dark') || '${defaultDarkColorScheme}';
+  const light = localStorage.getItem('${colorSchemeStorageKey}-light') || '${defaultLightColorScheme}';
+  if (mode === 'system') {
+    // handle system mode
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mql.matches) {
+      colorScheme = dark
+    } else {
+      colorScheme = light
+    }
+  }
+  if (mode === 'light') {
+    colorScheme = light;
+  }
+  if (mode === 'dark') {
+    colorScheme = dark;
+  }
+  if (colorScheme) {
+    ${setter}
+  }
+} catch(e){}})();`
+      }
+    }, "mui-color-scheme-init");
+  }
+
+  function noop$4() {}
+  const localStorageManager = ({
+    key,
+    storageWindow
+  }) => {
+    if (!storageWindow && typeof window !== 'undefined') {
+      storageWindow = window;
+    }
+    return {
+      get(defaultValue) {
+        if (typeof window === 'undefined') {
+          return undefined;
+        }
+        if (!storageWindow) {
+          return defaultValue;
+        }
+        let value;
+        try {
+          value = storageWindow.localStorage.getItem(key);
+        } catch {
+          // Unsupported
+        }
+        return value || defaultValue;
+      },
+      set: value => {
+        if (storageWindow) {
+          try {
+            storageWindow.localStorage.setItem(key, value);
+          } catch {
+            // Unsupported
+          }
+        }
+      },
+      subscribe: handler => {
+        if (!storageWindow) {
+          return noop$4;
+        }
+        const listener = event => {
+          const value = event.newValue;
+          if (event.key === key) {
+            handler(value);
+          }
+        };
+        storageWindow.addEventListener('storage', listener);
+        return () => {
+          storageWindow.removeEventListener('storage', listener);
+        };
+      }
+    };
+  };
+
+  function noop$3() {}
+  function getSystemMode(mode) {
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function' && mode === 'system') {
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
+      if (mql.matches) {
+        return 'dark';
+      }
+      return 'light';
+    }
+    return undefined;
+  }
+  function processState(state, callback) {
+    if (state.mode === 'light' || state.mode === 'system' && state.systemMode === 'light') {
+      return callback('light');
+    }
+    if (state.mode === 'dark' || state.mode === 'system' && state.systemMode === 'dark') {
+      return callback('dark');
+    }
+    return undefined;
+  }
+  function getColorScheme(state) {
+    return processState(state, mode => {
+      if (mode === 'light') {
+        return state.lightColorScheme;
+      }
+      if (mode === 'dark') {
+        return state.darkColorScheme;
+      }
+      return undefined;
+    });
+  }
+  function useCurrentColorScheme(options) {
+    const {
+      defaultMode = 'light',
+      defaultLightColorScheme,
+      defaultDarkColorScheme,
+      supportedColorSchemes = [],
+      modeStorageKey = DEFAULT_MODE_STORAGE_KEY,
+      colorSchemeStorageKey = DEFAULT_COLOR_SCHEME_STORAGE_KEY,
+      storageWindow = typeof window === 'undefined' ? undefined : window,
+      storageManager = localStorageManager,
+      noSsr = false
+    } = options;
+    const joinedColorSchemes = supportedColorSchemes.join(',');
+    const isMultiSchemes = supportedColorSchemes.length > 1;
+    const modeStorage = React__namespace.useMemo(() => storageManager?.({
+      key: modeStorageKey,
+      storageWindow
+    }), [storageManager, modeStorageKey, storageWindow]);
+    const lightStorage = React__namespace.useMemo(() => storageManager?.({
+      key: `${colorSchemeStorageKey}-light`,
+      storageWindow
+    }), [storageManager, colorSchemeStorageKey, storageWindow]);
+    const darkStorage = React__namespace.useMemo(() => storageManager?.({
+      key: `${colorSchemeStorageKey}-dark`,
+      storageWindow
+    }), [storageManager, colorSchemeStorageKey, storageWindow]);
+    const [state, setState] = React__namespace.useState(() => {
+      const initialMode = modeStorage?.get(defaultMode) || defaultMode;
+      const lightColorScheme = lightStorage?.get(defaultLightColorScheme) || defaultLightColorScheme;
+      const darkColorScheme = darkStorage?.get(defaultDarkColorScheme) || defaultDarkColorScheme;
+      return {
+        mode: initialMode,
+        systemMode: getSystemMode(initialMode),
+        lightColorScheme,
+        darkColorScheme
+      };
+    });
+    const [isClient, setIsClient] = React__namespace.useState(noSsr || !isMultiSchemes);
+    React__namespace.useEffect(() => {
+      setIsClient(true); // to rerender the component after hydration
+    }, []);
+    const colorScheme = getColorScheme(state);
+    const setMode = React__namespace.useCallback(mode => {
+      setState(currentState => {
+        if (mode === currentState.mode) {
+          // do nothing if mode does not change
+          return currentState;
+        }
+        const newMode = mode ?? defaultMode;
+        modeStorage?.set(newMode);
+        return {
+          ...currentState,
+          mode: newMode,
+          systemMode: getSystemMode(newMode)
+        };
+      });
+    }, [modeStorage, defaultMode]);
+    const setColorScheme = React__namespace.useCallback(value => {
+      if (!value) {
+        setState(currentState => {
+          lightStorage?.set(defaultLightColorScheme);
+          darkStorage?.set(defaultDarkColorScheme);
+          return {
+            ...currentState,
+            lightColorScheme: defaultLightColorScheme,
+            darkColorScheme: defaultDarkColorScheme
+          };
+        });
+      } else if (typeof value === 'string') {
+        if (value && !joinedColorSchemes.includes(value)) {
+          console.error(`\`${value}\` does not exist in \`theme.colorSchemes\`.`);
+        } else {
+          setState(currentState => {
+            const newState = {
+              ...currentState
+            };
+            processState(currentState, mode => {
+              if (mode === 'light') {
+                lightStorage?.set(value);
+                newState.lightColorScheme = value;
+              }
+              if (mode === 'dark') {
+                darkStorage?.set(value);
+                newState.darkColorScheme = value;
+              }
+            });
+            return newState;
+          });
+        }
+      } else {
+        setState(currentState => {
+          const newState = {
+            ...currentState
+          };
+          const newLightColorScheme = value.light === null ? defaultLightColorScheme : value.light;
+          const newDarkColorScheme = value.dark === null ? defaultDarkColorScheme : value.dark;
+          if (newLightColorScheme) {
+            if (!joinedColorSchemes.includes(newLightColorScheme)) {
+              console.error(`\`${newLightColorScheme}\` does not exist in \`theme.colorSchemes\`.`);
+            } else {
+              newState.lightColorScheme = newLightColorScheme;
+              lightStorage?.set(newLightColorScheme);
+            }
+          }
+          if (newDarkColorScheme) {
+            if (!joinedColorSchemes.includes(newDarkColorScheme)) {
+              console.error(`\`${newDarkColorScheme}\` does not exist in \`theme.colorSchemes\`.`);
+            } else {
+              newState.darkColorScheme = newDarkColorScheme;
+              darkStorage?.set(newDarkColorScheme);
+            }
+          }
+          return newState;
+        });
+      }
+    }, [joinedColorSchemes, lightStorage, darkStorage, defaultLightColorScheme, defaultDarkColorScheme]);
+    const handleMediaQuery = React__namespace.useCallback(event => {
+      if (state.mode === 'system') {
+        setState(currentState => {
+          const systemMode = event?.matches ? 'dark' : 'light';
+
+          // Early exit, nothing changed.
+          if (currentState.systemMode === systemMode) {
+            return currentState;
+          }
+          return {
+            ...currentState,
+            systemMode
+          };
+        });
+      }
+    }, [state.mode]);
+
+    // Ref hack to avoid adding handleMediaQuery as a dep
+    const mediaListener = React__namespace.useRef(handleMediaQuery);
+    mediaListener.current = handleMediaQuery;
+    React__namespace.useEffect(() => {
+      if (typeof window.matchMedia !== 'function' || !isMultiSchemes) {
+        return undefined;
+      }
+      const handler = (...args) => mediaListener.current(...args);
+
+      // Always listen to System preference
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      // Intentionally use deprecated listener methods to support iOS & old browsers
+      media.addListener(handler);
+      handler(media);
+      return () => {
+        media.removeListener(handler);
+      };
+    }, [isMultiSchemes]);
+
+    // Handle when localStorage has changed
+    React__namespace.useEffect(() => {
+      if (isMultiSchemes) {
+        const unsubscribeMode = modeStorage?.subscribe(value => {
+          if (!value || ['light', 'dark', 'system'].includes(value)) {
+            setMode(value || defaultMode);
+          }
+        }) || noop$3;
+        const unsubscribeLight = lightStorage?.subscribe(value => {
+          if (!value || joinedColorSchemes.match(value)) {
+            setColorScheme({
+              light: value
+            });
+          }
+        }) || noop$3;
+        const unsubscribeDark = darkStorage?.subscribe(value => {
+          if (!value || joinedColorSchemes.match(value)) {
+            setColorScheme({
+              dark: value
+            });
+          }
+        }) || noop$3;
+        return () => {
+          unsubscribeMode();
+          unsubscribeLight();
+          unsubscribeDark();
+        };
+      }
+      return undefined;
+    }, [setColorScheme, setMode, joinedColorSchemes, defaultMode, storageWindow, isMultiSchemes, modeStorage, lightStorage, darkStorage]);
+    return {
+      ...state,
+      mode: isClient ? state.mode : undefined,
+      systemMode: isClient ? state.systemMode : undefined,
+      colorScheme: isClient ? colorScheme : undefined,
+      setMode,
+      setColorScheme
+    };
+  }
+
+  const DISABLE_CSS_TRANSITION = '*{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}';
+  function createCssVarsProvider(options) {
+    const {
+      themeId,
+      /**
+       * This `theme` object needs to follow a certain structure to
+       * be used correctly by the finel `CssVarsProvider`. It should have a
+       * `colorSchemes` key with the light and dark (and any other) palette.
+       * It should also ideally have a vars object created using `prepareCssVars`.
+       */
+      theme: defaultTheme = {},
+      modeStorageKey: defaultModeStorageKey = DEFAULT_MODE_STORAGE_KEY,
+      colorSchemeStorageKey: defaultColorSchemeStorageKey = DEFAULT_COLOR_SCHEME_STORAGE_KEY,
+      disableTransitionOnChange: designSystemTransitionOnChange = false,
+      defaultColorScheme,
+      resolveTheme
+    } = options;
+    const defaultContext = {
+      allColorSchemes: [],
+      colorScheme: undefined,
+      darkColorScheme: undefined,
+      lightColorScheme: undefined,
+      mode: undefined,
+      setColorScheme: () => {},
+      setMode: () => {},
+      systemMode: undefined
+    };
+    const ColorSchemeContext = /*#__PURE__*/React__namespace.createContext(undefined);
+    const useColorScheme = () => React__namespace.useContext(ColorSchemeContext) || defaultContext;
+    const defaultColorSchemes = {};
+    const defaultComponents = {};
+    function CssVarsProvider(props) {
+      const {
+        children,
+        theme: themeProp,
+        modeStorageKey = defaultModeStorageKey,
+        colorSchemeStorageKey = defaultColorSchemeStorageKey,
+        disableTransitionOnChange = designSystemTransitionOnChange,
+        storageManager,
+        storageWindow = typeof window === 'undefined' ? undefined : window,
+        documentNode = typeof document === 'undefined' ? undefined : document,
+        colorSchemeNode = typeof document === 'undefined' ? undefined : document.documentElement,
+        disableNestedContext = false,
+        disableStyleSheetGeneration = false,
+        defaultMode: initialMode = 'system',
+        forceThemeRerender = false,
+        noSsr
+      } = props;
+      const hasMounted = React__namespace.useRef(false);
+      const upperTheme = useTheme$1();
+      const ctx = React__namespace.useContext(ColorSchemeContext);
+      const nested = !!ctx && !disableNestedContext;
+      const initialTheme = React__namespace.useMemo(() => {
+        if (themeProp) {
+          return themeProp;
+        }
+        return typeof defaultTheme === 'function' ? defaultTheme() : defaultTheme;
+      }, [themeProp]);
+      const scopedTheme = initialTheme[themeId];
+      const restThemeProp = scopedTheme || initialTheme;
+      const {
+        colorSchemes = defaultColorSchemes,
+        components = defaultComponents,
+        cssVarPrefix
+      } = restThemeProp;
+      const joinedColorSchemes = Object.keys(colorSchemes).filter(k => !!colorSchemes[k]).join(',');
+      const allColorSchemes = React__namespace.useMemo(() => joinedColorSchemes.split(','), [joinedColorSchemes]);
+      const defaultLightColorScheme = typeof defaultColorScheme === 'string' ? defaultColorScheme : defaultColorScheme.light;
+      const defaultDarkColorScheme = typeof defaultColorScheme === 'string' ? defaultColorScheme : defaultColorScheme.dark;
+      const defaultMode = colorSchemes[defaultLightColorScheme] && colorSchemes[defaultDarkColorScheme] ? initialMode : colorSchemes[restThemeProp.defaultColorScheme]?.palette?.mode || restThemeProp.palette?.mode;
+
+      // 1. Get the data about the `mode`, `colorScheme`, and setter functions.
+      const {
+        mode: stateMode,
+        setMode,
+        systemMode,
+        lightColorScheme,
+        darkColorScheme,
+        colorScheme: stateColorScheme,
+        setColorScheme
+      } = useCurrentColorScheme({
+        supportedColorSchemes: allColorSchemes,
+        defaultLightColorScheme,
+        defaultDarkColorScheme,
+        modeStorageKey,
+        colorSchemeStorageKey,
+        defaultMode,
+        storageManager,
+        storageWindow,
+        noSsr
+      });
+      let mode = stateMode;
+      let colorScheme = stateColorScheme;
+      if (nested) {
+        mode = ctx.mode;
+        colorScheme = ctx.colorScheme;
+      }
+
+      // `colorScheme` is undefined on the server and hydration phase
+      let calculatedColorScheme = colorScheme || restThemeProp.defaultColorScheme;
+      if (restThemeProp.vars && !forceThemeRerender) {
+        calculatedColorScheme = restThemeProp.defaultColorScheme;
+      }
+      const memoTheme = React__namespace.useMemo(() => {
+        // 2. get the `vars` object that refers to the CSS custom properties
+        const themeVars = restThemeProp.generateThemeVars?.() || restThemeProp.vars;
+
+        // 3. Start composing the theme object
+        const theme = {
+          ...restThemeProp,
+          components,
+          colorSchemes,
+          cssVarPrefix,
+          vars: themeVars
+        };
+        if (typeof theme.generateSpacing === 'function') {
+          theme.spacing = theme.generateSpacing();
+        }
+
+        // 4. Resolve the color scheme and merge it to the theme
+        if (calculatedColorScheme) {
+          const scheme = colorSchemes[calculatedColorScheme];
+          if (scheme && typeof scheme === 'object') {
+            // 4.1 Merge the selected color scheme to the theme
+            Object.keys(scheme).forEach(schemeKey => {
+              if (scheme[schemeKey] && typeof scheme[schemeKey] === 'object') {
+                // shallow merge the 1st level structure of the theme.
+                theme[schemeKey] = {
+                  ...theme[schemeKey],
+                  ...scheme[schemeKey]
+                };
+              } else {
+                theme[schemeKey] = scheme[schemeKey];
+              }
+            });
+          }
+        }
+        return resolveTheme ? resolveTheme(theme) : theme;
+      }, [restThemeProp, calculatedColorScheme, components, colorSchemes, cssVarPrefix]);
+
+      // 5. Declaring effects
+      // 5.1 Updates the selector value to use the current color scheme which tells CSS to use the proper stylesheet.
+      const colorSchemeSelector = restThemeProp.colorSchemeSelector;
+      useEnhancedEffect(() => {
+        if (colorScheme && colorSchemeNode && colorSchemeSelector && colorSchemeSelector !== 'media') {
+          const selector = colorSchemeSelector;
+          let rule = colorSchemeSelector;
+          if (selector === 'class') {
+            rule = `.%s`;
+          }
+          if (selector === 'data') {
+            rule = `[data-%s]`;
+          }
+          if (selector?.startsWith('data-') && !selector.includes('%s')) {
+            // 'data-mui-color-scheme' -> '[data-mui-color-scheme="%s"]'
+            rule = `[${selector}="%s"]`;
+          }
+          if (rule.startsWith('.')) {
+            colorSchemeNode.classList.remove(...allColorSchemes.map(scheme => rule.substring(1).replace('%s', scheme)));
+            colorSchemeNode.classList.add(rule.substring(1).replace('%s', colorScheme));
+          } else {
+            const matches = rule.replace('%s', colorScheme).match(/\[([^\]]+)\]/);
+            if (matches) {
+              const [attr, value] = matches[1].split('=');
+              if (!value) {
+                // for attributes like `data-theme-dark`, `data-theme-light`
+                // remove all the existing data attributes before setting the new one
+                allColorSchemes.forEach(scheme => {
+                  colorSchemeNode.removeAttribute(attr.replace(colorScheme, scheme));
+                });
+              }
+              colorSchemeNode.setAttribute(attr, value ? value.replace(/"|'/g, '') : '');
+            } else {
+              colorSchemeNode.setAttribute(rule, colorScheme);
+            }
+          }
+        }
+      }, [colorScheme, colorSchemeSelector, colorSchemeNode, allColorSchemes]);
+
+      // 5.2 Remove the CSS transition when color scheme changes to create instant experience.
+      // credit: https://github.com/pacocoursey/next-themes/blob/b5c2bad50de2d61ad7b52a9c5cdc801a78507d7a/index.tsx#L313
+      React__namespace.useEffect(() => {
+        let timer;
+        if (disableTransitionOnChange && hasMounted.current && documentNode) {
+          const css = documentNode.createElement('style');
+          css.appendChild(documentNode.createTextNode(DISABLE_CSS_TRANSITION));
+          documentNode.head.appendChild(css);
+
+          // Force browser repaint
+          (() => window.getComputedStyle(documentNode.body))();
+          timer = setTimeout(() => {
+            documentNode.head.removeChild(css);
+          }, 1);
+        }
+        return () => {
+          clearTimeout(timer);
+        };
+      }, [colorScheme, disableTransitionOnChange, documentNode]);
+      React__namespace.useEffect(() => {
+        hasMounted.current = true;
+        return () => {
+          hasMounted.current = false;
+        };
+      }, []);
+      const contextValue = React__namespace.useMemo(() => ({
+        allColorSchemes,
+        colorScheme,
+        darkColorScheme,
+        lightColorScheme,
+        mode,
+        setColorScheme,
+        setMode: setMode ,
+        systemMode
+      }), [allColorSchemes, colorScheme, darkColorScheme, lightColorScheme, mode, setColorScheme, setMode, systemMode, memoTheme.colorSchemeSelector]);
+      let shouldGenerateStyleSheet = true;
+      if (disableStyleSheetGeneration || restThemeProp.cssVariables === false || nested && upperTheme?.cssVarPrefix === cssVarPrefix) {
+        shouldGenerateStyleSheet = false;
+      }
+      const element = /*#__PURE__*/jsxRuntimeExports.jsxs(React__namespace.Fragment, {
+        children: [/*#__PURE__*/jsxRuntimeExports.jsx(ThemeProvider$1, {
+          themeId: scopedTheme ? themeId : undefined,
+          theme: memoTheme,
+          children: children
+        }), shouldGenerateStyleSheet && /*#__PURE__*/jsxRuntimeExports.jsx(GlobalStyles$2, {
+          styles: memoTheme.generateStyleSheets?.() || []
+        })]
+      });
+      if (nested) {
+        return element;
+      }
+      return /*#__PURE__*/jsxRuntimeExports.jsx(ColorSchemeContext.Provider, {
+        value: contextValue,
+        children: element
+      });
+    }
+    const defaultLightColorScheme = typeof defaultColorScheme === 'string' ? defaultColorScheme : defaultColorScheme.light;
+    const defaultDarkColorScheme = typeof defaultColorScheme === 'string' ? defaultColorScheme : defaultColorScheme.dark;
+    const getInitColorSchemeScript = params => InitColorSchemeScript({
+      colorSchemeStorageKey: defaultColorSchemeStorageKey,
+      defaultLightColorScheme,
+      defaultDarkColorScheme,
+      modeStorageKey: defaultModeStorageKey,
+      ...params
+    });
+    return {
+      CssVarsProvider,
+      useColorScheme,
+      getInitColorSchemeScript
     };
   }
 
@@ -5122,6 +5976,157 @@
     element.type.muiName ?? element.type?._payload?.value?.muiName) !== -1;
   }
 
+  const defaultTheme$2 = createTheme$1();
+  // widening Theme to any so that the consumer can own the theme structure.
+  const defaultCreateStyledComponent = styled$1('div', {
+    name: 'MuiStack',
+    slot: 'Root'
+  });
+  function useThemePropsDefault(props) {
+    return useThemeProps({
+      props,
+      name: 'MuiStack',
+      defaultTheme: defaultTheme$2
+    });
+  }
+
+  /**
+   * Return an array with the separator React element interspersed between
+   * each React node of the input children.
+   *
+   * > joinChildren([1,2,3], 0)
+   * [1,0,2,0,3]
+   */
+  function joinChildren(children, separator) {
+    const childrenArray = React__namespace.Children.toArray(children).filter(Boolean);
+    return childrenArray.reduce((output, child, index) => {
+      output.push(child);
+      if (index < childrenArray.length - 1) {
+        output.push(/*#__PURE__*/React__namespace.cloneElement(separator, {
+          key: `separator-${index}`
+        }));
+      }
+      return output;
+    }, []);
+  }
+  const getSideFromDirection = direction => {
+    return {
+      row: 'Left',
+      'row-reverse': 'Right',
+      column: 'Top',
+      'column-reverse': 'Bottom'
+    }[direction];
+  };
+  const style = ({
+    ownerState,
+    theme
+  }) => {
+    let styles = {
+      display: 'flex',
+      flexDirection: 'column',
+      ...handleBreakpoints({
+        theme
+      }, resolveBreakpointValues({
+        values: ownerState.direction,
+        breakpoints: theme.breakpoints.values
+      }), propValue => ({
+        flexDirection: propValue
+      }))
+    };
+    if (ownerState.spacing) {
+      const transformer = createUnarySpacing(theme);
+      const base = Object.keys(theme.breakpoints.values).reduce((acc, breakpoint) => {
+        if (typeof ownerState.spacing === 'object' && ownerState.spacing[breakpoint] != null || typeof ownerState.direction === 'object' && ownerState.direction[breakpoint] != null) {
+          acc[breakpoint] = true;
+        }
+        return acc;
+      }, {});
+      const directionValues = resolveBreakpointValues({
+        values: ownerState.direction,
+        base
+      });
+      const spacingValues = resolveBreakpointValues({
+        values: ownerState.spacing,
+        base
+      });
+      if (typeof directionValues === 'object') {
+        Object.keys(directionValues).forEach((breakpoint, index, breakpoints) => {
+          const directionValue = directionValues[breakpoint];
+          if (!directionValue) {
+            const previousDirectionValue = index > 0 ? directionValues[breakpoints[index - 1]] : 'column';
+            directionValues[breakpoint] = previousDirectionValue;
+          }
+        });
+      }
+      const styleFromPropValue = (propValue, breakpoint) => {
+        if (ownerState.useFlexGap) {
+          return {
+            gap: getValue(transformer, propValue)
+          };
+        }
+        return {
+          // The useFlexGap={false} implement relies on each child to give up control of the margin.
+          // We need to reset the margin to avoid double spacing.
+          '& > :not(style):not(style)': {
+            margin: 0
+          },
+          '& > :not(style) ~ :not(style)': {
+            [`margin${getSideFromDirection(breakpoint ? directionValues[breakpoint] : ownerState.direction)}`]: getValue(transformer, propValue)
+          }
+        };
+      };
+      styles = deepmerge(styles, handleBreakpoints({
+        theme
+      }, spacingValues, styleFromPropValue));
+    }
+    styles = mergeBreakpointsInOrder(theme.breakpoints, styles);
+    return styles;
+  };
+  function createStack(options = {}) {
+    const {
+      // This will allow adding custom styled fn (for example for custom sx style function)
+      createStyledComponent = defaultCreateStyledComponent,
+      useThemeProps = useThemePropsDefault,
+      componentName = 'MuiStack'
+    } = options;
+    const useUtilityClasses = () => {
+      const slots = {
+        root: ['root']
+      };
+      return composeClasses(slots, slot => generateUtilityClass(componentName, slot), {});
+    };
+    const StackRoot = createStyledComponent(style);
+    const Stack = /*#__PURE__*/React__namespace.forwardRef(function Grid(inProps, ref) {
+      const themeProps = useThemeProps(inProps);
+      const props = extendSxProp$1(themeProps); // `color` type conflicts with html color attribute.
+      const {
+        component = 'div',
+        direction = 'column',
+        spacing = 0,
+        divider,
+        children,
+        className,
+        useFlexGap = false,
+        ...other
+      } = props;
+      const ownerState = {
+        direction,
+        spacing,
+        useFlexGap
+      };
+      const classes = useUtilityClasses();
+      return /*#__PURE__*/jsxRuntimeExports.jsx(StackRoot, {
+        as: component,
+        ownerState: ownerState,
+        ref: ref,
+        className: clsx(classes.root, className),
+        ...other,
+        children: divider ? joinChildren(children, divider) : children
+      });
+    });
+    return Stack;
+  }
+
   function getLight() {
     return {
       // The colors used to style the text.
@@ -5459,7 +6464,7 @@
     };
   }
 
-  function round$1(value) {
+  function round$3(value) {
     return Math.round(value * 1e5) / 1e5;
   }
   const caseAllCaps = {
@@ -5500,7 +6505,7 @@
       // The letter spacing was designed for the Roboto font-family. Using the same letter-spacing
       // across font-families can cause issues with the kerning.
       ...(fontFamily === defaultFontFamily ? {
-        letterSpacing: `${round$1(letterSpacing / size)}em`
+        letterSpacing: `${round$3(letterSpacing / size)}em`
       } : {}),
       ...casing,
       ...allVariants
@@ -6421,7 +7426,7 @@ export default theme;`;
   const defaultTheme$1 = createTheme();
 
   function useTheme() {
-    const theme = useTheme$1(defaultTheme$1);
+    const theme = useTheme$2(defaultTheme$1);
     return theme[THEME_ID] || theme;
   }
 
@@ -6437,6 +7442,112 @@ export default theme;`;
     defaultTheme: defaultTheme$1,
     rootShouldForwardProp
   });
+
+  function ThemeProviderNoVars({
+    theme: themeInput,
+    ...props
+  }) {
+    const scopedTheme = THEME_ID in themeInput ? themeInput[THEME_ID] : undefined;
+    return /*#__PURE__*/jsxRuntimeExports.jsx(ThemeProvider$1, {
+      ...props,
+      themeId: scopedTheme ? THEME_ID : undefined,
+      theme: scopedTheme || themeInput
+    });
+  }
+
+  const defaultConfig = {
+    colorSchemeStorageKey: 'mui-color-scheme',
+    defaultLightColorScheme: 'light',
+    defaultDarkColorScheme: 'dark',
+    modeStorageKey: 'mui-mode'
+  };
+
+  const {
+    CssVarsProvider: InternalCssVarsProvider} = createCssVarsProvider({
+    themeId: THEME_ID,
+    // @ts-ignore ignore module augmentation tests
+    theme: () => createTheme({
+      cssVariables: true
+    }),
+    colorSchemeStorageKey: defaultConfig.colorSchemeStorageKey,
+    modeStorageKey: defaultConfig.modeStorageKey,
+    defaultColorScheme: {
+      light: defaultConfig.defaultLightColorScheme,
+      dark: defaultConfig.defaultDarkColorScheme
+    },
+    resolveTheme: theme => {
+      const newTheme = {
+        ...theme,
+        typography: createTypography(theme.palette, theme.typography)
+      };
+      newTheme.unstable_sx = function sx(props) {
+        return styleFunctionSx({
+          sx: props,
+          theme: this
+        });
+      };
+      return newTheme;
+    }
+  });
+
+  /**
+   * TODO: remove this export in v7
+   * @deprecated
+   * The `CssVarsProvider` component has been deprecated and ported into `ThemeProvider`.
+   *
+   * You should use `ThemeProvider` and `createTheme()` instead:
+   *
+   * ```diff
+   * - import { CssVarsProvider, extendTheme } from '@mui/material/styles';
+   * + import { ThemeProvider, createTheme } from '@mui/material/styles';
+   *
+   * - const theme = extendTheme();
+   * + const theme = createTheme({
+   * +   cssVariables: true,
+   * +   colorSchemes: { light: true, dark: true },
+   * + });
+   *
+   * - <CssVarsProvider theme={theme}>
+   * + <ThemeProvider theme={theme}>
+   * ```
+   *
+   * To see the full documentation, check out https://mui.com/material-ui/customization/css-theme-variables/usage/.
+   */
+  const CssVarsProvider = InternalCssVarsProvider;
+
+  function ThemeProvider({
+    theme,
+    ...props
+  }) {
+    const noVarsTheme = React__namespace.useMemo(() => {
+      if (typeof theme === 'function') {
+        return theme;
+      }
+      const muiTheme = THEME_ID in theme ? theme[THEME_ID] : theme;
+      if (!('colorSchemes' in muiTheme)) {
+        if (!('vars' in muiTheme)) {
+          // For non-CSS variables themes, set `vars` to null to prevent theme inheritance from the upper theme.
+          // The example use case is the docs demo that uses ThemeProvider to customize the theme while the upper theme is using CSS variables.
+          return {
+            ...theme,
+            vars: null
+          };
+        }
+        return theme;
+      }
+      return null;
+    }, [theme]);
+    if (noVarsTheme) {
+      return /*#__PURE__*/jsxRuntimeExports.jsx(ThemeProviderNoVars, {
+        theme: noVarsTheme,
+        ...props
+      });
+    }
+    return /*#__PURE__*/jsxRuntimeExports.jsx(CssVarsProvider, {
+      theme: theme,
+      ...props
+    });
+  }
 
   /**
    * Safe chained function.
@@ -6495,7 +7606,7 @@ export default theme;`;
   }
   generateUtilityClasses('MuiSvgIcon', ['root', 'colorPrimary', 'colorSecondary', 'colorAction', 'colorError', 'colorDisabled', 'fontSizeInherit', 'fontSizeSmall', 'fontSizeMedium', 'fontSizeLarge']);
 
-  const useUtilityClasses$y = ownerState => {
+  const useUtilityClasses$C = ownerState => {
     const {
       color,
       fontSize,
@@ -6625,7 +7736,7 @@ export default theme;`;
     if (!inheritViewBox) {
       more.viewBox = viewBox;
     }
-    const classes = useUtilityClasses$y(ownerState);
+    const classes = useUtilityClasses$C(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsxs(SvgIconRoot, {
       as: component,
       className: clsx(classes.root, className),
@@ -6660,7 +7771,7 @@ export default theme;`;
 
   // Corresponds to 10 frames at 60 Hz.
   // A few bytes payload overhead when lodash/debounce is ~3 kB and debounce ~300 B.
-  function debounce(func, wait = 166) {
+  function debounce$1(func, wait = 166) {
     let timeout;
     function debounced(...args) {
       const later = () => {
@@ -7928,7 +9039,7 @@ export default theme;`;
   }
   generateUtilityClasses('MuiPaper', ['root', 'rounded', 'outlined', 'elevation', 'elevation0', 'elevation1', 'elevation2', 'elevation3', 'elevation4', 'elevation5', 'elevation6', 'elevation7', 'elevation8', 'elevation9', 'elevation10', 'elevation11', 'elevation12', 'elevation13', 'elevation14', 'elevation15', 'elevation16', 'elevation17', 'elevation18', 'elevation19', 'elevation20', 'elevation21', 'elevation22', 'elevation23', 'elevation24']);
 
-  const useUtilityClasses$x = ownerState => {
+  const useUtilityClasses$B = ownerState => {
     const {
       square,
       elevation,
@@ -8000,7 +9111,7 @@ export default theme;`;
       square,
       variant
     };
-    const classes = useUtilityClasses$x(ownerState);
+    const classes = useUtilityClasses$B(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsx(PaperRoot, {
       as: component,
       ownerState: ownerState,
@@ -8462,7 +9573,7 @@ export default theme;`;
   }
   const buttonBaseClasses = generateUtilityClasses('MuiButtonBase', ['root', 'disabled', 'focusVisible']);
 
-  const useUtilityClasses$w = ownerState => {
+  const useUtilityClasses$A = ownerState => {
     const {
       disabled,
       focusVisible,
@@ -8691,7 +9802,7 @@ export default theme;`;
       tabIndex,
       focusVisible
     };
-    const classes = useUtilityClasses$w(ownerState);
+    const classes = useUtilityClasses$A(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsxs(ButtonBaseRoot, {
       as: ComponentProp,
       className: clsx(classes.root, className),
@@ -8821,7 +9932,7 @@ export default theme;`;
   const dashAnimation = typeof circularDashKeyframe !== 'string' ? css`
         animation: ${circularDashKeyframe} 1.4s ease-in-out infinite;
       ` : null;
-  const useUtilityClasses$v = ownerState => {
+  const useUtilityClasses$z = ownerState => {
     const {
       classes,
       variant,
@@ -8961,7 +10072,7 @@ export default theme;`;
       variant,
       enableTrackSlot
     };
-    const classes = useUtilityClasses$v(ownerState);
+    const classes = useUtilityClasses$z(ownerState);
     const circleStyle = {};
     const rootStyle = {};
     const rootProps = {};
@@ -9017,7 +10128,7 @@ export default theme;`;
   }
   const iconButtonClasses = generateUtilityClasses('MuiIconButton', ['root', 'disabled', 'colorInherit', 'colorPrimary', 'colorSecondary', 'colorError', 'colorInfo', 'colorSuccess', 'colorWarning', 'edgeStart', 'edgeEnd', 'sizeSmall', 'sizeMedium', 'sizeLarge', 'loading', 'loadingIndicator', 'loadingWrapper']);
 
-  const useUtilityClasses$u = ownerState => {
+  const useUtilityClasses$y = ownerState => {
     const {
       classes,
       disabled,
@@ -9209,7 +10320,7 @@ export default theme;`;
       loadingIndicator,
       size
     };
-    const classes = useUtilityClasses$u(ownerState);
+    const classes = useUtilityClasses$y(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsxs(IconButtonRoot, {
       id: loading ? loadingId : idProp,
       className: clsx(classes.root, className),
@@ -9256,7 +10367,7 @@ export default theme;`;
     d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
   }));
 
-  const useUtilityClasses$t = ownerState => {
+  const useUtilityClasses$x = ownerState => {
     const {
       variant,
       color,
@@ -9408,7 +10519,7 @@ export default theme;`;
       variant,
       colorSeverity: color || severity
     };
-    const classes = useUtilityClasses$t(ownerState);
+    const classes = useUtilityClasses$x(ownerState);
     const externalForwardedProps = {
       slots: {
         closeButton: components.CloseButton,
@@ -9509,7 +10620,7 @@ export default theme;`;
     textDisabled: true
   };
   const extendSxProp = internal_createExtendSxProp();
-  const useUtilityClasses$s = ownerState => {
+  const useUtilityClasses$w = ownerState => {
     const {
       align,
       gutterBottom,
@@ -9650,7 +10761,7 @@ export default theme;`;
       variantMapping
     };
     const Component = component || (paragraph ? 'p' : variantMapping[variant] || defaultVariantMapping[variant]) || 'span';
-    const classes = useUtilityClasses$s(ownerState);
+    const classes = useUtilityClasses$w(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsx(TypographyRoot, {
       as: Component,
       ref: ref,
@@ -9665,6 +10776,1841 @@ export default theme;`;
       }
     });
   });
+
+  function getAlertTitleUtilityClass(slot) {
+    return generateUtilityClass('MuiAlertTitle', slot);
+  }
+  generateUtilityClasses('MuiAlertTitle', ['root']);
+
+  const useUtilityClasses$v = ownerState => {
+    const {
+      classes
+    } = ownerState;
+    const slots = {
+      root: ['root']
+    };
+    return composeClasses(slots, getAlertTitleUtilityClass, classes);
+  };
+  const AlertTitleRoot = styled(Typography, {
+    name: 'MuiAlertTitle',
+    slot: 'Root'
+  })(memoTheme(({
+    theme
+  }) => {
+    return {
+      fontWeight: theme.typography.fontWeightMedium,
+      marginTop: -2
+    };
+  }));
+  const AlertTitle = /*#__PURE__*/React__namespace.forwardRef(function AlertTitle(inProps, ref) {
+    const props = useDefaultProps({
+      props: inProps,
+      name: 'MuiAlertTitle'
+    });
+    const {
+      className,
+      ...other
+    } = props;
+    const ownerState = props;
+    const classes = useUtilityClasses$v(ownerState);
+    return /*#__PURE__*/jsxRuntimeExports.jsx(AlertTitleRoot, {
+      gutterBottom: true,
+      component: "div",
+      ownerState: ownerState,
+      ref: ref,
+      className: clsx(classes.root, className),
+      ...other
+    });
+  });
+
+  var top = 'top';
+  var bottom = 'bottom';
+  var right = 'right';
+  var left = 'left';
+  var auto = 'auto';
+  var basePlacements = [top, bottom, right, left];
+  var start = 'start';
+  var end = 'end';
+  var clippingParents = 'clippingParents';
+  var viewport = 'viewport';
+  var popper = 'popper';
+  var reference = 'reference';
+  var variationPlacements = /*#__PURE__*/basePlacements.reduce(function (acc, placement) {
+    return acc.concat([placement + "-" + start, placement + "-" + end]);
+  }, []);
+  var placements = /*#__PURE__*/[].concat(basePlacements, [auto]).reduce(function (acc, placement) {
+    return acc.concat([placement, placement + "-" + start, placement + "-" + end]);
+  }, []); // modifiers that need to read the DOM
+
+  var beforeRead = 'beforeRead';
+  var read = 'read';
+  var afterRead = 'afterRead'; // pure-logic modifiers
+
+  var beforeMain = 'beforeMain';
+  var main = 'main';
+  var afterMain = 'afterMain'; // modifier with the purpose to write to the DOM (or write into a framework state)
+
+  var beforeWrite = 'beforeWrite';
+  var write = 'write';
+  var afterWrite = 'afterWrite';
+  var modifierPhases = [beforeRead, read, afterRead, beforeMain, main, afterMain, beforeWrite, write, afterWrite];
+
+  function getNodeName(element) {
+    return element ? (element.nodeName || '').toLowerCase() : null;
+  }
+
+  function getWindow(node) {
+    if (node == null) {
+      return window;
+    }
+
+    if (node.toString() !== '[object Window]') {
+      var ownerDocument = node.ownerDocument;
+      return ownerDocument ? ownerDocument.defaultView || window : window;
+    }
+
+    return node;
+  }
+
+  function isElement(node) {
+    var OwnElement = getWindow(node).Element;
+    return node instanceof OwnElement || node instanceof Element;
+  }
+
+  function isHTMLElement$1(node) {
+    var OwnElement = getWindow(node).HTMLElement;
+    return node instanceof OwnElement || node instanceof HTMLElement;
+  }
+
+  function isShadowRoot(node) {
+    // IE 11 has no ShadowRoot
+    if (typeof ShadowRoot === 'undefined') {
+      return false;
+    }
+
+    var OwnElement = getWindow(node).ShadowRoot;
+    return node instanceof OwnElement || node instanceof ShadowRoot;
+  }
+
+  // and applies them to the HTMLElements such as popper and arrow
+
+  function applyStyles(_ref) {
+    var state = _ref.state;
+    Object.keys(state.elements).forEach(function (name) {
+      var style = state.styles[name] || {};
+      var attributes = state.attributes[name] || {};
+      var element = state.elements[name]; // arrow is optional + virtual elements
+
+      if (!isHTMLElement$1(element) || !getNodeName(element)) {
+        return;
+      } // Flow doesn't support to extend this property, but it's the most
+      // effective way to apply styles to an HTMLElement
+      // $FlowFixMe[cannot-write]
+
+
+      Object.assign(element.style, style);
+      Object.keys(attributes).forEach(function (name) {
+        var value = attributes[name];
+
+        if (value === false) {
+          element.removeAttribute(name);
+        } else {
+          element.setAttribute(name, value === true ? '' : value);
+        }
+      });
+    });
+  }
+
+  function effect$2(_ref2) {
+    var state = _ref2.state;
+    var initialStyles = {
+      popper: {
+        position: state.options.strategy,
+        left: '0',
+        top: '0',
+        margin: '0'
+      },
+      arrow: {
+        position: 'absolute'
+      },
+      reference: {}
+    };
+    Object.assign(state.elements.popper.style, initialStyles.popper);
+    state.styles = initialStyles;
+
+    if (state.elements.arrow) {
+      Object.assign(state.elements.arrow.style, initialStyles.arrow);
+    }
+
+    return function () {
+      Object.keys(state.elements).forEach(function (name) {
+        var element = state.elements[name];
+        var attributes = state.attributes[name] || {};
+        var styleProperties = Object.keys(state.styles.hasOwnProperty(name) ? state.styles[name] : initialStyles[name]); // Set all values to an empty string to unset them
+
+        var style = styleProperties.reduce(function (style, property) {
+          style[property] = '';
+          return style;
+        }, {}); // arrow is optional + virtual elements
+
+        if (!isHTMLElement$1(element) || !getNodeName(element)) {
+          return;
+        }
+
+        Object.assign(element.style, style);
+        Object.keys(attributes).forEach(function (attribute) {
+          element.removeAttribute(attribute);
+        });
+      });
+    };
+  } // eslint-disable-next-line import/no-unused-modules
+
+
+  var applyStyles$1 = {
+    name: 'applyStyles',
+    enabled: true,
+    phase: 'write',
+    fn: applyStyles,
+    effect: effect$2,
+    requires: ['computeStyles']
+  };
+
+  function getBasePlacement(placement) {
+    return placement.split('-')[0];
+  }
+
+  var max$1 = Math.max;
+  var min$1 = Math.min;
+  var round$2 = Math.round;
+
+  function getUAString() {
+    var uaData = navigator.userAgentData;
+
+    if (uaData != null && uaData.brands && Array.isArray(uaData.brands)) {
+      return uaData.brands.map(function (item) {
+        return item.brand + "/" + item.version;
+      }).join(' ');
+    }
+
+    return navigator.userAgent;
+  }
+
+  function isLayoutViewport() {
+    return !/^((?!chrome|android).)*safari/i.test(getUAString());
+  }
+
+  function getBoundingClientRect(element, includeScale, isFixedStrategy) {
+    if (includeScale === void 0) {
+      includeScale = false;
+    }
+
+    if (isFixedStrategy === void 0) {
+      isFixedStrategy = false;
+    }
+
+    var clientRect = element.getBoundingClientRect();
+    var scaleX = 1;
+    var scaleY = 1;
+
+    if (includeScale && isHTMLElement$1(element)) {
+      scaleX = element.offsetWidth > 0 ? round$2(clientRect.width) / element.offsetWidth || 1 : 1;
+      scaleY = element.offsetHeight > 0 ? round$2(clientRect.height) / element.offsetHeight || 1 : 1;
+    }
+
+    var _ref = isElement(element) ? getWindow(element) : window,
+        visualViewport = _ref.visualViewport;
+
+    var addVisualOffsets = !isLayoutViewport() && isFixedStrategy;
+    var x = (clientRect.left + (addVisualOffsets && visualViewport ? visualViewport.offsetLeft : 0)) / scaleX;
+    var y = (clientRect.top + (addVisualOffsets && visualViewport ? visualViewport.offsetTop : 0)) / scaleY;
+    var width = clientRect.width / scaleX;
+    var height = clientRect.height / scaleY;
+    return {
+      width: width,
+      height: height,
+      top: y,
+      right: x + width,
+      bottom: y + height,
+      left: x,
+      x: x,
+      y: y
+    };
+  }
+
+  // means it doesn't take into account transforms.
+
+  function getLayoutRect(element) {
+    var clientRect = getBoundingClientRect(element); // Use the clientRect sizes if it's not been transformed.
+    // Fixes https://github.com/popperjs/popper-core/issues/1223
+
+    var width = element.offsetWidth;
+    var height = element.offsetHeight;
+
+    if (Math.abs(clientRect.width - width) <= 1) {
+      width = clientRect.width;
+    }
+
+    if (Math.abs(clientRect.height - height) <= 1) {
+      height = clientRect.height;
+    }
+
+    return {
+      x: element.offsetLeft,
+      y: element.offsetTop,
+      width: width,
+      height: height
+    };
+  }
+
+  function contains(parent, child) {
+    var rootNode = child.getRootNode && child.getRootNode(); // First, attempt with faster native method
+
+    if (parent.contains(child)) {
+      return true;
+    } // then fallback to custom implementation with Shadow DOM support
+    else if (rootNode && isShadowRoot(rootNode)) {
+        var next = child;
+
+        do {
+          if (next && parent.isSameNode(next)) {
+            return true;
+          } // $FlowFixMe[prop-missing]: need a better way to handle this...
+
+
+          next = next.parentNode || next.host;
+        } while (next);
+      } // Give up, the result is false
+
+
+    return false;
+  }
+
+  function getComputedStyle(element) {
+    return getWindow(element).getComputedStyle(element);
+  }
+
+  function isTableElement(element) {
+    return ['table', 'td', 'th'].indexOf(getNodeName(element)) >= 0;
+  }
+
+  function getDocumentElement(element) {
+    // $FlowFixMe[incompatible-return]: assume body is always available
+    return ((isElement(element) ? element.ownerDocument : // $FlowFixMe[prop-missing]
+    element.document) || window.document).documentElement;
+  }
+
+  function getParentNode(element) {
+    if (getNodeName(element) === 'html') {
+      return element;
+    }
+
+    return (// this is a quicker (but less type safe) way to save quite some bytes from the bundle
+      // $FlowFixMe[incompatible-return]
+      // $FlowFixMe[prop-missing]
+      element.assignedSlot || // step into the shadow DOM of the parent of a slotted node
+      element.parentNode || ( // DOM Element detected
+      isShadowRoot(element) ? element.host : null) || // ShadowRoot detected
+      // $FlowFixMe[incompatible-call]: HTMLElement is a Node
+      getDocumentElement(element) // fallback
+
+    );
+  }
+
+  function getTrueOffsetParent(element) {
+    if (!isHTMLElement$1(element) || // https://github.com/popperjs/popper-core/issues/837
+    getComputedStyle(element).position === 'fixed') {
+      return null;
+    }
+
+    return element.offsetParent;
+  } // `.offsetParent` reports `null` for fixed elements, while absolute elements
+  // return the containing block
+
+
+  function getContainingBlock(element) {
+    var isFirefox = /firefox/i.test(getUAString());
+    var isIE = /Trident/i.test(getUAString());
+
+    if (isIE && isHTMLElement$1(element)) {
+      // In IE 9, 10 and 11 fixed elements containing block is always established by the viewport
+      var elementCss = getComputedStyle(element);
+
+      if (elementCss.position === 'fixed') {
+        return null;
+      }
+    }
+
+    var currentNode = getParentNode(element);
+
+    if (isShadowRoot(currentNode)) {
+      currentNode = currentNode.host;
+    }
+
+    while (isHTMLElement$1(currentNode) && ['html', 'body'].indexOf(getNodeName(currentNode)) < 0) {
+      var css = getComputedStyle(currentNode); // This is non-exhaustive but covers the most common CSS properties that
+      // create a containing block.
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block#identifying_the_containing_block
+
+      if (css.transform !== 'none' || css.perspective !== 'none' || css.contain === 'paint' || ['transform', 'perspective'].indexOf(css.willChange) !== -1 || isFirefox && css.willChange === 'filter' || isFirefox && css.filter && css.filter !== 'none') {
+        return currentNode;
+      } else {
+        currentNode = currentNode.parentNode;
+      }
+    }
+
+    return null;
+  } // Gets the closest ancestor positioned element. Handles some edge cases,
+  // such as table ancestors and cross browser bugs.
+
+
+  function getOffsetParent(element) {
+    var window = getWindow(element);
+    var offsetParent = getTrueOffsetParent(element);
+
+    while (offsetParent && isTableElement(offsetParent) && getComputedStyle(offsetParent).position === 'static') {
+      offsetParent = getTrueOffsetParent(offsetParent);
+    }
+
+    if (offsetParent && (getNodeName(offsetParent) === 'html' || getNodeName(offsetParent) === 'body' && getComputedStyle(offsetParent).position === 'static')) {
+      return window;
+    }
+
+    return offsetParent || getContainingBlock(element) || window;
+  }
+
+  function getMainAxisFromPlacement(placement) {
+    return ['top', 'bottom'].indexOf(placement) >= 0 ? 'x' : 'y';
+  }
+
+  function within(min, value, max) {
+    return max$1(min, min$1(value, max));
+  }
+  function withinMaxClamp(min, value, max) {
+    var v = within(min, value, max);
+    return v > max ? max : v;
+  }
+
+  function getFreshSideObject() {
+    return {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+    };
+  }
+
+  function mergePaddingObject(paddingObject) {
+    return Object.assign({}, getFreshSideObject(), paddingObject);
+  }
+
+  function expandToHashMap(value, keys) {
+    return keys.reduce(function (hashMap, key) {
+      hashMap[key] = value;
+      return hashMap;
+    }, {});
+  }
+
+  var toPaddingObject = function toPaddingObject(padding, state) {
+    padding = typeof padding === 'function' ? padding(Object.assign({}, state.rects, {
+      placement: state.placement
+    })) : padding;
+    return mergePaddingObject(typeof padding !== 'number' ? padding : expandToHashMap(padding, basePlacements));
+  };
+
+  function arrow(_ref) {
+    var _state$modifiersData$;
+
+    var state = _ref.state,
+        name = _ref.name,
+        options = _ref.options;
+    var arrowElement = state.elements.arrow;
+    var popperOffsets = state.modifiersData.popperOffsets;
+    var basePlacement = getBasePlacement(state.placement);
+    var axis = getMainAxisFromPlacement(basePlacement);
+    var isVertical = [left, right].indexOf(basePlacement) >= 0;
+    var len = isVertical ? 'height' : 'width';
+
+    if (!arrowElement || !popperOffsets) {
+      return;
+    }
+
+    var paddingObject = toPaddingObject(options.padding, state);
+    var arrowRect = getLayoutRect(arrowElement);
+    var minProp = axis === 'y' ? top : left;
+    var maxProp = axis === 'y' ? bottom : right;
+    var endDiff = state.rects.reference[len] + state.rects.reference[axis] - popperOffsets[axis] - state.rects.popper[len];
+    var startDiff = popperOffsets[axis] - state.rects.reference[axis];
+    var arrowOffsetParent = getOffsetParent(arrowElement);
+    var clientSize = arrowOffsetParent ? axis === 'y' ? arrowOffsetParent.clientHeight || 0 : arrowOffsetParent.clientWidth || 0 : 0;
+    var centerToReference = endDiff / 2 - startDiff / 2; // Make sure the arrow doesn't overflow the popper if the center point is
+    // outside of the popper bounds
+
+    var min = paddingObject[minProp];
+    var max = clientSize - arrowRect[len] - paddingObject[maxProp];
+    var center = clientSize / 2 - arrowRect[len] / 2 + centerToReference;
+    var offset = within(min, center, max); // Prevents breaking syntax highlighting...
+
+    var axisProp = axis;
+    state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
+  }
+
+  function effect$1(_ref2) {
+    var state = _ref2.state,
+        options = _ref2.options;
+    var _options$element = options.element,
+        arrowElement = _options$element === void 0 ? '[data-popper-arrow]' : _options$element;
+
+    if (arrowElement == null) {
+      return;
+    } // CSS selector
+
+
+    if (typeof arrowElement === 'string') {
+      arrowElement = state.elements.popper.querySelector(arrowElement);
+
+      if (!arrowElement) {
+        return;
+      }
+    }
+
+    if (!contains(state.elements.popper, arrowElement)) {
+      return;
+    }
+
+    state.elements.arrow = arrowElement;
+  } // eslint-disable-next-line import/no-unused-modules
+
+
+  var arrow$1 = {
+    name: 'arrow',
+    enabled: true,
+    phase: 'main',
+    fn: arrow,
+    effect: effect$1,
+    requires: ['popperOffsets'],
+    requiresIfExists: ['preventOverflow']
+  };
+
+  function getVariation(placement) {
+    return placement.split('-')[1];
+  }
+
+  var unsetSides = {
+    top: 'auto',
+    right: 'auto',
+    bottom: 'auto',
+    left: 'auto'
+  }; // Round the offsets to the nearest suitable subpixel based on the DPR.
+  // Zooming can change the DPR, but it seems to report a value that will
+  // cleanly divide the values into the appropriate subpixels.
+
+  function roundOffsetsByDPR(_ref, win) {
+    var x = _ref.x,
+        y = _ref.y;
+    var dpr = win.devicePixelRatio || 1;
+    return {
+      x: round$2(x * dpr) / dpr || 0,
+      y: round$2(y * dpr) / dpr || 0
+    };
+  }
+
+  function mapToStyles(_ref2) {
+    var _Object$assign2;
+
+    var popper = _ref2.popper,
+        popperRect = _ref2.popperRect,
+        placement = _ref2.placement,
+        variation = _ref2.variation,
+        offsets = _ref2.offsets,
+        position = _ref2.position,
+        gpuAcceleration = _ref2.gpuAcceleration,
+        adaptive = _ref2.adaptive,
+        roundOffsets = _ref2.roundOffsets,
+        isFixed = _ref2.isFixed;
+    var _offsets$x = offsets.x,
+        x = _offsets$x === void 0 ? 0 : _offsets$x,
+        _offsets$y = offsets.y,
+        y = _offsets$y === void 0 ? 0 : _offsets$y;
+
+    var _ref3 = typeof roundOffsets === 'function' ? roundOffsets({
+      x: x,
+      y: y
+    }) : {
+      x: x,
+      y: y
+    };
+
+    x = _ref3.x;
+    y = _ref3.y;
+    var hasX = offsets.hasOwnProperty('x');
+    var hasY = offsets.hasOwnProperty('y');
+    var sideX = left;
+    var sideY = top;
+    var win = window;
+
+    if (adaptive) {
+      var offsetParent = getOffsetParent(popper);
+      var heightProp = 'clientHeight';
+      var widthProp = 'clientWidth';
+
+      if (offsetParent === getWindow(popper)) {
+        offsetParent = getDocumentElement(popper);
+
+        if (getComputedStyle(offsetParent).position !== 'static' && position === 'absolute') {
+          heightProp = 'scrollHeight';
+          widthProp = 'scrollWidth';
+        }
+      } // $FlowFixMe[incompatible-cast]: force type refinement, we compare offsetParent with window above, but Flow doesn't detect it
+
+
+      offsetParent = offsetParent;
+
+      if (placement === top || (placement === left || placement === right) && variation === end) {
+        sideY = bottom;
+        var offsetY = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.height : // $FlowFixMe[prop-missing]
+        offsetParent[heightProp];
+        y -= offsetY - popperRect.height;
+        y *= gpuAcceleration ? 1 : -1;
+      }
+
+      if (placement === left || (placement === top || placement === bottom) && variation === end) {
+        sideX = right;
+        var offsetX = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.width : // $FlowFixMe[prop-missing]
+        offsetParent[widthProp];
+        x -= offsetX - popperRect.width;
+        x *= gpuAcceleration ? 1 : -1;
+      }
+    }
+
+    var commonStyles = Object.assign({
+      position: position
+    }, adaptive && unsetSides);
+
+    var _ref4 = roundOffsets === true ? roundOffsetsByDPR({
+      x: x,
+      y: y
+    }, getWindow(popper)) : {
+      x: x,
+      y: y
+    };
+
+    x = _ref4.x;
+    y = _ref4.y;
+
+    if (gpuAcceleration) {
+      var _Object$assign;
+
+      return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
+    }
+
+    return Object.assign({}, commonStyles, (_Object$assign2 = {}, _Object$assign2[sideY] = hasY ? y + "px" : '', _Object$assign2[sideX] = hasX ? x + "px" : '', _Object$assign2.transform = '', _Object$assign2));
+  }
+
+  function computeStyles(_ref5) {
+    var state = _ref5.state,
+        options = _ref5.options;
+    var _options$gpuAccelerat = options.gpuAcceleration,
+        gpuAcceleration = _options$gpuAccelerat === void 0 ? true : _options$gpuAccelerat,
+        _options$adaptive = options.adaptive,
+        adaptive = _options$adaptive === void 0 ? true : _options$adaptive,
+        _options$roundOffsets = options.roundOffsets,
+        roundOffsets = _options$roundOffsets === void 0 ? true : _options$roundOffsets;
+    var commonStyles = {
+      placement: getBasePlacement(state.placement),
+      variation: getVariation(state.placement),
+      popper: state.elements.popper,
+      popperRect: state.rects.popper,
+      gpuAcceleration: gpuAcceleration,
+      isFixed: state.options.strategy === 'fixed'
+    };
+
+    if (state.modifiersData.popperOffsets != null) {
+      state.styles.popper = Object.assign({}, state.styles.popper, mapToStyles(Object.assign({}, commonStyles, {
+        offsets: state.modifiersData.popperOffsets,
+        position: state.options.strategy,
+        adaptive: adaptive,
+        roundOffsets: roundOffsets
+      })));
+    }
+
+    if (state.modifiersData.arrow != null) {
+      state.styles.arrow = Object.assign({}, state.styles.arrow, mapToStyles(Object.assign({}, commonStyles, {
+        offsets: state.modifiersData.arrow,
+        position: 'absolute',
+        adaptive: false,
+        roundOffsets: roundOffsets
+      })));
+    }
+
+    state.attributes.popper = Object.assign({}, state.attributes.popper, {
+      'data-popper-placement': state.placement
+    });
+  } // eslint-disable-next-line import/no-unused-modules
+
+
+  var computeStyles$1 = {
+    name: 'computeStyles',
+    enabled: true,
+    phase: 'beforeWrite',
+    fn: computeStyles,
+    data: {}
+  };
+
+  var passive = {
+    passive: true
+  };
+
+  function effect(_ref) {
+    var state = _ref.state,
+        instance = _ref.instance,
+        options = _ref.options;
+    var _options$scroll = options.scroll,
+        scroll = _options$scroll === void 0 ? true : _options$scroll,
+        _options$resize = options.resize,
+        resize = _options$resize === void 0 ? true : _options$resize;
+    var window = getWindow(state.elements.popper);
+    var scrollParents = [].concat(state.scrollParents.reference, state.scrollParents.popper);
+
+    if (scroll) {
+      scrollParents.forEach(function (scrollParent) {
+        scrollParent.addEventListener('scroll', instance.update, passive);
+      });
+    }
+
+    if (resize) {
+      window.addEventListener('resize', instance.update, passive);
+    }
+
+    return function () {
+      if (scroll) {
+        scrollParents.forEach(function (scrollParent) {
+          scrollParent.removeEventListener('scroll', instance.update, passive);
+        });
+      }
+
+      if (resize) {
+        window.removeEventListener('resize', instance.update, passive);
+      }
+    };
+  } // eslint-disable-next-line import/no-unused-modules
+
+
+  var eventListeners = {
+    name: 'eventListeners',
+    enabled: true,
+    phase: 'write',
+    fn: function fn() {},
+    effect: effect,
+    data: {}
+  };
+
+  var hash$1 = {
+    left: 'right',
+    right: 'left',
+    bottom: 'top',
+    top: 'bottom'
+  };
+  function getOppositePlacement(placement) {
+    return placement.replace(/left|right|bottom|top/g, function (matched) {
+      return hash$1[matched];
+    });
+  }
+
+  var hash = {
+    start: 'end',
+    end: 'start'
+  };
+  function getOppositeVariationPlacement(placement) {
+    return placement.replace(/start|end/g, function (matched) {
+      return hash[matched];
+    });
+  }
+
+  function getWindowScroll(node) {
+    var win = getWindow(node);
+    var scrollLeft = win.pageXOffset;
+    var scrollTop = win.pageYOffset;
+    return {
+      scrollLeft: scrollLeft,
+      scrollTop: scrollTop
+    };
+  }
+
+  function getWindowScrollBarX(element) {
+    // If <html> has a CSS width greater than the viewport, then this will be
+    // incorrect for RTL.
+    // Popper 1 is broken in this case and never had a bug report so let's assume
+    // it's not an issue. I don't think anyone ever specifies width on <html>
+    // anyway.
+    // Browsers where the left scrollbar doesn't cause an issue report `0` for
+    // this (e.g. Edge 2019, IE11, Safari)
+    return getBoundingClientRect(getDocumentElement(element)).left + getWindowScroll(element).scrollLeft;
+  }
+
+  function getViewportRect(element, strategy) {
+    var win = getWindow(element);
+    var html = getDocumentElement(element);
+    var visualViewport = win.visualViewport;
+    var width = html.clientWidth;
+    var height = html.clientHeight;
+    var x = 0;
+    var y = 0;
+
+    if (visualViewport) {
+      width = visualViewport.width;
+      height = visualViewport.height;
+      var layoutViewport = isLayoutViewport();
+
+      if (layoutViewport || !layoutViewport && strategy === 'fixed') {
+        x = visualViewport.offsetLeft;
+        y = visualViewport.offsetTop;
+      }
+    }
+
+    return {
+      width: width,
+      height: height,
+      x: x + getWindowScrollBarX(element),
+      y: y
+    };
+  }
+
+  // of the `<html>` and `<body>` rect bounds if horizontally scrollable
+
+  function getDocumentRect(element) {
+    var _element$ownerDocumen;
+
+    var html = getDocumentElement(element);
+    var winScroll = getWindowScroll(element);
+    var body = (_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body;
+    var width = max$1(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
+    var height = max$1(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
+    var x = -winScroll.scrollLeft + getWindowScrollBarX(element);
+    var y = -winScroll.scrollTop;
+
+    if (getComputedStyle(body || html).direction === 'rtl') {
+      x += max$1(html.clientWidth, body ? body.clientWidth : 0) - width;
+    }
+
+    return {
+      width: width,
+      height: height,
+      x: x,
+      y: y
+    };
+  }
+
+  function isScrollParent(element) {
+    // Firefox wants us to check `-x` and `-y` variations as well
+    var _getComputedStyle = getComputedStyle(element),
+        overflow = _getComputedStyle.overflow,
+        overflowX = _getComputedStyle.overflowX,
+        overflowY = _getComputedStyle.overflowY;
+
+    return /auto|scroll|overlay|hidden/.test(overflow + overflowY + overflowX);
+  }
+
+  function getScrollParent(node) {
+    if (['html', 'body', '#document'].indexOf(getNodeName(node)) >= 0) {
+      // $FlowFixMe[incompatible-return]: assume body is always available
+      return node.ownerDocument.body;
+    }
+
+    if (isHTMLElement$1(node) && isScrollParent(node)) {
+      return node;
+    }
+
+    return getScrollParent(getParentNode(node));
+  }
+
+  /*
+  given a DOM element, return the list of all scroll parents, up the list of ancesors
+  until we get to the top window object. This list is what we attach scroll listeners
+  to, because if any of these parent elements scroll, we'll need to re-calculate the
+  reference element's position.
+  */
+
+  function listScrollParents(element, list) {
+    var _element$ownerDocumen;
+
+    if (list === void 0) {
+      list = [];
+    }
+
+    var scrollParent = getScrollParent(element);
+    var isBody = scrollParent === ((_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body);
+    var win = getWindow(scrollParent);
+    var target = isBody ? [win].concat(win.visualViewport || [], isScrollParent(scrollParent) ? scrollParent : []) : scrollParent;
+    var updatedList = list.concat(target);
+    return isBody ? updatedList : // $FlowFixMe[incompatible-call]: isBody tells us target will be an HTMLElement here
+    updatedList.concat(listScrollParents(getParentNode(target)));
+  }
+
+  function rectToClientRect(rect) {
+    return Object.assign({}, rect, {
+      left: rect.x,
+      top: rect.y,
+      right: rect.x + rect.width,
+      bottom: rect.y + rect.height
+    });
+  }
+
+  function getInnerBoundingClientRect(element, strategy) {
+    var rect = getBoundingClientRect(element, false, strategy === 'fixed');
+    rect.top = rect.top + element.clientTop;
+    rect.left = rect.left + element.clientLeft;
+    rect.bottom = rect.top + element.clientHeight;
+    rect.right = rect.left + element.clientWidth;
+    rect.width = element.clientWidth;
+    rect.height = element.clientHeight;
+    rect.x = rect.left;
+    rect.y = rect.top;
+    return rect;
+  }
+
+  function getClientRectFromMixedType(element, clippingParent, strategy) {
+    return clippingParent === viewport ? rectToClientRect(getViewportRect(element, strategy)) : isElement(clippingParent) ? getInnerBoundingClientRect(clippingParent, strategy) : rectToClientRect(getDocumentRect(getDocumentElement(element)));
+  } // A "clipping parent" is an overflowable container with the characteristic of
+  // clipping (or hiding) overflowing elements with a position different from
+  // `initial`
+
+
+  function getClippingParents(element) {
+    var clippingParents = listScrollParents(getParentNode(element));
+    var canEscapeClipping = ['absolute', 'fixed'].indexOf(getComputedStyle(element).position) >= 0;
+    var clipperElement = canEscapeClipping && isHTMLElement$1(element) ? getOffsetParent(element) : element;
+
+    if (!isElement(clipperElement)) {
+      return [];
+    } // $FlowFixMe[incompatible-return]: https://github.com/facebook/flow/issues/1414
+
+
+    return clippingParents.filter(function (clippingParent) {
+      return isElement(clippingParent) && contains(clippingParent, clipperElement) && getNodeName(clippingParent) !== 'body';
+    });
+  } // Gets the maximum area that the element is visible in due to any number of
+  // clipping parents
+
+
+  function getClippingRect(element, boundary, rootBoundary, strategy) {
+    var mainClippingParents = boundary === 'clippingParents' ? getClippingParents(element) : [].concat(boundary);
+    var clippingParents = [].concat(mainClippingParents, [rootBoundary]);
+    var firstClippingParent = clippingParents[0];
+    var clippingRect = clippingParents.reduce(function (accRect, clippingParent) {
+      var rect = getClientRectFromMixedType(element, clippingParent, strategy);
+      accRect.top = max$1(rect.top, accRect.top);
+      accRect.right = min$1(rect.right, accRect.right);
+      accRect.bottom = min$1(rect.bottom, accRect.bottom);
+      accRect.left = max$1(rect.left, accRect.left);
+      return accRect;
+    }, getClientRectFromMixedType(element, firstClippingParent, strategy));
+    clippingRect.width = clippingRect.right - clippingRect.left;
+    clippingRect.height = clippingRect.bottom - clippingRect.top;
+    clippingRect.x = clippingRect.left;
+    clippingRect.y = clippingRect.top;
+    return clippingRect;
+  }
+
+  function computeOffsets(_ref) {
+    var reference = _ref.reference,
+        element = _ref.element,
+        placement = _ref.placement;
+    var basePlacement = placement ? getBasePlacement(placement) : null;
+    var variation = placement ? getVariation(placement) : null;
+    var commonX = reference.x + reference.width / 2 - element.width / 2;
+    var commonY = reference.y + reference.height / 2 - element.height / 2;
+    var offsets;
+
+    switch (basePlacement) {
+      case top:
+        offsets = {
+          x: commonX,
+          y: reference.y - element.height
+        };
+        break;
+
+      case bottom:
+        offsets = {
+          x: commonX,
+          y: reference.y + reference.height
+        };
+        break;
+
+      case right:
+        offsets = {
+          x: reference.x + reference.width,
+          y: commonY
+        };
+        break;
+
+      case left:
+        offsets = {
+          x: reference.x - element.width,
+          y: commonY
+        };
+        break;
+
+      default:
+        offsets = {
+          x: reference.x,
+          y: reference.y
+        };
+    }
+
+    var mainAxis = basePlacement ? getMainAxisFromPlacement(basePlacement) : null;
+
+    if (mainAxis != null) {
+      var len = mainAxis === 'y' ? 'height' : 'width';
+
+      switch (variation) {
+        case start:
+          offsets[mainAxis] = offsets[mainAxis] - (reference[len] / 2 - element[len] / 2);
+          break;
+
+        case end:
+          offsets[mainAxis] = offsets[mainAxis] + (reference[len] / 2 - element[len] / 2);
+          break;
+      }
+    }
+
+    return offsets;
+  }
+
+  function detectOverflow(state, options) {
+    if (options === void 0) {
+      options = {};
+    }
+
+    var _options = options,
+        _options$placement = _options.placement,
+        placement = _options$placement === void 0 ? state.placement : _options$placement,
+        _options$strategy = _options.strategy,
+        strategy = _options$strategy === void 0 ? state.strategy : _options$strategy,
+        _options$boundary = _options.boundary,
+        boundary = _options$boundary === void 0 ? clippingParents : _options$boundary,
+        _options$rootBoundary = _options.rootBoundary,
+        rootBoundary = _options$rootBoundary === void 0 ? viewport : _options$rootBoundary,
+        _options$elementConte = _options.elementContext,
+        elementContext = _options$elementConte === void 0 ? popper : _options$elementConte,
+        _options$altBoundary = _options.altBoundary,
+        altBoundary = _options$altBoundary === void 0 ? false : _options$altBoundary,
+        _options$padding = _options.padding,
+        padding = _options$padding === void 0 ? 0 : _options$padding;
+    var paddingObject = mergePaddingObject(typeof padding !== 'number' ? padding : expandToHashMap(padding, basePlacements));
+    var altContext = elementContext === popper ? reference : popper;
+    var popperRect = state.rects.popper;
+    var element = state.elements[altBoundary ? altContext : elementContext];
+    var clippingClientRect = getClippingRect(isElement(element) ? element : element.contextElement || getDocumentElement(state.elements.popper), boundary, rootBoundary, strategy);
+    var referenceClientRect = getBoundingClientRect(state.elements.reference);
+    var popperOffsets = computeOffsets({
+      reference: referenceClientRect,
+      element: popperRect,
+      placement: placement
+    });
+    var popperClientRect = rectToClientRect(Object.assign({}, popperRect, popperOffsets));
+    var elementClientRect = elementContext === popper ? popperClientRect : referenceClientRect; // positive = overflowing the clipping rect
+    // 0 or negative = within the clipping rect
+
+    var overflowOffsets = {
+      top: clippingClientRect.top - elementClientRect.top + paddingObject.top,
+      bottom: elementClientRect.bottom - clippingClientRect.bottom + paddingObject.bottom,
+      left: clippingClientRect.left - elementClientRect.left + paddingObject.left,
+      right: elementClientRect.right - clippingClientRect.right + paddingObject.right
+    };
+    var offsetData = state.modifiersData.offset; // Offsets can be applied only to the popper element
+
+    if (elementContext === popper && offsetData) {
+      var offset = offsetData[placement];
+      Object.keys(overflowOffsets).forEach(function (key) {
+        var multiply = [right, bottom].indexOf(key) >= 0 ? 1 : -1;
+        var axis = [top, bottom].indexOf(key) >= 0 ? 'y' : 'x';
+        overflowOffsets[key] += offset[axis] * multiply;
+      });
+    }
+
+    return overflowOffsets;
+  }
+
+  function computeAutoPlacement(state, options) {
+    if (options === void 0) {
+      options = {};
+    }
+
+    var _options = options,
+        placement = _options.placement,
+        boundary = _options.boundary,
+        rootBoundary = _options.rootBoundary,
+        padding = _options.padding,
+        flipVariations = _options.flipVariations,
+        _options$allowedAutoP = _options.allowedAutoPlacements,
+        allowedAutoPlacements = _options$allowedAutoP === void 0 ? placements : _options$allowedAutoP;
+    var variation = getVariation(placement);
+    var placements$1 = variation ? flipVariations ? variationPlacements : variationPlacements.filter(function (placement) {
+      return getVariation(placement) === variation;
+    }) : basePlacements;
+    var allowedPlacements = placements$1.filter(function (placement) {
+      return allowedAutoPlacements.indexOf(placement) >= 0;
+    });
+
+    if (allowedPlacements.length === 0) {
+      allowedPlacements = placements$1;
+    } // $FlowFixMe[incompatible-type]: Flow seems to have problems with two array unions...
+
+
+    var overflows = allowedPlacements.reduce(function (acc, placement) {
+      acc[placement] = detectOverflow(state, {
+        placement: placement,
+        boundary: boundary,
+        rootBoundary: rootBoundary,
+        padding: padding
+      })[getBasePlacement(placement)];
+      return acc;
+    }, {});
+    return Object.keys(overflows).sort(function (a, b) {
+      return overflows[a] - overflows[b];
+    });
+  }
+
+  function getExpandedFallbackPlacements(placement) {
+    if (getBasePlacement(placement) === auto) {
+      return [];
+    }
+
+    var oppositePlacement = getOppositePlacement(placement);
+    return [getOppositeVariationPlacement(placement), oppositePlacement, getOppositeVariationPlacement(oppositePlacement)];
+  }
+
+  function flip(_ref) {
+    var state = _ref.state,
+        options = _ref.options,
+        name = _ref.name;
+
+    if (state.modifiersData[name]._skip) {
+      return;
+    }
+
+    var _options$mainAxis = options.mainAxis,
+        checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis,
+        _options$altAxis = options.altAxis,
+        checkAltAxis = _options$altAxis === void 0 ? true : _options$altAxis,
+        specifiedFallbackPlacements = options.fallbackPlacements,
+        padding = options.padding,
+        boundary = options.boundary,
+        rootBoundary = options.rootBoundary,
+        altBoundary = options.altBoundary,
+        _options$flipVariatio = options.flipVariations,
+        flipVariations = _options$flipVariatio === void 0 ? true : _options$flipVariatio,
+        allowedAutoPlacements = options.allowedAutoPlacements;
+    var preferredPlacement = state.options.placement;
+    var basePlacement = getBasePlacement(preferredPlacement);
+    var isBasePlacement = basePlacement === preferredPlacement;
+    var fallbackPlacements = specifiedFallbackPlacements || (isBasePlacement || !flipVariations ? [getOppositePlacement(preferredPlacement)] : getExpandedFallbackPlacements(preferredPlacement));
+    var placements = [preferredPlacement].concat(fallbackPlacements).reduce(function (acc, placement) {
+      return acc.concat(getBasePlacement(placement) === auto ? computeAutoPlacement(state, {
+        placement: placement,
+        boundary: boundary,
+        rootBoundary: rootBoundary,
+        padding: padding,
+        flipVariations: flipVariations,
+        allowedAutoPlacements: allowedAutoPlacements
+      }) : placement);
+    }, []);
+    var referenceRect = state.rects.reference;
+    var popperRect = state.rects.popper;
+    var checksMap = new Map();
+    var makeFallbackChecks = true;
+    var firstFittingPlacement = placements[0];
+
+    for (var i = 0; i < placements.length; i++) {
+      var placement = placements[i];
+
+      var _basePlacement = getBasePlacement(placement);
+
+      var isStartVariation = getVariation(placement) === start;
+      var isVertical = [top, bottom].indexOf(_basePlacement) >= 0;
+      var len = isVertical ? 'width' : 'height';
+      var overflow = detectOverflow(state, {
+        placement: placement,
+        boundary: boundary,
+        rootBoundary: rootBoundary,
+        altBoundary: altBoundary,
+        padding: padding
+      });
+      var mainVariationSide = isVertical ? isStartVariation ? right : left : isStartVariation ? bottom : top;
+
+      if (referenceRect[len] > popperRect[len]) {
+        mainVariationSide = getOppositePlacement(mainVariationSide);
+      }
+
+      var altVariationSide = getOppositePlacement(mainVariationSide);
+      var checks = [];
+
+      if (checkMainAxis) {
+        checks.push(overflow[_basePlacement] <= 0);
+      }
+
+      if (checkAltAxis) {
+        checks.push(overflow[mainVariationSide] <= 0, overflow[altVariationSide] <= 0);
+      }
+
+      if (checks.every(function (check) {
+        return check;
+      })) {
+        firstFittingPlacement = placement;
+        makeFallbackChecks = false;
+        break;
+      }
+
+      checksMap.set(placement, checks);
+    }
+
+    if (makeFallbackChecks) {
+      // `2` may be desired in some cases – research later
+      var numberOfChecks = flipVariations ? 3 : 1;
+
+      var _loop = function _loop(_i) {
+        var fittingPlacement = placements.find(function (placement) {
+          var checks = checksMap.get(placement);
+
+          if (checks) {
+            return checks.slice(0, _i).every(function (check) {
+              return check;
+            });
+          }
+        });
+
+        if (fittingPlacement) {
+          firstFittingPlacement = fittingPlacement;
+          return "break";
+        }
+      };
+
+      for (var _i = numberOfChecks; _i > 0; _i--) {
+        var _ret = _loop(_i);
+
+        if (_ret === "break") break;
+      }
+    }
+
+    if (state.placement !== firstFittingPlacement) {
+      state.modifiersData[name]._skip = true;
+      state.placement = firstFittingPlacement;
+      state.reset = true;
+    }
+  } // eslint-disable-next-line import/no-unused-modules
+
+
+  var flip$1 = {
+    name: 'flip',
+    enabled: true,
+    phase: 'main',
+    fn: flip,
+    requiresIfExists: ['offset'],
+    data: {
+      _skip: false
+    }
+  };
+
+  function getSideOffsets(overflow, rect, preventedOffsets) {
+    if (preventedOffsets === void 0) {
+      preventedOffsets = {
+        x: 0,
+        y: 0
+      };
+    }
+
+    return {
+      top: overflow.top - rect.height - preventedOffsets.y,
+      right: overflow.right - rect.width + preventedOffsets.x,
+      bottom: overflow.bottom - rect.height + preventedOffsets.y,
+      left: overflow.left - rect.width - preventedOffsets.x
+    };
+  }
+
+  function isAnySideFullyClipped(overflow) {
+    return [top, right, bottom, left].some(function (side) {
+      return overflow[side] >= 0;
+    });
+  }
+
+  function hide(_ref) {
+    var state = _ref.state,
+        name = _ref.name;
+    var referenceRect = state.rects.reference;
+    var popperRect = state.rects.popper;
+    var preventedOffsets = state.modifiersData.preventOverflow;
+    var referenceOverflow = detectOverflow(state, {
+      elementContext: 'reference'
+    });
+    var popperAltOverflow = detectOverflow(state, {
+      altBoundary: true
+    });
+    var referenceClippingOffsets = getSideOffsets(referenceOverflow, referenceRect);
+    var popperEscapeOffsets = getSideOffsets(popperAltOverflow, popperRect, preventedOffsets);
+    var isReferenceHidden = isAnySideFullyClipped(referenceClippingOffsets);
+    var hasPopperEscaped = isAnySideFullyClipped(popperEscapeOffsets);
+    state.modifiersData[name] = {
+      referenceClippingOffsets: referenceClippingOffsets,
+      popperEscapeOffsets: popperEscapeOffsets,
+      isReferenceHidden: isReferenceHidden,
+      hasPopperEscaped: hasPopperEscaped
+    };
+    state.attributes.popper = Object.assign({}, state.attributes.popper, {
+      'data-popper-reference-hidden': isReferenceHidden,
+      'data-popper-escaped': hasPopperEscaped
+    });
+  } // eslint-disable-next-line import/no-unused-modules
+
+
+  var hide$1 = {
+    name: 'hide',
+    enabled: true,
+    phase: 'main',
+    requiresIfExists: ['preventOverflow'],
+    fn: hide
+  };
+
+  function distanceAndSkiddingToXY(placement, rects, offset) {
+    var basePlacement = getBasePlacement(placement);
+    var invertDistance = [left, top].indexOf(basePlacement) >= 0 ? -1 : 1;
+
+    var _ref = typeof offset === 'function' ? offset(Object.assign({}, rects, {
+      placement: placement
+    })) : offset,
+        skidding = _ref[0],
+        distance = _ref[1];
+
+    skidding = skidding || 0;
+    distance = (distance || 0) * invertDistance;
+    return [left, right].indexOf(basePlacement) >= 0 ? {
+      x: distance,
+      y: skidding
+    } : {
+      x: skidding,
+      y: distance
+    };
+  }
+
+  function offset(_ref2) {
+    var state = _ref2.state,
+        options = _ref2.options,
+        name = _ref2.name;
+    var _options$offset = options.offset,
+        offset = _options$offset === void 0 ? [0, 0] : _options$offset;
+    var data = placements.reduce(function (acc, placement) {
+      acc[placement] = distanceAndSkiddingToXY(placement, state.rects, offset);
+      return acc;
+    }, {});
+    var _data$state$placement = data[state.placement],
+        x = _data$state$placement.x,
+        y = _data$state$placement.y;
+
+    if (state.modifiersData.popperOffsets != null) {
+      state.modifiersData.popperOffsets.x += x;
+      state.modifiersData.popperOffsets.y += y;
+    }
+
+    state.modifiersData[name] = data;
+  } // eslint-disable-next-line import/no-unused-modules
+
+
+  var offset$1 = {
+    name: 'offset',
+    enabled: true,
+    phase: 'main',
+    requires: ['popperOffsets'],
+    fn: offset
+  };
+
+  function popperOffsets(_ref) {
+    var state = _ref.state,
+        name = _ref.name;
+    // Offsets are the actual position the popper needs to have to be
+    // properly positioned near its reference element
+    // This is the most basic placement, and will be adjusted by
+    // the modifiers in the next step
+    state.modifiersData[name] = computeOffsets({
+      reference: state.rects.reference,
+      element: state.rects.popper,
+      placement: state.placement
+    });
+  } // eslint-disable-next-line import/no-unused-modules
+
+
+  var popperOffsets$1 = {
+    name: 'popperOffsets',
+    enabled: true,
+    phase: 'read',
+    fn: popperOffsets,
+    data: {}
+  };
+
+  function getAltAxis(axis) {
+    return axis === 'x' ? 'y' : 'x';
+  }
+
+  function preventOverflow(_ref) {
+    var state = _ref.state,
+        options = _ref.options,
+        name = _ref.name;
+    var _options$mainAxis = options.mainAxis,
+        checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis,
+        _options$altAxis = options.altAxis,
+        checkAltAxis = _options$altAxis === void 0 ? false : _options$altAxis,
+        boundary = options.boundary,
+        rootBoundary = options.rootBoundary,
+        altBoundary = options.altBoundary,
+        padding = options.padding,
+        _options$tether = options.tether,
+        tether = _options$tether === void 0 ? true : _options$tether,
+        _options$tetherOffset = options.tetherOffset,
+        tetherOffset = _options$tetherOffset === void 0 ? 0 : _options$tetherOffset;
+    var overflow = detectOverflow(state, {
+      boundary: boundary,
+      rootBoundary: rootBoundary,
+      padding: padding,
+      altBoundary: altBoundary
+    });
+    var basePlacement = getBasePlacement(state.placement);
+    var variation = getVariation(state.placement);
+    var isBasePlacement = !variation;
+    var mainAxis = getMainAxisFromPlacement(basePlacement);
+    var altAxis = getAltAxis(mainAxis);
+    var popperOffsets = state.modifiersData.popperOffsets;
+    var referenceRect = state.rects.reference;
+    var popperRect = state.rects.popper;
+    var tetherOffsetValue = typeof tetherOffset === 'function' ? tetherOffset(Object.assign({}, state.rects, {
+      placement: state.placement
+    })) : tetherOffset;
+    var normalizedTetherOffsetValue = typeof tetherOffsetValue === 'number' ? {
+      mainAxis: tetherOffsetValue,
+      altAxis: tetherOffsetValue
+    } : Object.assign({
+      mainAxis: 0,
+      altAxis: 0
+    }, tetherOffsetValue);
+    var offsetModifierState = state.modifiersData.offset ? state.modifiersData.offset[state.placement] : null;
+    var data = {
+      x: 0,
+      y: 0
+    };
+
+    if (!popperOffsets) {
+      return;
+    }
+
+    if (checkMainAxis) {
+      var _offsetModifierState$;
+
+      var mainSide = mainAxis === 'y' ? top : left;
+      var altSide = mainAxis === 'y' ? bottom : right;
+      var len = mainAxis === 'y' ? 'height' : 'width';
+      var offset = popperOffsets[mainAxis];
+      var min = offset + overflow[mainSide];
+      var max = offset - overflow[altSide];
+      var additive = tether ? -popperRect[len] / 2 : 0;
+      var minLen = variation === start ? referenceRect[len] : popperRect[len];
+      var maxLen = variation === start ? -popperRect[len] : -referenceRect[len]; // We need to include the arrow in the calculation so the arrow doesn't go
+      // outside the reference bounds
+
+      var arrowElement = state.elements.arrow;
+      var arrowRect = tether && arrowElement ? getLayoutRect(arrowElement) : {
+        width: 0,
+        height: 0
+      };
+      var arrowPaddingObject = state.modifiersData['arrow#persistent'] ? state.modifiersData['arrow#persistent'].padding : getFreshSideObject();
+      var arrowPaddingMin = arrowPaddingObject[mainSide];
+      var arrowPaddingMax = arrowPaddingObject[altSide]; // If the reference length is smaller than the arrow length, we don't want
+      // to include its full size in the calculation. If the reference is small
+      // and near the edge of a boundary, the popper can overflow even if the
+      // reference is not overflowing as well (e.g. virtual elements with no
+      // width or height)
+
+      var arrowLen = within(0, referenceRect[len], arrowRect[len]);
+      var minOffset = isBasePlacement ? referenceRect[len] / 2 - additive - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis : minLen - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis;
+      var maxOffset = isBasePlacement ? -referenceRect[len] / 2 + additive + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis : maxLen + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis;
+      var arrowOffsetParent = state.elements.arrow && getOffsetParent(state.elements.arrow);
+      var clientOffset = arrowOffsetParent ? mainAxis === 'y' ? arrowOffsetParent.clientTop || 0 : arrowOffsetParent.clientLeft || 0 : 0;
+      var offsetModifierValue = (_offsetModifierState$ = offsetModifierState == null ? void 0 : offsetModifierState[mainAxis]) != null ? _offsetModifierState$ : 0;
+      var tetherMin = offset + minOffset - offsetModifierValue - clientOffset;
+      var tetherMax = offset + maxOffset - offsetModifierValue;
+      var preventedOffset = within(tether ? min$1(min, tetherMin) : min, offset, tether ? max$1(max, tetherMax) : max);
+      popperOffsets[mainAxis] = preventedOffset;
+      data[mainAxis] = preventedOffset - offset;
+    }
+
+    if (checkAltAxis) {
+      var _offsetModifierState$2;
+
+      var _mainSide = mainAxis === 'x' ? top : left;
+
+      var _altSide = mainAxis === 'x' ? bottom : right;
+
+      var _offset = popperOffsets[altAxis];
+
+      var _len = altAxis === 'y' ? 'height' : 'width';
+
+      var _min = _offset + overflow[_mainSide];
+
+      var _max = _offset - overflow[_altSide];
+
+      var isOriginSide = [top, left].indexOf(basePlacement) !== -1;
+
+      var _offsetModifierValue = (_offsetModifierState$2 = offsetModifierState == null ? void 0 : offsetModifierState[altAxis]) != null ? _offsetModifierState$2 : 0;
+
+      var _tetherMin = isOriginSide ? _min : _offset - referenceRect[_len] - popperRect[_len] - _offsetModifierValue + normalizedTetherOffsetValue.altAxis;
+
+      var _tetherMax = isOriginSide ? _offset + referenceRect[_len] + popperRect[_len] - _offsetModifierValue - normalizedTetherOffsetValue.altAxis : _max;
+
+      var _preventedOffset = tether && isOriginSide ? withinMaxClamp(_tetherMin, _offset, _tetherMax) : within(tether ? _tetherMin : _min, _offset, tether ? _tetherMax : _max);
+
+      popperOffsets[altAxis] = _preventedOffset;
+      data[altAxis] = _preventedOffset - _offset;
+    }
+
+    state.modifiersData[name] = data;
+  } // eslint-disable-next-line import/no-unused-modules
+
+
+  var preventOverflow$1 = {
+    name: 'preventOverflow',
+    enabled: true,
+    phase: 'main',
+    fn: preventOverflow,
+    requiresIfExists: ['offset']
+  };
+
+  function getHTMLElementScroll(element) {
+    return {
+      scrollLeft: element.scrollLeft,
+      scrollTop: element.scrollTop
+    };
+  }
+
+  function getNodeScroll(node) {
+    if (node === getWindow(node) || !isHTMLElement$1(node)) {
+      return getWindowScroll(node);
+    } else {
+      return getHTMLElementScroll(node);
+    }
+  }
+
+  function isElementScaled(element) {
+    var rect = element.getBoundingClientRect();
+    var scaleX = round$2(rect.width) / element.offsetWidth || 1;
+    var scaleY = round$2(rect.height) / element.offsetHeight || 1;
+    return scaleX !== 1 || scaleY !== 1;
+  } // Returns the composite rect of an element relative to its offsetParent.
+  // Composite means it takes into account transforms as well as layout.
+
+
+  function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
+    if (isFixed === void 0) {
+      isFixed = false;
+    }
+
+    var isOffsetParentAnElement = isHTMLElement$1(offsetParent);
+    var offsetParentIsScaled = isHTMLElement$1(offsetParent) && isElementScaled(offsetParent);
+    var documentElement = getDocumentElement(offsetParent);
+    var rect = getBoundingClientRect(elementOrVirtualElement, offsetParentIsScaled, isFixed);
+    var scroll = {
+      scrollLeft: 0,
+      scrollTop: 0
+    };
+    var offsets = {
+      x: 0,
+      y: 0
+    };
+
+    if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
+      if (getNodeName(offsetParent) !== 'body' || // https://github.com/popperjs/popper-core/issues/1078
+      isScrollParent(documentElement)) {
+        scroll = getNodeScroll(offsetParent);
+      }
+
+      if (isHTMLElement$1(offsetParent)) {
+        offsets = getBoundingClientRect(offsetParent, true);
+        offsets.x += offsetParent.clientLeft;
+        offsets.y += offsetParent.clientTop;
+      } else if (documentElement) {
+        offsets.x = getWindowScrollBarX(documentElement);
+      }
+    }
+
+    return {
+      x: rect.left + scroll.scrollLeft - offsets.x,
+      y: rect.top + scroll.scrollTop - offsets.y,
+      width: rect.width,
+      height: rect.height
+    };
+  }
+
+  function order(modifiers) {
+    var map = new Map();
+    var visited = new Set();
+    var result = [];
+    modifiers.forEach(function (modifier) {
+      map.set(modifier.name, modifier);
+    }); // On visiting object, check for its dependencies and visit them recursively
+
+    function sort(modifier) {
+      visited.add(modifier.name);
+      var requires = [].concat(modifier.requires || [], modifier.requiresIfExists || []);
+      requires.forEach(function (dep) {
+        if (!visited.has(dep)) {
+          var depModifier = map.get(dep);
+
+          if (depModifier) {
+            sort(depModifier);
+          }
+        }
+      });
+      result.push(modifier);
+    }
+
+    modifiers.forEach(function (modifier) {
+      if (!visited.has(modifier.name)) {
+        // check for visited object
+        sort(modifier);
+      }
+    });
+    return result;
+  }
+
+  function orderModifiers(modifiers) {
+    // order based on dependencies
+    var orderedModifiers = order(modifiers); // order based on phase
+
+    return modifierPhases.reduce(function (acc, phase) {
+      return acc.concat(orderedModifiers.filter(function (modifier) {
+        return modifier.phase === phase;
+      }));
+    }, []);
+  }
+
+  function debounce(fn) {
+    var pending;
+    return function () {
+      if (!pending) {
+        pending = new Promise(function (resolve) {
+          Promise.resolve().then(function () {
+            pending = undefined;
+            resolve(fn());
+          });
+        });
+      }
+
+      return pending;
+    };
+  }
+
+  function mergeByName(modifiers) {
+    var merged = modifiers.reduce(function (merged, current) {
+      var existing = merged[current.name];
+      merged[current.name] = existing ? Object.assign({}, existing, current, {
+        options: Object.assign({}, existing.options, current.options),
+        data: Object.assign({}, existing.data, current.data)
+      }) : current;
+      return merged;
+    }, {}); // IE11 does not support Object.values
+
+    return Object.keys(merged).map(function (key) {
+      return merged[key];
+    });
+  }
+
+  var DEFAULT_OPTIONS = {
+    placement: 'bottom',
+    modifiers: [],
+    strategy: 'absolute'
+  };
+
+  function areValidElements() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return !args.some(function (element) {
+      return !(element && typeof element.getBoundingClientRect === 'function');
+    });
+  }
+
+  function popperGenerator(generatorOptions) {
+    if (generatorOptions === void 0) {
+      generatorOptions = {};
+    }
+
+    var _generatorOptions = generatorOptions,
+        _generatorOptions$def = _generatorOptions.defaultModifiers,
+        defaultModifiers = _generatorOptions$def === void 0 ? [] : _generatorOptions$def,
+        _generatorOptions$def2 = _generatorOptions.defaultOptions,
+        defaultOptions = _generatorOptions$def2 === void 0 ? DEFAULT_OPTIONS : _generatorOptions$def2;
+    return function createPopper(reference, popper, options) {
+      if (options === void 0) {
+        options = defaultOptions;
+      }
+
+      var state = {
+        placement: 'bottom',
+        orderedModifiers: [],
+        options: Object.assign({}, DEFAULT_OPTIONS, defaultOptions),
+        modifiersData: {},
+        elements: {
+          reference: reference,
+          popper: popper
+        },
+        attributes: {},
+        styles: {}
+      };
+      var effectCleanupFns = [];
+      var isDestroyed = false;
+      var instance = {
+        state: state,
+        setOptions: function setOptions(setOptionsAction) {
+          var options = typeof setOptionsAction === 'function' ? setOptionsAction(state.options) : setOptionsAction;
+          cleanupModifierEffects();
+          state.options = Object.assign({}, defaultOptions, state.options, options);
+          state.scrollParents = {
+            reference: isElement(reference) ? listScrollParents(reference) : reference.contextElement ? listScrollParents(reference.contextElement) : [],
+            popper: listScrollParents(popper)
+          }; // Orders the modifiers based on their dependencies and `phase`
+          // properties
+
+          var orderedModifiers = orderModifiers(mergeByName([].concat(defaultModifiers, state.options.modifiers))); // Strip out disabled modifiers
+
+          state.orderedModifiers = orderedModifiers.filter(function (m) {
+            return m.enabled;
+          });
+          runModifierEffects();
+          return instance.update();
+        },
+        // Sync update – it will always be executed, even if not necessary. This
+        // is useful for low frequency updates where sync behavior simplifies the
+        // logic.
+        // For high frequency updates (e.g. `resize` and `scroll` events), always
+        // prefer the async Popper#update method
+        forceUpdate: function forceUpdate() {
+          if (isDestroyed) {
+            return;
+          }
+
+          var _state$elements = state.elements,
+              reference = _state$elements.reference,
+              popper = _state$elements.popper; // Don't proceed if `reference` or `popper` are not valid elements
+          // anymore
+
+          if (!areValidElements(reference, popper)) {
+            return;
+          } // Store the reference and popper rects to be read by modifiers
+
+
+          state.rects = {
+            reference: getCompositeRect(reference, getOffsetParent(popper), state.options.strategy === 'fixed'),
+            popper: getLayoutRect(popper)
+          }; // Modifiers have the ability to reset the current update cycle. The
+          // most common use case for this is the `flip` modifier changing the
+          // placement, which then needs to re-run all the modifiers, because the
+          // logic was previously ran for the previous placement and is therefore
+          // stale/incorrect
+
+          state.reset = false;
+          state.placement = state.options.placement; // On each update cycle, the `modifiersData` property for each modifier
+          // is filled with the initial data specified by the modifier. This means
+          // it doesn't persist and is fresh on each update.
+          // To ensure persistent data, use `${name}#persistent`
+
+          state.orderedModifiers.forEach(function (modifier) {
+            return state.modifiersData[modifier.name] = Object.assign({}, modifier.data);
+          });
+
+          for (var index = 0; index < state.orderedModifiers.length; index++) {
+            if (state.reset === true) {
+              state.reset = false;
+              index = -1;
+              continue;
+            }
+
+            var _state$orderedModifie = state.orderedModifiers[index],
+                fn = _state$orderedModifie.fn,
+                _state$orderedModifie2 = _state$orderedModifie.options,
+                _options = _state$orderedModifie2 === void 0 ? {} : _state$orderedModifie2,
+                name = _state$orderedModifie.name;
+
+            if (typeof fn === 'function') {
+              state = fn({
+                state: state,
+                options: _options,
+                name: name,
+                instance: instance
+              }) || state;
+            }
+          }
+        },
+        // Async and optimistically optimized update – it will not be executed if
+        // not necessary (debounced to run at most once-per-tick)
+        update: debounce(function () {
+          return new Promise(function (resolve) {
+            instance.forceUpdate();
+            resolve(state);
+          });
+        }),
+        destroy: function destroy() {
+          cleanupModifierEffects();
+          isDestroyed = true;
+        }
+      };
+
+      if (!areValidElements(reference, popper)) {
+        return instance;
+      }
+
+      instance.setOptions(options).then(function (state) {
+        if (!isDestroyed && options.onFirstUpdate) {
+          options.onFirstUpdate(state);
+        }
+      }); // Modifiers have the ability to execute arbitrary code before the first
+      // update cycle runs. They will be executed in the same order as the update
+      // cycle. This is useful when a modifier adds some persistent data that
+      // other modifiers need to use, but the modifier is run after the dependent
+      // one.
+
+      function runModifierEffects() {
+        state.orderedModifiers.forEach(function (_ref) {
+          var name = _ref.name,
+              _ref$options = _ref.options,
+              options = _ref$options === void 0 ? {} : _ref$options,
+              effect = _ref.effect;
+
+          if (typeof effect === 'function') {
+            var cleanupFn = effect({
+              state: state,
+              name: name,
+              instance: instance,
+              options: options
+            });
+
+            var noopFn = function noopFn() {};
+
+            effectCleanupFns.push(cleanupFn || noopFn);
+          }
+        });
+      }
+
+      function cleanupModifierEffects() {
+        effectCleanupFns.forEach(function (fn) {
+          return fn();
+        });
+        effectCleanupFns = [];
+      }
+
+      return instance;
+    };
+  }
+
+  var defaultModifiers = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1, offset$1, flip$1, preventOverflow$1, arrow$1, hide$1];
+  var createPopper = /*#__PURE__*/popperGenerator({
+    defaultModifiers: defaultModifiers
+  }); // eslint-disable-next-line import/no-unused-modules
 
   /**
    * @ignore - do not document.
@@ -9765,6 +12711,305 @@ export default theme;`;
     return mountNode ? /*#__PURE__*/ReactDOM__namespace.createPortal(children, mountNode) : mountNode;
   });
 
+  function getPopperUtilityClass(slot) {
+    return generateUtilityClass('MuiPopper', slot);
+  }
+  generateUtilityClasses('MuiPopper', ['root']);
+
+  function flipPlacement(placement, direction) {
+    if (direction === 'ltr') {
+      return placement;
+    }
+    switch (placement) {
+      case 'bottom-end':
+        return 'bottom-start';
+      case 'bottom-start':
+        return 'bottom-end';
+      case 'top-end':
+        return 'top-start';
+      case 'top-start':
+        return 'top-end';
+      default:
+        return placement;
+    }
+  }
+  function resolveAnchorEl$1(anchorEl) {
+    return typeof anchorEl === 'function' ? anchorEl() : anchorEl;
+  }
+  function isHTMLElement(element) {
+    return element.nodeType !== undefined;
+  }
+  const useUtilityClasses$u = ownerState => {
+    const {
+      classes
+    } = ownerState;
+    const slots = {
+      root: ['root']
+    };
+    return composeClasses(slots, getPopperUtilityClass, classes);
+  };
+  const defaultPopperOptions = {};
+  const PopperTooltip = /*#__PURE__*/React__namespace.forwardRef(function PopperTooltip(props, forwardedRef) {
+    const {
+      anchorEl,
+      children,
+      direction,
+      disablePortal,
+      modifiers,
+      open,
+      placement: initialPlacement,
+      popperOptions,
+      popperRef: popperRefProp,
+      slotProps = {},
+      slots = {},
+      TransitionProps,
+      // @ts-ignore internal logic
+      ownerState: ownerStateProp,
+      // prevent from spreading to DOM, it can come from the parent component e.g. Select.
+      ...other
+    } = props;
+    const tooltipRef = React__namespace.useRef(null);
+    const ownRef = useForkRef(tooltipRef, forwardedRef);
+    const popperRef = React__namespace.useRef(null);
+    const handlePopperRef = useForkRef(popperRef, popperRefProp);
+    const handlePopperRefRef = React__namespace.useRef(handlePopperRef);
+    useEnhancedEffect(() => {
+      handlePopperRefRef.current = handlePopperRef;
+    }, [handlePopperRef]);
+    React__namespace.useImperativeHandle(popperRefProp, () => popperRef.current, []);
+    const rtlPlacement = flipPlacement(initialPlacement, direction);
+    /**
+     * placement initialized from prop but can change during lifetime if modifiers.flip.
+     * modifiers.flip is essentially a flip for controlled/uncontrolled behavior
+     */
+    const [placement, setPlacement] = React__namespace.useState(rtlPlacement);
+    const [resolvedAnchorElement, setResolvedAnchorElement] = React__namespace.useState(resolveAnchorEl$1(anchorEl));
+    React__namespace.useEffect(() => {
+      if (popperRef.current) {
+        popperRef.current.forceUpdate();
+      }
+    });
+    React__namespace.useEffect(() => {
+      if (anchorEl) {
+        setResolvedAnchorElement(resolveAnchorEl$1(anchorEl));
+      }
+    }, [anchorEl]);
+    useEnhancedEffect(() => {
+      if (!resolvedAnchorElement || !open) {
+        return undefined;
+      }
+      const handlePopperUpdate = data => {
+        setPlacement(data.placement);
+      };
+      let popperModifiers = [{
+        name: 'preventOverflow',
+        options: {
+          altBoundary: disablePortal
+        }
+      }, {
+        name: 'flip',
+        options: {
+          altBoundary: disablePortal
+        }
+      }, {
+        name: 'onUpdate',
+        enabled: true,
+        phase: 'afterWrite',
+        fn: ({
+          state
+        }) => {
+          handlePopperUpdate(state);
+        }
+      }];
+      if (modifiers != null) {
+        popperModifiers = popperModifiers.concat(modifiers);
+      }
+      if (popperOptions && popperOptions.modifiers != null) {
+        popperModifiers = popperModifiers.concat(popperOptions.modifiers);
+      }
+      const popper = createPopper(resolvedAnchorElement, tooltipRef.current, {
+        placement: rtlPlacement,
+        ...popperOptions,
+        modifiers: popperModifiers
+      });
+      handlePopperRefRef.current(popper);
+      return () => {
+        popper.destroy();
+        handlePopperRefRef.current(null);
+      };
+    }, [resolvedAnchorElement, disablePortal, modifiers, open, popperOptions, rtlPlacement]);
+    const childProps = {
+      placement: placement
+    };
+    if (TransitionProps !== null) {
+      childProps.TransitionProps = TransitionProps;
+    }
+    const classes = useUtilityClasses$u(props);
+    const Root = slots.root ?? 'div';
+    const rootProps = useSlotProps({
+      elementType: Root,
+      externalSlotProps: slotProps.root,
+      externalForwardedProps: other,
+      additionalProps: {
+        role: 'tooltip',
+        ref: ownRef
+      },
+      ownerState: props,
+      className: classes.root
+    });
+    return /*#__PURE__*/jsxRuntimeExports.jsx(Root, {
+      ...rootProps,
+      children: typeof children === 'function' ? children(childProps) : children
+    });
+  });
+
+  /**
+   * @ignore - internal component.
+   */
+  const Popper$1 = /*#__PURE__*/React__namespace.forwardRef(function Popper(props, forwardedRef) {
+    const {
+      anchorEl,
+      children,
+      container: containerProp,
+      direction = 'ltr',
+      disablePortal = false,
+      keepMounted = false,
+      modifiers,
+      open,
+      placement = 'bottom',
+      popperOptions = defaultPopperOptions,
+      popperRef,
+      style,
+      transition = false,
+      slotProps = {},
+      slots = {},
+      ...other
+    } = props;
+    const [exited, setExited] = React__namespace.useState(true);
+    const handleEnter = () => {
+      setExited(false);
+    };
+    const handleExited = () => {
+      setExited(true);
+    };
+    if (!keepMounted && !open && (!transition || exited)) {
+      return null;
+    }
+
+    // If the container prop is provided, use that
+    // If the anchorEl prop is provided, use its parent body element as the container
+    // If neither are provided let the Modal take care of choosing the container
+    let container;
+    if (containerProp) {
+      container = containerProp;
+    } else if (anchorEl) {
+      const resolvedAnchorEl = resolveAnchorEl$1(anchorEl);
+      container = resolvedAnchorEl && isHTMLElement(resolvedAnchorEl) ? ownerDocument(resolvedAnchorEl).body : ownerDocument(null).body;
+    }
+    const display = !open && keepMounted && (!transition || exited) ? 'none' : undefined;
+    const transitionProps = transition ? {
+      in: open,
+      onEnter: handleEnter,
+      onExited: handleExited
+    } : undefined;
+    return /*#__PURE__*/jsxRuntimeExports.jsx(Portal, {
+      disablePortal: disablePortal,
+      container: container,
+      children: /*#__PURE__*/jsxRuntimeExports.jsx(PopperTooltip, {
+        anchorEl: anchorEl,
+        direction: direction,
+        disablePortal: disablePortal,
+        modifiers: modifiers,
+        ref: forwardedRef,
+        open: transition ? !exited : open,
+        placement: placement,
+        popperOptions: popperOptions,
+        popperRef: popperRef,
+        slotProps: slotProps,
+        slots: slots,
+        ...other,
+        style: {
+          // Prevents scroll issue, waiting for Popper.js to add this style once initiated.
+          position: 'fixed',
+          // Fix Popper.js display issue
+          top: 0,
+          left: 0,
+          display,
+          ...style
+        },
+        TransitionProps: transitionProps,
+        children: children
+      })
+    });
+  });
+
+  const PopperRoot = styled(Popper$1, {
+    name: 'MuiPopper',
+    slot: 'Root'
+  })({});
+
+  /**
+   *
+   * Demos:
+   *
+   * - [Autocomplete](https://mui.com/material-ui/react-autocomplete/)
+   * - [Menu](https://mui.com/material-ui/react-menu/)
+   * - [Popper](https://mui.com/material-ui/react-popper/)
+   *
+   * API:
+   *
+   * - [Popper API](https://mui.com/material-ui/api/popper/)
+   */
+  const Popper = /*#__PURE__*/React__namespace.forwardRef(function Popper(inProps, ref) {
+    const isRtl = useRtl();
+    const props = useDefaultProps({
+      props: inProps,
+      name: 'MuiPopper'
+    });
+    const {
+      anchorEl,
+      component,
+      components,
+      componentsProps,
+      container,
+      disablePortal,
+      keepMounted,
+      modifiers,
+      open,
+      placement,
+      popperOptions,
+      popperRef,
+      transition,
+      slots,
+      slotProps,
+      ...other
+    } = props;
+    const RootComponent = slots?.root ?? components?.Root;
+    const otherProps = {
+      anchorEl,
+      container,
+      disablePortal,
+      keepMounted,
+      modifiers,
+      open,
+      placement,
+      popperOptions,
+      popperRef,
+      transition,
+      ...other
+    };
+    return /*#__PURE__*/jsxRuntimeExports.jsx(PopperRoot, {
+      as: component,
+      direction: isRtl ? 'rtl' : 'ltr',
+      slots: {
+        root: RootComponent
+      },
+      slotProps: slotProps ?? componentsProps,
+      ...otherProps,
+      ref: ref
+    });
+  });
+
   var CancelIcon = createSvgIcon(/*#__PURE__*/jsxRuntimeExports.jsx("path", {
     d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
   }));
@@ -9774,7 +13019,7 @@ export default theme;`;
   }
   const chipClasses = generateUtilityClasses('MuiChip', ['root', 'sizeSmall', 'sizeMedium', 'colorDefault', 'colorError', 'colorInfo', 'colorPrimary', 'colorSecondary', 'colorSuccess', 'colorWarning', 'disabled', 'clickable', 'clickableColorPrimary', 'clickableColorSecondary', 'deletable', 'deletableColorPrimary', 'deletableColorSecondary', 'outlined', 'filled', 'outlinedPrimary', 'outlinedSecondary', 'filledPrimary', 'filledSecondary', 'avatar', 'avatarSmall', 'avatarMedium', 'avatarColorPrimary', 'avatarColorSecondary', 'icon', 'iconSmall', 'iconMedium', 'iconColorPrimary', 'iconColorSecondary', 'label', 'labelSmall', 'labelMedium', 'deleteIcon', 'deleteIconSmall', 'deleteIconMedium', 'deleteIconColorPrimary', 'deleteIconColorSecondary', 'deleteIconOutlinedColorPrimary', 'deleteIconOutlinedColorSecondary', 'deleteIconFilledColorPrimary', 'deleteIconFilledColorSecondary', 'focusVisible']);
 
-  const useUtilityClasses$r = ownerState => {
+  const useUtilityClasses$t = ownerState => {
     const {
       classes,
       disabled,
@@ -10178,7 +13423,7 @@ export default theme;`;
       clickable,
       variant
     };
-    const classes = useUtilityClasses$r(ownerState);
+    const classes = useUtilityClasses$t(ownerState);
     const moreProps = component === ButtonBase ? {
       component: ComponentProp || 'div',
       focusVisibleClassName: classes.focusVisible,
@@ -10392,7 +13637,7 @@ export default theme;`;
     }, [calculateTextareaStyles]);
     const frameRef = React__namespace.useRef(-1);
     useEnhancedEffect(() => {
-      const debouncedHandleResize = debounce(syncHeight);
+      const debouncedHandleResize = debounce$1(syncHeight);
       const textarea = textareaRef?.current;
       if (!textarea) {
         return undefined;
@@ -10545,7 +13790,7 @@ export default theme;`;
     } = props;
     return [styles.input, ownerState.size === 'small' && styles.inputSizeSmall, ownerState.multiline && styles.inputMultiline, ownerState.type === 'search' && styles.inputTypeSearch, ownerState.startAdornment && styles.inputAdornedStart, ownerState.endAdornment && styles.inputAdornedEnd, ownerState.hiddenLabel && styles.inputHiddenLabel];
   };
-  const useUtilityClasses$q = ownerState => {
+  const useUtilityClasses$s = ownerState => {
     const {
       classes,
       color,
@@ -10945,7 +14190,7 @@ export default theme;`;
       startAdornment,
       type
     };
-    const classes = useUtilityClasses$q(ownerState);
+    const classes = useUtilityClasses$s(ownerState);
     const Root = slots.root || components.Root || InputBaseRoot;
     const rootProps = slotProps.root || componentsProps.root || {};
     const Input = slots.input || components.Input || InputBaseInput;
@@ -11166,7 +14411,7 @@ export default theme;`;
   }
   generateUtilityClasses('MuiBackdrop', ['root', 'invisible']);
 
-  const useUtilityClasses$p = ownerState => {
+  const useUtilityClasses$r = ownerState => {
     const {
       classes,
       invisible
@@ -11229,7 +14474,7 @@ export default theme;`;
       component,
       invisible
     };
-    const classes = useUtilityClasses$p(ownerState);
+    const classes = useUtilityClasses$r(ownerState);
     const backwardCompatibleSlots = {
       transition: TransitionComponentProp,
       root: components.Root,
@@ -11295,7 +14540,7 @@ export default theme;`;
    */
   const ButtonGroupButtonContext = /*#__PURE__*/React__namespace.createContext(undefined);
 
-  const useUtilityClasses$o = ownerState => {
+  const useUtilityClasses$q = ownerState => {
     const {
       color,
       disableElevation,
@@ -11796,7 +15041,7 @@ export default theme;`;
       type,
       variant
     };
-    const classes = useUtilityClasses$o(ownerState);
+    const classes = useUtilityClasses$q(ownerState);
     const startIcon = (startIconProp || loading && loadingPosition === 'start') && /*#__PURE__*/jsxRuntimeExports.jsx(ButtonStartIcon, {
       className: classes.startIcon,
       ownerState: ownerState,
@@ -12513,7 +15758,7 @@ export default theme;`;
   }
   generateUtilityClasses('MuiModal', ['root', 'hidden', 'backdrop']);
 
-  const useUtilityClasses$n = ownerState => {
+  const useUtilityClasses$p = ownerState => {
     const {
       open,
       exited,
@@ -12634,7 +15879,7 @@ export default theme;`;
       ...propsWithDefaults,
       exited
     };
-    const classes = useUtilityClasses$n(ownerState);
+    const classes = useUtilityClasses$p(ownerState);
     const childProps = {};
     if (children.props.tabIndex === undefined) {
       childProps.tabIndex = '-1';
@@ -12729,7 +15974,7 @@ export default theme;`;
     // Improve scrollable dialog support.
     zIndex: -1
   });
-  const useUtilityClasses$m = ownerState => {
+  const useUtilityClasses$o = ownerState => {
     const {
       classes,
       scroll,
@@ -12936,7 +16181,7 @@ export default theme;`;
       maxWidth,
       scroll
     };
-    const classes = useUtilityClasses$m(ownerState);
+    const classes = useUtilityClasses$o(ownerState);
     const backdropClick = React__namespace.useRef();
     const handleMouseDown = event => {
       // We don't want to close the dialog when clicking the dialog content.
@@ -13066,7 +16311,7 @@ export default theme;`;
   }
   const dialogTitleClasses = generateUtilityClasses('MuiDialogTitle', ['root']);
 
-  const useUtilityClasses$l = ownerState => {
+  const useUtilityClasses$n = ownerState => {
     const {
       classes,
       dividers
@@ -13127,7 +16372,7 @@ export default theme;`;
       ...props,
       dividers
     };
-    const classes = useUtilityClasses$l(ownerState);
+    const classes = useUtilityClasses$n(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsx(DialogContentRoot, {
       className: clsx(classes.root, className),
       ownerState: ownerState,
@@ -13136,7 +16381,7 @@ export default theme;`;
     });
   });
 
-  const useUtilityClasses$k = ownerState => {
+  const useUtilityClasses$m = ownerState => {
     const {
       classes
     } = ownerState;
@@ -13163,7 +16408,7 @@ export default theme;`;
       ...other
     } = props;
     const ownerState = props;
-    const classes = useUtilityClasses$k(ownerState);
+    const classes = useUtilityClasses$m(ownerState);
     const {
       titleId = idProp
     } = React__namespace.useContext(DialogContext);
@@ -13183,7 +16428,7 @@ export default theme;`;
   }
   const dividerClasses = generateUtilityClasses('MuiDivider', ['root', 'absolute', 'fullWidth', 'inset', 'middle', 'flexItem', 'light', 'vertical', 'withChildren', 'withChildrenVertical', 'textAlignRight', 'textAlignLeft', 'wrapper', 'wrapperVertical']);
 
-  const useUtilityClasses$j = ownerState => {
+  const useUtilityClasses$l = ownerState => {
     const {
       absolute,
       children,
@@ -13397,7 +16642,7 @@ export default theme;`;
       textAlign,
       variant
     };
-    const classes = useUtilityClasses$j(ownerState);
+    const classes = useUtilityClasses$l(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsx(DividerRoot, {
       as: component,
       className: clsx(classes.root, className),
@@ -13422,7 +16667,7 @@ export default theme;`;
     Divider.muiSkipListHighlight = true;
   }
 
-  const useUtilityClasses$i = ownerState => {
+  const useUtilityClasses$k = ownerState => {
     const {
       classes,
       disableUnderline,
@@ -13700,7 +16945,7 @@ export default theme;`;
       multiline,
       type
     };
-    const classes = useUtilityClasses$i(props);
+    const classes = useUtilityClasses$k(props);
     const filledInputComponentsProps = {
       root: {
         ownerState
@@ -13734,7 +16979,7 @@ export default theme;`;
   }
   generateUtilityClasses('MuiFormControl', ['root', 'marginNone', 'marginNormal', 'marginDense', 'fullWidth', 'disabled']);
 
-  const useUtilityClasses$h = ownerState => {
+  const useUtilityClasses$j = ownerState => {
     const {
       classes,
       margin,
@@ -13849,7 +17094,7 @@ export default theme;`;
       size,
       variant
     };
-    const classes = useUtilityClasses$h(ownerState);
+    const classes = useUtilityClasses$j(ownerState);
     const [adornedStart, setAdornedStart] = React__namespace.useState(() => {
       // We need to iterate through the children and find the Input in order
       // to fully support server-side rendering.
@@ -13940,7 +17185,7 @@ export default theme;`;
   const formHelperTextClasses = generateUtilityClasses('MuiFormHelperText', ['root', 'error', 'disabled', 'sizeSmall', 'sizeMedium', 'contained', 'focused', 'filled', 'required']);
 
   var _span$2;
-  const useUtilityClasses$g = ownerState => {
+  const useUtilityClasses$i = ownerState => {
     const {
       classes,
       contained,
@@ -14037,7 +17282,7 @@ export default theme;`;
 
     // This issue explains why this is required: https://github.com/mui/material-ui/issues/42184
     delete ownerState.ownerState;
-    const classes = useUtilityClasses$g(ownerState);
+    const classes = useUtilityClasses$i(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsx(FormHelperTextRoot, {
       as: component,
       className: clsx(classes.root, className),
@@ -14058,7 +17303,7 @@ export default theme;`;
   }
   const formLabelClasses = generateUtilityClasses('MuiFormLabel', ['root', 'colorSecondary', 'focused', 'disabled', 'error', 'filled', 'required', 'asterisk']);
 
-  const useUtilityClasses$f = ownerState => {
+  const useUtilityClasses$h = ownerState => {
     const {
       classes,
       color,
@@ -14155,7 +17400,7 @@ export default theme;`;
       focused: fcs.focused,
       required: fcs.required
     };
-    const classes = useUtilityClasses$f(ownerState);
+    const classes = useUtilityClasses$h(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsxs(FormLabelRoot, {
       as: component,
       ownerState: ownerState,
@@ -14347,7 +17592,7 @@ export default theme;`;
     Grow.muiSupportAuto = true;
   }
 
-  const useUtilityClasses$e = ownerState => {
+  const useUtilityClasses$g = ownerState => {
     const {
       classes,
       disableUnderline
@@ -14478,7 +17723,7 @@ export default theme;`;
       type = 'text',
       ...other
     } = props;
-    const classes = useUtilityClasses$e(props);
+    const classes = useUtilityClasses$g(props);
     const ownerState = {
       disableUnderline
     };
@@ -14512,7 +17757,7 @@ export default theme;`;
   }
   generateUtilityClasses('MuiInputLabel', ['root', 'focused', 'disabled', 'error', 'required', 'asterisk', 'formControl', 'sizeSmall', 'shrink', 'animated', 'standard', 'filled', 'outlined']);
 
-  const useUtilityClasses$d = ownerState => {
+  const useUtilityClasses$f = ownerState => {
     const {
       classes,
       formControl,
@@ -14701,7 +17946,7 @@ export default theme;`;
       required: fcs.required,
       focused: fcs.focused
     };
-    const classes = useUtilityClasses$d(ownerState);
+    const classes = useUtilityClasses$f(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsx(InputLabelRoot, {
       "data-shrink": shrink,
       ref: ref,
@@ -14709,6 +17954,406 @@ export default theme;`;
       ...other,
       ownerState: ownerState,
       classes: classes
+    });
+  });
+
+  function getLinearProgressUtilityClass(slot) {
+    return generateUtilityClass('MuiLinearProgress', slot);
+  }
+  generateUtilityClasses('MuiLinearProgress', ['root', 'colorPrimary', 'colorSecondary', 'determinate', 'indeterminate', 'buffer', 'query', 'dashed', 'dashedColorPrimary', 'dashedColorSecondary', 'bar', 'bar1', 'bar2', 'barColorPrimary', 'barColorSecondary', 'bar1Indeterminate', 'bar1Determinate', 'bar1Buffer', 'bar2Indeterminate', 'bar2Buffer']);
+
+  const TRANSITION_DURATION = 4; // seconds
+  const indeterminate1Keyframe = keyframes`
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+`;
+
+  // This implementation is for supporting both Styled-components v4+ and Pigment CSS.
+  // A global animation has to be created here for Styled-components v4+ (https://github.com/styled-components/styled-components/blob/main/packages/styled-components/src/utils/errors.md#12).
+  // which can be done by checking typeof indeterminate1Keyframe !== 'string' (at runtime, Pigment CSS transform keyframes`` to a string).
+  const indeterminate1Animation = typeof indeterminate1Keyframe !== 'string' ? css`
+        animation: ${indeterminate1Keyframe} 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+      ` : null;
+  const indeterminate2Keyframe = keyframes`
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+`;
+  const indeterminate2Animation = typeof indeterminate2Keyframe !== 'string' ? css`
+        animation: ${indeterminate2Keyframe} 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite;
+      ` : null;
+  const bufferKeyframe = keyframes`
+  0% {
+    opacity: 1;
+    background-position: 0 -23px;
+  }
+
+  60% {
+    opacity: 0;
+    background-position: 0 -23px;
+  }
+
+  100% {
+    opacity: 1;
+    background-position: -200px -23px;
+  }
+`;
+  const bufferAnimation = typeof bufferKeyframe !== 'string' ? css`
+        animation: ${bufferKeyframe} 3s infinite linear;
+      ` : null;
+  const useUtilityClasses$e = ownerState => {
+    const {
+      classes,
+      variant,
+      color
+    } = ownerState;
+    const slots = {
+      root: ['root', `color${capitalize(color)}`, variant],
+      dashed: ['dashed', `dashedColor${capitalize(color)}`],
+      bar1: ['bar', 'bar1', `barColor${capitalize(color)}`, (variant === 'indeterminate' || variant === 'query') && 'bar1Indeterminate', variant === 'determinate' && 'bar1Determinate', variant === 'buffer' && 'bar1Buffer'],
+      bar2: ['bar', 'bar2', variant !== 'buffer' && `barColor${capitalize(color)}`, variant === 'buffer' && `color${capitalize(color)}`, (variant === 'indeterminate' || variant === 'query') && 'bar2Indeterminate', variant === 'buffer' && 'bar2Buffer']
+    };
+    return composeClasses(slots, getLinearProgressUtilityClass, classes);
+  };
+  const getColorShade = (theme, color) => {
+    if (theme.vars) {
+      return theme.vars.palette.LinearProgress[`${color}Bg`];
+    }
+    return theme.palette.mode === 'light' ? theme.lighten(theme.palette[color].main, 0.62) : theme.darken(theme.palette[color].main, 0.5);
+  };
+  const LinearProgressRoot = styled('span', {
+    name: 'MuiLinearProgress',
+    slot: 'Root',
+    overridesResolver: (props, styles) => {
+      const {
+        ownerState
+      } = props;
+      return [styles.root, styles[`color${capitalize(ownerState.color)}`], styles[ownerState.variant]];
+    }
+  })(memoTheme(({
+    theme
+  }) => ({
+    position: 'relative',
+    overflow: 'hidden',
+    display: 'block',
+    height: 4,
+    // Fix Safari's bug during composition of different paint.
+    zIndex: 0,
+    '@media print': {
+      colorAdjust: 'exact'
+    },
+    variants: [...Object.entries(theme.palette).filter(createSimplePaletteValueFilter()).map(([color]) => ({
+      props: {
+        color
+      },
+      style: {
+        backgroundColor: getColorShade(theme, color)
+      }
+    })), {
+      props: ({
+        ownerState
+      }) => ownerState.color === 'inherit' && ownerState.variant !== 'buffer',
+      style: {
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'currentColor',
+          opacity: 0.3
+        }
+      }
+    }, {
+      props: {
+        variant: 'buffer'
+      },
+      style: {
+        backgroundColor: 'transparent'
+      }
+    }, {
+      props: {
+        variant: 'query'
+      },
+      style: {
+        transform: 'rotate(180deg)'
+      }
+    }]
+  })));
+  const LinearProgressDashed = styled('span', {
+    name: 'MuiLinearProgress',
+    slot: 'Dashed',
+    overridesResolver: (props, styles) => {
+      const {
+        ownerState
+      } = props;
+      return [styles.dashed, styles[`dashedColor${capitalize(ownerState.color)}`]];
+    }
+  })(memoTheme(({
+    theme
+  }) => ({
+    position: 'absolute',
+    marginTop: 0,
+    height: '100%',
+    width: '100%',
+    backgroundSize: '10px 10px',
+    backgroundPosition: '0 -23px',
+    variants: [{
+      props: {
+        color: 'inherit'
+      },
+      style: {
+        opacity: 0.3,
+        backgroundImage: `radial-gradient(currentColor 0%, currentColor 16%, transparent 42%)`
+      }
+    }, ...Object.entries(theme.palette).filter(createSimplePaletteValueFilter()).map(([color]) => {
+      const backgroundColor = getColorShade(theme, color);
+      return {
+        props: {
+          color
+        },
+        style: {
+          backgroundImage: `radial-gradient(${backgroundColor} 0%, ${backgroundColor} 16%, transparent 42%)`
+        }
+      };
+    })]
+  })), bufferAnimation || {
+    // At runtime for Pigment CSS, `bufferAnimation` will be null and the generated keyframe will be used.
+    animation: `${bufferKeyframe} 3s infinite linear`
+  });
+  const LinearProgressBar1 = styled('span', {
+    name: 'MuiLinearProgress',
+    slot: 'Bar1',
+    overridesResolver: (props, styles) => {
+      const {
+        ownerState
+      } = props;
+      return [styles.bar, styles.bar1, styles[`barColor${capitalize(ownerState.color)}`], (ownerState.variant === 'indeterminate' || ownerState.variant === 'query') && styles.bar1Indeterminate, ownerState.variant === 'determinate' && styles.bar1Determinate, ownerState.variant === 'buffer' && styles.bar1Buffer];
+    }
+  })(memoTheme(({
+    theme
+  }) => ({
+    width: '100%',
+    position: 'absolute',
+    left: 0,
+    bottom: 0,
+    top: 0,
+    transition: 'transform 0.2s linear',
+    transformOrigin: 'left',
+    variants: [{
+      props: {
+        color: 'inherit'
+      },
+      style: {
+        backgroundColor: 'currentColor'
+      }
+    }, ...Object.entries(theme.palette).filter(createSimplePaletteValueFilter()).map(([color]) => ({
+      props: {
+        color
+      },
+      style: {
+        backgroundColor: (theme.vars || theme).palette[color].main
+      }
+    })), {
+      props: {
+        variant: 'determinate'
+      },
+      style: {
+        transition: `transform .${TRANSITION_DURATION}s linear`
+      }
+    }, {
+      props: {
+        variant: 'buffer'
+      },
+      style: {
+        zIndex: 1,
+        transition: `transform .${TRANSITION_DURATION}s linear`
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.variant === 'indeterminate' || ownerState.variant === 'query',
+      style: {
+        width: 'auto'
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.variant === 'indeterminate' || ownerState.variant === 'query',
+      style: indeterminate1Animation || {
+        animation: `${indeterminate1Keyframe} 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite`
+      }
+    }]
+  })));
+  const LinearProgressBar2 = styled('span', {
+    name: 'MuiLinearProgress',
+    slot: 'Bar2',
+    overridesResolver: (props, styles) => {
+      const {
+        ownerState
+      } = props;
+      return [styles.bar, styles.bar2, styles[`barColor${capitalize(ownerState.color)}`], (ownerState.variant === 'indeterminate' || ownerState.variant === 'query') && styles.bar2Indeterminate, ownerState.variant === 'buffer' && styles.bar2Buffer];
+    }
+  })(memoTheme(({
+    theme
+  }) => ({
+    width: '100%',
+    position: 'absolute',
+    left: 0,
+    bottom: 0,
+    top: 0,
+    transition: 'transform 0.2s linear',
+    transformOrigin: 'left',
+    variants: [...Object.entries(theme.palette).filter(createSimplePaletteValueFilter()).map(([color]) => ({
+      props: {
+        color
+      },
+      style: {
+        '--LinearProgressBar2-barColor': (theme.vars || theme).palette[color].main
+      }
+    })), {
+      props: ({
+        ownerState
+      }) => ownerState.variant !== 'buffer' && ownerState.color !== 'inherit',
+      style: {
+        backgroundColor: 'var(--LinearProgressBar2-barColor, currentColor)'
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.variant !== 'buffer' && ownerState.color === 'inherit',
+      style: {
+        backgroundColor: 'currentColor'
+      }
+    }, {
+      props: {
+        color: 'inherit'
+      },
+      style: {
+        opacity: 0.3
+      }
+    }, ...Object.entries(theme.palette).filter(createSimplePaletteValueFilter()).map(([color]) => ({
+      props: {
+        color,
+        variant: 'buffer'
+      },
+      style: {
+        backgroundColor: getColorShade(theme, color),
+        transition: `transform .${TRANSITION_DURATION}s linear`
+      }
+    })), {
+      props: ({
+        ownerState
+      }) => ownerState.variant === 'indeterminate' || ownerState.variant === 'query',
+      style: {
+        width: 'auto'
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.variant === 'indeterminate' || ownerState.variant === 'query',
+      style: indeterminate2Animation || {
+        animation: `${indeterminate2Keyframe} 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite`
+      }
+    }]
+  })));
+
+  /**
+   * ## ARIA
+   *
+   * If the progress bar is describing the loading progress of a particular region of a page,
+   * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
+   * attribute to `true` on that region until it has finished loading.
+   */
+  const LinearProgress = /*#__PURE__*/React__namespace.forwardRef(function LinearProgress(inProps, ref) {
+    const props = useDefaultProps({
+      props: inProps,
+      name: 'MuiLinearProgress'
+    });
+    const {
+      className,
+      color = 'primary',
+      value,
+      valueBuffer,
+      variant = 'indeterminate',
+      ...other
+    } = props;
+    const ownerState = {
+      ...props,
+      color,
+      variant
+    };
+    const classes = useUtilityClasses$e(ownerState);
+    const isRtl = useRtl();
+    const rootProps = {};
+    const inlineStyles = {
+      bar1: {},
+      bar2: {}
+    };
+    if (variant === 'determinate' || variant === 'buffer') {
+      if (value !== undefined) {
+        rootProps['aria-valuenow'] = Math.round(value);
+        rootProps['aria-valuemin'] = 0;
+        rootProps['aria-valuemax'] = 100;
+        let transform = value - 100;
+        if (isRtl) {
+          transform = -transform;
+        }
+        inlineStyles.bar1.transform = `translateX(${transform}%)`;
+      }
+    }
+    if (variant === 'buffer') {
+      if (valueBuffer !== undefined) {
+        let transform = (valueBuffer || 0) - 100;
+        if (isRtl) {
+          transform = -transform;
+        }
+        inlineStyles.bar2.transform = `translateX(${transform}%)`;
+      }
+    }
+    return /*#__PURE__*/jsxRuntimeExports.jsxs(LinearProgressRoot, {
+      className: clsx(classes.root, className),
+      ownerState: ownerState,
+      role: "progressbar",
+      ...rootProps,
+      ref: ref,
+      ...other,
+      children: [variant === 'buffer' ? /*#__PURE__*/jsxRuntimeExports.jsx(LinearProgressDashed, {
+        className: classes.dashed,
+        ownerState: ownerState
+      }) : null, /*#__PURE__*/jsxRuntimeExports.jsx(LinearProgressBar1, {
+        className: classes.bar1,
+        ownerState: ownerState,
+        style: inlineStyles.bar1
+      }), variant === 'determinate' ? null : /*#__PURE__*/jsxRuntimeExports.jsx(LinearProgressBar2, {
+        className: classes.bar2,
+        ownerState: ownerState,
+        style: inlineStyles.bar2
+      })]
     });
   });
 
@@ -14722,7 +18367,7 @@ export default theme;`;
   }
   generateUtilityClasses('MuiList', ['root', 'padding', 'dense', 'subheader']);
 
-  const useUtilityClasses$c = ownerState => {
+  const useUtilityClasses$d = ownerState => {
     const {
       classes,
       disablePadding,
@@ -14788,7 +18433,7 @@ export default theme;`;
       dense,
       disablePadding
     };
-    const classes = useUtilityClasses$c(ownerState);
+    const classes = useUtilityClasses$d(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsx(ListContext.Provider, {
       value: context,
       children: /*#__PURE__*/jsxRuntimeExports.jsxs(ListRoot, {
@@ -14818,7 +18463,7 @@ export default theme;`;
     } = props;
     return [styles.root, ownerState.dense && styles.dense, ownerState.alignItems === 'flex-start' && styles.alignItemsFlexStart, ownerState.divider && styles.divider, !ownerState.disableGutters && styles.gutters];
   };
-  const useUtilityClasses$b = ownerState => {
+  const useUtilityClasses$c = ownerState => {
     const {
       alignItems,
       classes,
@@ -14959,7 +18604,7 @@ export default theme;`;
       divider,
       selected
     };
-    const classes = useUtilityClasses$b(ownerState);
+    const classes = useUtilityClasses$c(ownerState);
     const handleRef = useForkRef(listItemRef, ref);
     return /*#__PURE__*/jsxRuntimeExports.jsx(ListContext.Provider, {
       value: childContext,
@@ -14984,7 +18629,7 @@ export default theme;`;
   }
   generateUtilityClasses('MuiListItemSecondaryAction', ['root', 'disableGutters']);
 
-  const useUtilityClasses$a = ownerState => {
+  const useUtilityClasses$b = ownerState => {
     const {
       disableGutters,
       classes
@@ -15037,7 +18682,7 @@ export default theme;`;
       ...props,
       disableGutters: context.disableGutters
     };
-    const classes = useUtilityClasses$a(ownerState);
+    const classes = useUtilityClasses$b(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsx(ListItemSecondaryActionRoot, {
       className: clsx(classes.root, className),
       ownerState: ownerState,
@@ -15053,7 +18698,7 @@ export default theme;`;
     } = props;
     return [styles.root, ownerState.dense && styles.dense, ownerState.alignItems === 'flex-start' && styles.alignItemsFlexStart, ownerState.divider && styles.divider, !ownerState.disableGutters && styles.gutters, !ownerState.disablePadding && styles.padding, ownerState.hasSecondaryAction && styles.secondaryAction];
   };
-  const useUtilityClasses$9 = ownerState => {
+  const useUtilityClasses$a = ownerState => {
     const {
       alignItems,
       classes,
@@ -15225,7 +18870,7 @@ export default theme;`;
       divider,
       hasSecondaryAction
     };
-    const classes = useUtilityClasses$9(ownerState);
+    const classes = useUtilityClasses$a(ownerState);
     const handleRef = useForkRef(listItemRef, ref);
     const Root = slots.root || components.Root || ListItemRoot;
     const rootProps = slotProps.root || componentsProps.root || {};
@@ -15298,7 +18943,7 @@ export default theme;`;
   }
   const listItemTextClasses = generateUtilityClasses('MuiListItemText', ['root', 'multiline', 'dense', 'inset', 'primary', 'secondary']);
 
-  const useUtilityClasses$8 = ownerState => {
+  const useUtilityClasses$9 = ownerState => {
     const {
       classes,
       inset,
@@ -15385,7 +19030,7 @@ export default theme;`;
       secondary: !!secondary,
       dense
     };
-    const classes = useUtilityClasses$8(ownerState);
+    const classes = useUtilityClasses$9(ownerState);
     const externalForwardedProps = {
       slots,
       slotProps: {
@@ -15699,7 +19344,7 @@ export default theme;`;
   function resolveAnchorEl(anchorEl) {
     return typeof anchorEl === 'function' ? anchorEl() : anchorEl;
   }
-  const useUtilityClasses$7 = ownerState => {
+  const useUtilityClasses$8 = ownerState => {
     const {
       classes
     } = ownerState;
@@ -15777,7 +19422,7 @@ export default theme;`;
       transitionDuration: transitionDurationProp,
       TransitionProps
     };
-    const classes = useUtilityClasses$7(ownerState);
+    const classes = useUtilityClasses$8(ownerState);
 
     // Returns the top/left offset of the position
     // to attach to on the anchor element (or body if none is provided)
@@ -15904,7 +19549,7 @@ export default theme;`;
       if (!open) {
         return undefined;
       }
-      const handleResize = debounce(() => {
+      const handleResize = debounce$1(() => {
         setPositioningStyles();
       });
       const containerWindow = ownerWindow(resolveAnchorEl(anchorEl));
@@ -16026,7 +19671,7 @@ export default theme;`;
     vertical: 'top',
     horizontal: 'left'
   };
-  const useUtilityClasses$6 = ownerState => {
+  const useUtilityClasses$7 = ownerState => {
     const {
       classes
     } = ownerState;
@@ -16097,7 +19742,7 @@ export default theme;`;
       TransitionProps,
       variant
     };
-    const classes = useUtilityClasses$6(ownerState);
+    const classes = useUtilityClasses$7(ownerState);
     const autoFocusItem = autoFocus && !disableAutoFocusItem && open;
     const menuListActionsRef = React__namespace.useRef(null);
     const handleEntering = (element, isAppearing) => {
@@ -16233,7 +19878,7 @@ export default theme;`;
     } = props;
     return [styles.root, ownerState.dense && styles.dense, ownerState.divider && styles.divider, !ownerState.disableGutters && styles.gutters];
   };
-  const useUtilityClasses$5 = ownerState => {
+  const useUtilityClasses$6 = ownerState => {
     const {
       disabled,
       dense,
@@ -16391,7 +20036,7 @@ export default theme;`;
       divider,
       disableGutters
     };
-    const classes = useUtilityClasses$5(props);
+    const classes = useUtilityClasses$6(props);
     const handleRef = useForkRef(menuItemRef, ref);
     let tabIndex;
     if (!props.disabled) {
@@ -16418,7 +20063,7 @@ export default theme;`;
   }
   const nativeSelectClasses = generateUtilityClasses('MuiNativeSelect', ['root', 'select', 'multiple', 'filled', 'outlined', 'standard', 'disabled', 'icon', 'iconOpen', 'iconFilled', 'iconOutlined', 'iconStandard', 'nativeInput', 'error']);
 
-  const useUtilityClasses$4 = ownerState => {
+  const useUtilityClasses$5 = ownerState => {
     const {
       classes,
       variant,
@@ -16579,7 +20224,7 @@ export default theme;`;
       variant,
       error
     };
-    const classes = useUtilityClasses$4(ownerState);
+    const classes = useUtilityClasses$5(ownerState);
     return /*#__PURE__*/jsxRuntimeExports.jsxs(React__namespace.Fragment, {
       children: [/*#__PURE__*/jsxRuntimeExports.jsx(NativeSelectSelect, {
         ownerState: ownerState,
@@ -16718,7 +20363,7 @@ export default theme;`;
     });
   }
 
-  const useUtilityClasses$3 = ownerState => {
+  const useUtilityClasses$4 = ownerState => {
     const {
       classes
     } = ownerState;
@@ -16896,7 +20541,7 @@ export default theme;`;
       type = 'text',
       ...other
     } = props;
-    const classes = useUtilityClasses$3(props);
+    const classes = useUtilityClasses$4(props);
     const muiFormControl = useFormControl();
     const fcs = formControlState({
       props,
@@ -17028,7 +20673,7 @@ export default theme;`;
   function isEmpty$1(display) {
     return display == null || typeof display === 'string' && !display.trim();
   }
-  const useUtilityClasses$2 = ownerState => {
+  const useUtilityClasses$3 = ownerState => {
     const {
       classes,
       variant,
@@ -17354,7 +20999,7 @@ export default theme;`;
       open,
       error
     };
-    const classes = useUtilityClasses$2(ownerState);
+    const classes = useUtilityClasses$3(ownerState);
     const paperProps = {
       ...MenuProps.PaperProps,
       ...(typeof MenuProps.slotProps?.paper === 'function' ? MenuProps.slotProps.paper(ownerState) : MenuProps.slotProps?.paper)
@@ -17450,7 +21095,7 @@ export default theme;`;
     });
   });
 
-  const useUtilityClasses$1 = ownerState => {
+  const useUtilityClasses$2 = ownerState => {
     const {
       classes
     } = ownerState;
@@ -17513,7 +21158,7 @@ export default theme;`;
       variant,
       classes: classesProp
     };
-    const classes = useUtilityClasses$1(ownerState);
+    const classes = useUtilityClasses$2(ownerState);
     const {
       root,
       ...restOfClasses
@@ -17579,6 +21224,672 @@ export default theme;`;
     });
   });
   Select.muiName = 'Select';
+
+  function getTooltipUtilityClass(slot) {
+    return generateUtilityClass('MuiTooltip', slot);
+  }
+  const tooltipClasses = generateUtilityClasses('MuiTooltip', ['popper', 'popperInteractive', 'popperArrow', 'popperClose', 'tooltip', 'tooltipArrow', 'touch', 'tooltipPlacementLeft', 'tooltipPlacementRight', 'tooltipPlacementTop', 'tooltipPlacementBottom', 'arrow']);
+
+  function round$1(value) {
+    return Math.round(value * 1e5) / 1e5;
+  }
+  const useUtilityClasses$1 = ownerState => {
+    const {
+      classes,
+      disableInteractive,
+      arrow,
+      touch,
+      placement
+    } = ownerState;
+    const slots = {
+      popper: ['popper', !disableInteractive && 'popperInteractive', arrow && 'popperArrow'],
+      tooltip: ['tooltip', arrow && 'tooltipArrow', touch && 'touch', `tooltipPlacement${capitalize(placement.split('-')[0])}`],
+      arrow: ['arrow']
+    };
+    return composeClasses(slots, getTooltipUtilityClass, classes);
+  };
+  const TooltipPopper = styled(Popper, {
+    name: 'MuiTooltip',
+    slot: 'Popper',
+    overridesResolver: (props, styles) => {
+      const {
+        ownerState
+      } = props;
+      return [styles.popper, !ownerState.disableInteractive && styles.popperInteractive, ownerState.arrow && styles.popperArrow, !ownerState.open && styles.popperClose];
+    }
+  })(memoTheme(({
+    theme
+  }) => ({
+    zIndex: (theme.vars || theme).zIndex.tooltip,
+    pointerEvents: 'none',
+    variants: [{
+      props: ({
+        ownerState
+      }) => !ownerState.disableInteractive,
+      style: {
+        pointerEvents: 'auto'
+      }
+    }, {
+      props: ({
+        open
+      }) => !open,
+      style: {
+        pointerEvents: 'none'
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.arrow,
+      style: {
+        [`&[data-popper-placement*="bottom"] .${tooltipClasses.arrow}`]: {
+          top: 0,
+          marginTop: '-0.71em',
+          '&::before': {
+            transformOrigin: '0 100%'
+          }
+        },
+        [`&[data-popper-placement*="top"] .${tooltipClasses.arrow}`]: {
+          bottom: 0,
+          marginBottom: '-0.71em',
+          '&::before': {
+            transformOrigin: '100% 0'
+          }
+        },
+        [`&[data-popper-placement*="right"] .${tooltipClasses.arrow}`]: {
+          height: '1em',
+          width: '0.71em',
+          '&::before': {
+            transformOrigin: '100% 100%'
+          }
+        },
+        [`&[data-popper-placement*="left"] .${tooltipClasses.arrow}`]: {
+          height: '1em',
+          width: '0.71em',
+          '&::before': {
+            transformOrigin: '0 0'
+          }
+        }
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.arrow && !ownerState.isRtl,
+      style: {
+        [`&[data-popper-placement*="right"] .${tooltipClasses.arrow}`]: {
+          left: 0,
+          marginLeft: '-0.71em'
+        }
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.arrow && !!ownerState.isRtl,
+      style: {
+        [`&[data-popper-placement*="right"] .${tooltipClasses.arrow}`]: {
+          right: 0,
+          marginRight: '-0.71em'
+        }
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.arrow && !ownerState.isRtl,
+      style: {
+        [`&[data-popper-placement*="left"] .${tooltipClasses.arrow}`]: {
+          right: 0,
+          marginRight: '-0.71em'
+        }
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.arrow && !!ownerState.isRtl,
+      style: {
+        [`&[data-popper-placement*="left"] .${tooltipClasses.arrow}`]: {
+          left: 0,
+          marginLeft: '-0.71em'
+        }
+      }
+    }]
+  })));
+  const TooltipTooltip = styled('div', {
+    name: 'MuiTooltip',
+    slot: 'Tooltip',
+    overridesResolver: (props, styles) => {
+      const {
+        ownerState
+      } = props;
+      return [styles.tooltip, ownerState.touch && styles.touch, ownerState.arrow && styles.tooltipArrow, styles[`tooltipPlacement${capitalize(ownerState.placement.split('-')[0])}`]];
+    }
+  })(memoTheme(({
+    theme
+  }) => ({
+    backgroundColor: theme.vars ? theme.vars.palette.Tooltip.bg : theme.alpha(theme.palette.grey[700], 0.92),
+    borderRadius: (theme.vars || theme).shape.borderRadius,
+    color: (theme.vars || theme).palette.common.white,
+    fontFamily: theme.typography.fontFamily,
+    padding: '4px 8px',
+    fontSize: theme.typography.pxToRem(11),
+    maxWidth: 300,
+    margin: 2,
+    wordWrap: 'break-word',
+    fontWeight: theme.typography.fontWeightMedium,
+    [`.${tooltipClasses.popper}[data-popper-placement*="left"] &`]: {
+      transformOrigin: 'right center'
+    },
+    [`.${tooltipClasses.popper}[data-popper-placement*="right"] &`]: {
+      transformOrigin: 'left center'
+    },
+    [`.${tooltipClasses.popper}[data-popper-placement*="top"] &`]: {
+      transformOrigin: 'center bottom',
+      marginBottom: '14px'
+    },
+    [`.${tooltipClasses.popper}[data-popper-placement*="bottom"] &`]: {
+      transformOrigin: 'center top',
+      marginTop: '14px'
+    },
+    variants: [{
+      props: ({
+        ownerState
+      }) => ownerState.arrow,
+      style: {
+        position: 'relative',
+        margin: 0
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.touch,
+      style: {
+        padding: '8px 16px',
+        fontSize: theme.typography.pxToRem(14),
+        lineHeight: `${round$1(16 / 14)}em`,
+        fontWeight: theme.typography.fontWeightRegular
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => !ownerState.isRtl,
+      style: {
+        [`.${tooltipClasses.popper}[data-popper-placement*="left"] &`]: {
+          marginRight: '14px'
+        },
+        [`.${tooltipClasses.popper}[data-popper-placement*="right"] &`]: {
+          marginLeft: '14px'
+        }
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => !ownerState.isRtl && ownerState.touch,
+      style: {
+        [`.${tooltipClasses.popper}[data-popper-placement*="left"] &`]: {
+          marginRight: '24px'
+        },
+        [`.${tooltipClasses.popper}[data-popper-placement*="right"] &`]: {
+          marginLeft: '24px'
+        }
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => !!ownerState.isRtl,
+      style: {
+        [`.${tooltipClasses.popper}[data-popper-placement*="left"] &`]: {
+          marginLeft: '14px'
+        },
+        [`.${tooltipClasses.popper}[data-popper-placement*="right"] &`]: {
+          marginRight: '14px'
+        }
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => !!ownerState.isRtl && ownerState.touch,
+      style: {
+        [`.${tooltipClasses.popper}[data-popper-placement*="left"] &`]: {
+          marginLeft: '24px'
+        },
+        [`.${tooltipClasses.popper}[data-popper-placement*="right"] &`]: {
+          marginRight: '24px'
+        }
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.touch,
+      style: {
+        [`.${tooltipClasses.popper}[data-popper-placement*="top"] &`]: {
+          marginBottom: '24px'
+        }
+      }
+    }, {
+      props: ({
+        ownerState
+      }) => ownerState.touch,
+      style: {
+        [`.${tooltipClasses.popper}[data-popper-placement*="bottom"] &`]: {
+          marginTop: '24px'
+        }
+      }
+    }]
+  })));
+  const TooltipArrow = styled('span', {
+    name: 'MuiTooltip',
+    slot: 'Arrow'
+  })(memoTheme(({
+    theme
+  }) => ({
+    overflow: 'hidden',
+    position: 'absolute',
+    width: '1em',
+    height: '0.71em' /* = width / sqrt(2) = (length of the hypotenuse) */,
+    boxSizing: 'border-box',
+    color: theme.vars ? theme.vars.palette.Tooltip.bg : theme.alpha(theme.palette.grey[700], 0.9),
+    '&::before': {
+      content: '""',
+      margin: 'auto',
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'currentColor',
+      transform: 'rotate(45deg)'
+    }
+  })));
+  let hystersisOpen = false;
+  const hystersisTimer = new Timeout();
+  let cursorPosition = {
+    x: 0,
+    y: 0
+  };
+  function composeEventHandler(handler, eventHandler) {
+    return (event, ...params) => {
+      if (eventHandler) {
+        eventHandler(event, ...params);
+      }
+      handler(event, ...params);
+    };
+  }
+
+  // TODO v6: Remove PopperComponent, PopperProps, TransitionComponent and TransitionProps.
+  const Tooltip = /*#__PURE__*/React__namespace.forwardRef(function Tooltip(inProps, ref) {
+    const props = useDefaultProps({
+      props: inProps,
+      name: 'MuiTooltip'
+    });
+    const {
+      arrow = false,
+      children: childrenProp,
+      classes: classesProp,
+      components = {},
+      componentsProps = {},
+      describeChild = false,
+      disableFocusListener = false,
+      disableHoverListener = false,
+      disableInteractive: disableInteractiveProp = false,
+      disableTouchListener = false,
+      enterDelay = 100,
+      enterNextDelay = 0,
+      enterTouchDelay = 700,
+      followCursor = false,
+      id: idProp,
+      leaveDelay = 0,
+      leaveTouchDelay = 1500,
+      onClose,
+      onOpen,
+      open: openProp,
+      placement = 'bottom',
+      PopperComponent: PopperComponentProp,
+      PopperProps = {},
+      slotProps = {},
+      slots = {},
+      title,
+      TransitionComponent: TransitionComponentProp,
+      TransitionProps,
+      ...other
+    } = props;
+
+    // to prevent runtime errors, developers will need to provide a child as a React element anyway.
+    const children = /*#__PURE__*/React__namespace.isValidElement(childrenProp) ? childrenProp : /*#__PURE__*/jsxRuntimeExports.jsx("span", {
+      children: childrenProp
+    });
+    const theme = useTheme();
+    const isRtl = useRtl();
+    const [childNode, setChildNode] = React__namespace.useState();
+    const [arrowRef, setArrowRef] = React__namespace.useState(null);
+    const ignoreNonTouchEvents = React__namespace.useRef(false);
+    const disableInteractive = disableInteractiveProp || followCursor;
+    const closeTimer = useTimeout();
+    const enterTimer = useTimeout();
+    const leaveTimer = useTimeout();
+    const touchTimer = useTimeout();
+    const [openState, setOpenState] = useControlled({
+      controlled: openProp,
+      default: false,
+      name: 'Tooltip',
+      state: 'open'
+    });
+    let open = openState;
+    const id = useId(idProp);
+    const prevUserSelect = React__namespace.useRef();
+    const stopTouchInteraction = useEventCallback(() => {
+      if (prevUserSelect.current !== undefined) {
+        document.body.style.WebkitUserSelect = prevUserSelect.current;
+        prevUserSelect.current = undefined;
+      }
+      touchTimer.clear();
+    });
+    React__namespace.useEffect(() => stopTouchInteraction, [stopTouchInteraction]);
+    const handleOpen = event => {
+      hystersisTimer.clear();
+      hystersisOpen = true;
+
+      // The mouseover event will trigger for every nested element in the tooltip.
+      // We can skip rerendering when the tooltip is already open.
+      // We are using the mouseover event instead of the mouseenter event to fix a hide/show issue.
+      setOpenState(true);
+      if (onOpen && !open) {
+        onOpen(event);
+      }
+    };
+    const handleClose = useEventCallback(
+    /**
+     * @param {React.SyntheticEvent | Event} event
+     */
+    event => {
+      hystersisTimer.start(800 + leaveDelay, () => {
+        hystersisOpen = false;
+      });
+      setOpenState(false);
+      if (onClose && open) {
+        onClose(event);
+      }
+      closeTimer.start(theme.transitions.duration.shortest, () => {
+        ignoreNonTouchEvents.current = false;
+      });
+    });
+    const handleMouseOver = event => {
+      if (ignoreNonTouchEvents.current && event.type !== 'touchstart') {
+        return;
+      }
+
+      // Remove the title ahead of time.
+      // We don't want to wait for the next render commit.
+      // We would risk displaying two tooltips at the same time (native + this one).
+      if (childNode) {
+        childNode.removeAttribute('title');
+      }
+      enterTimer.clear();
+      leaveTimer.clear();
+      if (enterDelay || hystersisOpen && enterNextDelay) {
+        enterTimer.start(hystersisOpen ? enterNextDelay : enterDelay, () => {
+          handleOpen(event);
+        });
+      } else {
+        handleOpen(event);
+      }
+    };
+    const handleMouseLeave = event => {
+      enterTimer.clear();
+      leaveTimer.start(leaveDelay, () => {
+        handleClose(event);
+      });
+    };
+    const [, setChildIsFocusVisible] = React__namespace.useState(false);
+    const handleBlur = event => {
+      if (!isFocusVisible(event.target)) {
+        setChildIsFocusVisible(false);
+        handleMouseLeave(event);
+      }
+    };
+    const handleFocus = event => {
+      // Workaround for https://github.com/facebook/react/issues/7769
+      // The autoFocus of React might trigger the event before the componentDidMount.
+      // We need to account for this eventuality.
+      if (!childNode) {
+        setChildNode(event.currentTarget);
+      }
+      if (isFocusVisible(event.target)) {
+        setChildIsFocusVisible(true);
+        handleMouseOver(event);
+      }
+    };
+    const detectTouchStart = event => {
+      ignoreNonTouchEvents.current = true;
+      const childrenProps = children.props;
+      if (childrenProps.onTouchStart) {
+        childrenProps.onTouchStart(event);
+      }
+    };
+    const handleTouchStart = event => {
+      detectTouchStart(event);
+      leaveTimer.clear();
+      closeTimer.clear();
+      stopTouchInteraction();
+      prevUserSelect.current = document.body.style.WebkitUserSelect;
+      // Prevent iOS text selection on long-tap.
+      document.body.style.WebkitUserSelect = 'none';
+      touchTimer.start(enterTouchDelay, () => {
+        document.body.style.WebkitUserSelect = prevUserSelect.current;
+        handleMouseOver(event);
+      });
+    };
+    const handleTouchEnd = event => {
+      if (children.props.onTouchEnd) {
+        children.props.onTouchEnd(event);
+      }
+      stopTouchInteraction();
+      leaveTimer.start(leaveTouchDelay, () => {
+        handleClose(event);
+      });
+    };
+    React__namespace.useEffect(() => {
+      if (!open) {
+        return undefined;
+      }
+
+      /**
+       * @param {KeyboardEvent} nativeEvent
+       */
+      function handleKeyDown(nativeEvent) {
+        if (nativeEvent.key === 'Escape') {
+          handleClose(nativeEvent);
+        }
+      }
+      document.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+      };
+    }, [handleClose, open]);
+    const handleRef = useForkRef(getReactElementRef(children), setChildNode, ref);
+
+    // There is no point in displaying an empty tooltip.
+    // So we exclude all falsy values, except 0, which is valid.
+    if (!title && title !== 0) {
+      open = false;
+    }
+    const popperRef = React__namespace.useRef();
+    const handleMouseMove = event => {
+      const childrenProps = children.props;
+      if (childrenProps.onMouseMove) {
+        childrenProps.onMouseMove(event);
+      }
+      cursorPosition = {
+        x: event.clientX,
+        y: event.clientY
+      };
+      if (popperRef.current) {
+        popperRef.current.update();
+      }
+    };
+    const nameOrDescProps = {};
+    const titleIsString = typeof title === 'string';
+    if (describeChild) {
+      nameOrDescProps.title = !open && titleIsString && !disableHoverListener ? title : null;
+      nameOrDescProps['aria-describedby'] = open ? id : null;
+    } else {
+      nameOrDescProps['aria-label'] = titleIsString ? title : null;
+      nameOrDescProps['aria-labelledby'] = open && !titleIsString ? id : null;
+    }
+    const childrenProps = {
+      ...nameOrDescProps,
+      ...other,
+      ...children.props,
+      className: clsx(other.className, children.props.className),
+      onTouchStart: detectTouchStart,
+      ref: handleRef,
+      ...(followCursor ? {
+        onMouseMove: handleMouseMove
+      } : {})
+    };
+    const interactiveWrapperListeners = {};
+    if (!disableTouchListener) {
+      childrenProps.onTouchStart = handleTouchStart;
+      childrenProps.onTouchEnd = handleTouchEnd;
+    }
+    if (!disableHoverListener) {
+      childrenProps.onMouseOver = composeEventHandler(handleMouseOver, childrenProps.onMouseOver);
+      childrenProps.onMouseLeave = composeEventHandler(handleMouseLeave, childrenProps.onMouseLeave);
+      if (!disableInteractive) {
+        interactiveWrapperListeners.onMouseOver = handleMouseOver;
+        interactiveWrapperListeners.onMouseLeave = handleMouseLeave;
+      }
+    }
+    if (!disableFocusListener) {
+      childrenProps.onFocus = composeEventHandler(handleFocus, childrenProps.onFocus);
+      childrenProps.onBlur = composeEventHandler(handleBlur, childrenProps.onBlur);
+      if (!disableInteractive) {
+        interactiveWrapperListeners.onFocus = handleFocus;
+        interactiveWrapperListeners.onBlur = handleBlur;
+      }
+    }
+    const ownerState = {
+      ...props,
+      isRtl,
+      arrow,
+      disableInteractive,
+      placement,
+      PopperComponentProp,
+      touch: ignoreNonTouchEvents.current
+    };
+    const resolvedPopperProps = typeof slotProps.popper === 'function' ? slotProps.popper(ownerState) : slotProps.popper;
+    const popperOptions = React__namespace.useMemo(() => {
+      let tooltipModifiers = [{
+        name: 'arrow',
+        enabled: Boolean(arrowRef),
+        options: {
+          element: arrowRef,
+          padding: 4
+        }
+      }];
+      if (PopperProps.popperOptions?.modifiers) {
+        tooltipModifiers = tooltipModifiers.concat(PopperProps.popperOptions.modifiers);
+      }
+      if (resolvedPopperProps?.popperOptions?.modifiers) {
+        tooltipModifiers = tooltipModifiers.concat(resolvedPopperProps.popperOptions.modifiers);
+      }
+      return {
+        ...PopperProps.popperOptions,
+        ...resolvedPopperProps?.popperOptions,
+        modifiers: tooltipModifiers
+      };
+    }, [arrowRef, PopperProps.popperOptions, resolvedPopperProps?.popperOptions]);
+    const classes = useUtilityClasses$1(ownerState);
+    const resolvedTransitionProps = typeof slotProps.transition === 'function' ? slotProps.transition(ownerState) : slotProps.transition;
+    const externalForwardedProps = {
+      slots: {
+        popper: components.Popper,
+        transition: components.Transition ?? TransitionComponentProp,
+        tooltip: components.Tooltip,
+        arrow: components.Arrow,
+        ...slots
+      },
+      slotProps: {
+        arrow: slotProps.arrow ?? componentsProps.arrow,
+        popper: {
+          ...PopperProps,
+          ...(resolvedPopperProps ?? componentsProps.popper)
+        },
+        // resolvedPopperProps can be spread because it's already an object
+        tooltip: slotProps.tooltip ?? componentsProps.tooltip,
+        transition: {
+          ...TransitionProps,
+          ...(resolvedTransitionProps ?? componentsProps.transition)
+        }
+      }
+    };
+    const [PopperSlot, popperSlotProps] = useSlot('popper', {
+      elementType: TooltipPopper,
+      externalForwardedProps,
+      ownerState,
+      className: clsx(classes.popper, PopperProps?.className)
+    });
+    const [TransitionSlot, transitionSlotProps] = useSlot('transition', {
+      elementType: Grow,
+      externalForwardedProps,
+      ownerState
+    });
+    const [TooltipSlot, tooltipSlotProps] = useSlot('tooltip', {
+      elementType: TooltipTooltip,
+      className: classes.tooltip,
+      externalForwardedProps,
+      ownerState
+    });
+    const [ArrowSlot, arrowSlotProps] = useSlot('arrow', {
+      elementType: TooltipArrow,
+      className: classes.arrow,
+      externalForwardedProps,
+      ownerState,
+      ref: setArrowRef
+    });
+    return /*#__PURE__*/jsxRuntimeExports.jsxs(React__namespace.Fragment, {
+      children: [/*#__PURE__*/React__namespace.cloneElement(children, childrenProps), /*#__PURE__*/jsxRuntimeExports.jsx(PopperSlot, {
+        as: PopperComponentProp ?? Popper,
+        placement: placement,
+        anchorEl: followCursor ? {
+          getBoundingClientRect: () => ({
+            top: cursorPosition.y,
+            left: cursorPosition.x,
+            right: cursorPosition.x,
+            bottom: cursorPosition.y,
+            width: 0,
+            height: 0
+          })
+        } : childNode,
+        popperRef: popperRef,
+        open: childNode ? open : false,
+        id: id,
+        transition: true,
+        ...interactiveWrapperListeners,
+        ...popperSlotProps,
+        popperOptions: popperOptions,
+        children: ({
+          TransitionProps: TransitionPropsInner
+        }) => /*#__PURE__*/jsxRuntimeExports.jsx(TransitionSlot, {
+          timeout: theme.transitions.duration.shorter,
+          ...TransitionPropsInner,
+          ...transitionSlotProps,
+          children: /*#__PURE__*/jsxRuntimeExports.jsxs(TooltipSlot, {
+            ...tooltipSlotProps,
+            children: [title, arrow ? /*#__PURE__*/jsxRuntimeExports.jsx(ArrowSlot, {
+              ...arrowSlotProps
+            }) : null]
+          })
+        })
+      })]
+    });
+  });
+
+  const Stack = createStack({
+    createStyledComponent: styled('div', {
+      name: 'MuiStack',
+      slot: 'Root'
+    }),
+    useThemeProps: inProps => useDefaultProps({
+      props: inProps,
+      name: 'MuiStack'
+    })
+  });
 
   function getTextFieldUtilityClass(slot) {
     return generateUtilityClass('MuiTextField', slot);
@@ -35256,6 +39567,100 @@ export default theme;`;
   const toVoiceLang = (lang) => (lang === 'ko' ? 'ko-KR' : 'en-US');
 
   /**
+   * 목소리 표시 이름 매핑.
+   *
+   * 원본은 `mobiles/listening-trainer/lib/voiceNames.ts` 이며 이름 풀과 해시를 동일하게 유지한다
+   * (한쪽을 고치면 양쪽을 맞출 것 — 같은 목소리가 앱과 웹에서 다른 이름으로 보이면 안 된다).
+   *
+   * 일부 목소리는 사람이 읽을 이름이 없다 — Android TTS 는 id 가 `ko-kr-x-ism-local` 같은
+   * 코드이고 name 도 그와 같다. 그런 목소리에 정해둔 이름 풀에서 해시로 하나를 골라 붙인다.
+   * - 결정적: 같은 id 는 항상 같은 이름 (실행·기기 재시작과 무관)
+   * - 목소리가 추가/삭제되어도 기존 목소리의 이름은 바뀌지 않는다
+   * - 한국어 목소리는 한국 이름, 영어 목소리는 영어 이름 (성 없이, 중성적인 이름만)
+   *
+   * 이름이 겹치면 id 정렬 순서로 "지우 2" 처럼 번호가 붙는다. 겹치는 목소리 구성이 바뀌면
+   * 번호는 달라질 수 있다 (드묾).
+   */
+  // 중성적인(성별 안 드러나는) 순우리말 계열 이름 40개. 성은 쓰지 않는다.
+  const KO_NAMES = [
+      '지우', '하늘', '바다', '라온', '시온', '다온', '노을', '아람', '로운', '온유',
+      '이든', '새벽', '한별', '가람', '나래', '슬기', '보람', '한결', '벼리', '여울',
+      '윤슬', '마루', '도담', '은결', '초롱', '보름', '미르', '두리', '나눔', '늘봄',
+      '아침', '소망', '다슬', '바람', '이슬', '가을', '별하', '하람', '시내', '봄',
+  ];
+  // 중성적인(unisex) 영어 이름 40개. 성(last name)은 쓰지 않는다.
+  const EN_NAMES = [
+      'Alex', 'Sam', 'Jordan', 'Taylor', 'Morgan', 'Casey', 'Riley', 'Avery', 'Quinn', 'Jamie',
+      'Charlie', 'Rowan', 'Skyler', 'Sage', 'River', 'Reese', 'Finley', 'Emerson', 'Dakota', 'Hayden',
+      'Peyton', 'Parker', 'Cameron', 'Drew', 'Elliot', 'Kai', 'Lennon', 'Marley', 'Micah', 'Oakley',
+      'Phoenix', 'Remy', 'Robin', 'Shiloh', 'Tatum', 'Blake', 'Devon', 'Ellis', 'Frankie', 'Harper',
+  ];
+  /** FNV-1a 32비트 해시 — 의존성 없이 결정적 인덱스를 만들기 위한 용도 */
+  const fnv1a = (text) => {
+      let hash = 0x811c9dc5;
+      for (let i = 0; i < text.length; i++) {
+          hash ^= text.charCodeAt(i);
+          hash = Math.imul(hash, 0x01000193);
+      }
+      return hash >>> 0;
+  };
+  /** id 하나에 대한 기본 이름 (충돌 처리 전) */
+  const friendlyVoiceName = (id, lang) => {
+      const pool = lang === 'ko' ? KO_NAMES : EN_NAMES;
+      return pool[fnv1a(id) % pool.length];
+  };
+  /**
+   * 이름을 바꿔야 하는 목소리인지.
+   *
+   * 시스템 목소리(`AndroidTTS`·`SpeechSynthesis`)는 **모두** 대상이다.
+   * - Android 는 이름이 `ko-kr-x-ism-local` 같은 코드다.
+   * - 브라우저는 "Microsoft Heami - Korean (Korean)" 처럼 길고 제각각이다.
+   * 앱과 웹이 같은 이름 체계를 쓰도록 통일한다.
+   *
+   * 오프라인 엔진(`Flite`/`Kave`)만 제외한다 — 이미 'Selton'/'케이브' 라는 고유 이름이 있고,
+   * 저음질 표기와 함께 어떤 엔진인지 드러나야 하기 때문이다.
+   */
+  const needsFriendlyName = (voice) => voice.type !== 'Flite' && voice.type !== 'Kave';
+  /**
+   * 목록 전체에 이름을 부여한다. 같은 이름이 여러 목소리에 걸리면
+   * id 정렬 순으로 "이름 2", "이름 3" … 번호를 붙여 구분한다 (첫 번째는 번호 없음).
+   *
+   * 대상이 아닌 목소리는 원래 이름을 유지한다.
+   */
+  /**
+   * ⚠ **정렬(`sortVoices`) 뒤에 호출해야 한다.** 정렬이 원래 이름(Aaron/Samantha 선호)을 보기 때문.
+   *
+   * 식별값은 `voiceKey`(identifier → voiceURI)라 이름을 바꿔도 저장된 선택은 유지된다.
+   * (`voiceKey`의 마지막 폴백만 `name`인데, SpeechSynthesis는 `voiceURI`가 규격상 항상 있고
+   *  AndroidTTS는 `identifier`가 항상 있어 실제로 그 폴백에 닿지 않는다.)
+   */
+  const assignFriendlyNames = (voices, lang) => {
+      const targets = voices.filter(needsFriendlyName);
+      if (targets.length === 0)
+          return voices;
+      const byName = new Map();
+      for (const voice of targets) {
+          const name = friendlyVoiceName(voiceKey(voice), lang);
+          const group = byName.get(name);
+          if (group)
+              group.push(voice);
+          else
+              byName.set(name, [voice]);
+      }
+      const nameOf = new Map();
+      byName.forEach((group, name) => {
+          const sorted = [...group].sort((a, b) => voiceKey(a).localeCompare(voiceKey(b)));
+          sorted.forEach((voice, index) => {
+              nameOf.set(voiceKey(voice), index === 0 ? name : `${name} ${index + 1}`);
+          });
+      });
+      return voices.map((voice) => {
+          const name = nameOf.get(voiceKey(voice));
+          return name === undefined ? voice : Object.assign(Object.assign({}, voice), { name });
+      });
+  };
+
+  /**
    * Create a bound version of a function with a specified `this` context
    *
    * @param {Function} fn - The function to bind
@@ -35519,8 +39924,8 @@ export default theme;`;
     return {};
   }
 
-  const G$1 = getGlobal();
-  const FormDataCtor = typeof G$1.FormData !== 'undefined' ? G$1.FormData : undefined;
+  const G = getGlobal();
+  const FormDataCtor = typeof G.FormData !== 'undefined' ? G.FormData : undefined;
 
   const isFormData = (thing) => {
     if (!thing) return false;
@@ -35560,7 +39965,7 @@ export default theme;`;
    *
    * @returns {String} The String freed of excess whitespace
    */
-  const trim$1 = (str) => {
+  const trim = (str) => {
     return str.trim ? str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
   };
   /**
@@ -36166,7 +40571,7 @@ export default theme;`;
     forEach,
     merge,
     extend,
-    trim: trim$1,
+    trim,
     stripBOM,
     inherits,
     toFlatObject,
@@ -41214,16 +45619,16 @@ export default theme;`;
   	return uri;
   }
 
-  var abs$1;
+  var abs;
   var hasRequiredAbs;
 
   function requireAbs () {
-  	if (hasRequiredAbs) return abs$1;
+  	if (hasRequiredAbs) return abs;
   	hasRequiredAbs = 1;
 
   	/** @type {import('./abs')} */
-  	abs$1 = Math.abs;
-  	return abs$1;
+  	abs = Math.abs;
+  	return abs;
   }
 
   var floor;
@@ -43132,11 +47537,11 @@ export default theme;`;
   	return stringify_1;
   }
 
-  var parse$1;
+  var parse;
   var hasRequiredParse;
 
   function requireParse () {
-  	if (hasRequiredParse) return parse$1;
+  	if (hasRequiredParse) return parse;
   	hasRequiredParse = 1;
 
   	var utils = /*@__PURE__*/ requireUtils$1();
@@ -43515,7 +47920,7 @@ export default theme;`;
   	    };
   	};
 
-  	parse$1 = function (str, opts) {
+  	parse = function (str, opts) {
   	    var options = normalizeParseOptions(opts);
 
   	    if (str === '' || str === null || typeof str === 'undefined') {
@@ -43540,7 +47945,7 @@ export default theme;`;
 
   	    return utils.compact(obj);
   	};
-  	return parse$1;
+  	return parse;
   }
 
   var lib;
@@ -52572,826 +56977,13 @@ export default theme;`;
     d: "M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9m-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8z"
   }));
 
+  var PlayArrowIcon = createSvgIcon(/*#__PURE__*/jsxRuntimeExports.jsx("path", {
+    d: "M8 5v14l11-7z"
+  }));
+
   var ArrowBackIosNewIcon = createSvgIcon(/*#__PURE__*/jsxRuntimeExports.jsx("path", {
     d: "M17.77 3.77 16 2 6 12l10 10 1.77-1.77L9.54 12z"
   }));
-
-  var MS = '-ms-';
-  var MOZ = '-moz-';
-  var WEBKIT = '-webkit-';
-
-  var COMMENT = 'comm';
-  var RULESET = 'rule';
-  var DECLARATION = 'decl';
-  var IMPORT = '@import';
-  var NAMESPACE = '@namespace';
-  var KEYFRAMES = '@keyframes';
-  var LAYER = '@layer';
-
-  /**
-   * @param {number}
-   * @return {number}
-   */
-  var abs = Math.abs;
-
-  /**
-   * @param {number}
-   * @return {string}
-   */
-  var from = String.fromCharCode;
-
-  /**
-   * @param {object}
-   * @return {object}
-   */
-  var assign = Object.assign;
-
-  /**
-   * @param {string} value
-   * @param {number} length
-   * @return {number}
-   */
-  function hash (value, length) {
-  	return charat(value, 0) ^ 45 ? (((((((length << 2) ^ charat(value, 0)) << 2) ^ charat(value, 1)) << 2) ^ charat(value, 2)) << 2) ^ charat(value, 3) : 0
-  }
-
-  /**
-   * @param {string} value
-   * @return {string}
-   */
-  function trim (value) {
-  	return value.trim()
-  }
-
-  /**
-   * @param {string} value
-   * @param {RegExp} pattern
-   * @return {string?}
-   */
-  function match (value, pattern) {
-  	return (value = pattern.exec(value)) ? value[0] : value
-  }
-
-  /**
-   * @param {string} value
-   * @param {(string|RegExp)} pattern
-   * @param {string} replacement
-   * @return {string}
-   */
-  function replace (value, pattern, replacement) {
-  	return value.replace(pattern, replacement)
-  }
-
-  /**
-   * @param {string} value
-   * @param {string} search
-   * @param {number} position
-   * @return {number}
-   */
-  function indexof (value, search, position) {
-  	return value.indexOf(search, position)
-  }
-
-  /**
-   * @param {string} value
-   * @param {number} index
-   * @return {number}
-   */
-  function charat (value, index) {
-  	return value.charCodeAt(index) | 0
-  }
-
-  /**
-   * @param {string} value
-   * @param {number} begin
-   * @param {number} end
-   * @return {string}
-   */
-  function substr (value, begin, end) {
-  	return value.slice(begin, end)
-  }
-
-  /**
-   * @param {string} value
-   * @return {number}
-   */
-  function strlen (value) {
-  	return value.length
-  }
-
-  /**
-   * @param {any[]} value
-   * @return {number}
-   */
-  function sizeof (value) {
-  	return value.length
-  }
-
-  /**
-   * @param {any} value
-   * @param {any[]} array
-   * @return {any}
-   */
-  function append (value, array) {
-  	return array.push(value), value
-  }
-
-  /**
-   * @param {string[]} array
-   * @param {function} callback
-   * @return {string}
-   */
-  function combine (array, callback) {
-  	return array.map(callback).join('')
-  }
-
-  /**
-   * @param {string[]} array
-   * @param {RegExp} pattern
-   * @return {string[]}
-   */
-  function filter (array, pattern) {
-  	return array.filter(function (value) { return !match(value, pattern) })
-  }
-
-  var line = 1;
-  var column = 1;
-  var length = 0;
-  var position = 0;
-  var character = 0;
-  var characters = '';
-
-  /**
-   * @param {string} value
-   * @param {object | null} root
-   * @param {object | null} parent
-   * @param {string} type
-   * @param {string[] | string} props
-   * @param {object[] | string} children
-   * @param {object[]} siblings
-   * @param {number} length
-   */
-  function node (value, root, parent, type, props, children, length, siblings) {
-  	return {value: value, root: root, parent: parent, type: type, props: props, children: children, line: line, column: column, length: length, return: '', siblings: siblings}
-  }
-
-  /**
-   * @param {object} root
-   * @param {object} props
-   * @return {object}
-   */
-  function copy (root, props) {
-  	return assign(node('', null, null, '', null, null, 0, root.siblings), root, {length: -root.length}, props)
-  }
-
-  /**
-   * @param {object} root
-   */
-  function lift (root) {
-  	while (root.root)
-  		root = copy(root.root, {children: [root]});
-
-  	append(root, root.siblings);
-  }
-
-  /**
-   * @return {number}
-   */
-  function char () {
-  	return character
-  }
-
-  /**
-   * @return {number}
-   */
-  function prev () {
-  	character = position > 0 ? charat(characters, --position) : 0;
-
-  	if (column--, character === 10)
-  		column = 1, line--;
-
-  	return character
-  }
-
-  /**
-   * @return {number}
-   */
-  function next () {
-  	character = position < length ? charat(characters, position++) : 0;
-
-  	if (column++, character === 10)
-  		column = 1, line++;
-
-  	return character
-  }
-
-  /**
-   * @return {number}
-   */
-  function peek () {
-  	return charat(characters, position)
-  }
-
-  /**
-   * @return {number}
-   */
-  function caret () {
-  	return position
-  }
-
-  /**
-   * @param {number} begin
-   * @param {number} end
-   * @return {string}
-   */
-  function slice (begin, end) {
-  	return substr(characters, begin, end)
-  }
-
-  /**
-   * @param {number} type
-   * @return {number}
-   */
-  function token (type) {
-  	switch (type) {
-  		// \0 \t \n \r \s whitespace token
-  		case 0: case 9: case 10: case 13: case 32:
-  			return 5
-  		// ! + , / > @ ~ isolate token
-  		case 33: case 43: case 44: case 47: case 62: case 64: case 126:
-  		// ; { } breakpoint token
-  		case 59: case 123: case 125:
-  			return 4
-  		// : accompanied token
-  		case 58:
-  			return 3
-  		// " ' ( [ opening delimit token
-  		case 34: case 39: case 40: case 91:
-  			return 2
-  		// ) ] closing delimit token
-  		case 41: case 93:
-  			return 1
-  	}
-
-  	return 0
-  }
-
-  /**
-   * @param {string} value
-   * @return {any[]}
-   */
-  function alloc (value) {
-  	return line = column = 1, length = strlen(characters = value), position = 0, []
-  }
-
-  /**
-   * @param {any} value
-   * @return {any}
-   */
-  function dealloc (value) {
-  	return characters = '', value
-  }
-
-  /**
-   * @param {number} type
-   * @return {string}
-   */
-  function delimit (type) {
-  	return trim(slice(position - 1, delimiter(type === 91 ? type + 2 : type === 40 ? type + 1 : type)))
-  }
-
-  /**
-   * @param {number} type
-   * @return {string}
-   */
-  function whitespace (type) {
-  	while (character = peek())
-  		if (character < 33)
-  			next();
-  		else
-  			break
-
-  	return token(type) > 2 || token(character) > 3 ? '' : ' '
-  }
-
-  /**
-   * @param {number} index
-   * @param {number} count
-   * @return {string}
-   */
-  function escaping (index, count) {
-  	while (--count && next())
-  		// not 0-9 A-F a-f
-  		if (character < 48 || character > 102 || (character > 57 && character < 65) || (character > 70 && character < 97))
-  			break
-
-  	return slice(index, caret() + (count < 6 && peek() == 32 && next() == 32))
-  }
-
-  /**
-   * @param {number} type
-   * @return {number}
-   */
-  function delimiter (type) {
-  	while (next())
-  		switch (character) {
-  			// ] ) " '
-  			case type:
-  				return position
-  			// " '
-  			case 34: case 39:
-  				if (type !== 34 && type !== 39)
-  					delimiter(character);
-  				break
-  			// (
-  			case 40:
-  				if (type === 41)
-  					delimiter(type);
-  				break
-  			// \
-  			case 92:
-  				next();
-  				break
-  		}
-
-  	return position
-  }
-
-  /**
-   * @param {number} type
-   * @param {number} index
-   * @return {number}
-   */
-  function commenter (type, index) {
-  	while (next())
-  		// //
-  		if (type + character === 47 + 10)
-  			break
-  		// /*
-  		else if (type + character === 42 + 42 && peek() === 47)
-  			break
-
-  	return '/*' + slice(index, position - 1) + '*' + from(type === 47 ? type : next())
-  }
-
-  /**
-   * @param {number} index
-   * @return {string}
-   */
-  function identifier (index) {
-  	while (!token(peek()))
-  		next();
-
-  	return slice(index, position)
-  }
-
-  /**
-   * @param {string} value
-   * @return {object[]}
-   */
-  function compile (value) {
-  	return dealloc(parse('', null, null, null, [''], value = alloc(value), 0, [0], value))
-  }
-
-  /**
-   * @param {string} value
-   * @param {object} root
-   * @param {object?} parent
-   * @param {string[]} rule
-   * @param {string[]} rules
-   * @param {string[]} rulesets
-   * @param {number[]} pseudo
-   * @param {number[]} points
-   * @param {string[]} declarations
-   * @return {object}
-   */
-  function parse (value, root, parent, rule, rules, rulesets, pseudo, points, declarations) {
-  	var index = 0;
-  	var offset = 0;
-  	var length = pseudo;
-  	var atrule = 0;
-  	var property = 0;
-  	var previous = 0;
-  	var variable = 1;
-  	var scanning = 1;
-  	var ampersand = 1;
-  	var character = 0;
-  	var type = '';
-  	var props = rules;
-  	var children = rulesets;
-  	var reference = rule;
-  	var characters = type;
-
-  	while (scanning)
-  		switch (previous = character, character = next()) {
-  			// (
-  			case 40:
-  				if (previous != 108 && charat(characters, length - 1) == 58) {
-  					if (indexof(characters += replace(delimit(character), '&', '&\f'), '&\f', abs(index ? points[index - 1] : 0)) != -1)
-  						ampersand = -1;
-  					break
-  				}
-  			// " ' [
-  			case 34: case 39: case 91:
-  				characters += delimit(character);
-  				break
-  			// \t \n \r \s
-  			case 9: case 10: case 13: case 32:
-  				characters += whitespace(previous);
-  				break
-  			// \
-  			case 92:
-  				characters += escaping(caret() - 1, 7);
-  				continue
-  			// /
-  			case 47:
-  				switch (peek()) {
-  					case 42: case 47:
-  						append(comment(commenter(next(), caret()), root, parent, declarations), declarations);
-  						if ((token(previous || 1) == 5 || token(peek() || 1) == 5) && strlen(characters) && substr(characters, -1, void 0) !== ' ') characters += ' ';
-  						break
-  					default:
-  						characters += '/';
-  				}
-  				break
-  			// {
-  			case 123 * variable:
-  				points[index++] = strlen(characters) * ampersand;
-  			// } ; \0
-  			case 125 * variable: case 59: case 0:
-  				switch (character) {
-  					// \0 }
-  					case 0: case 125: scanning = 0;
-  					// ;
-  					case 59 + offset: if (ampersand == -1) characters = replace(characters, /\f/g, '');
-  						if (property > 0 && (strlen(characters) - length || (variable === 0 && previous === 47)))
-  							append(property > 32 ? declaration(characters + ';', rule, parent, length - 1, declarations) : declaration(replace(characters, ' ', '') + ';', rule, parent, length - 2, declarations), declarations);
-  						break
-  					// @ ;
-  					case 59: characters += ';';
-  					// { rule/at-rule
-  					default:
-  						append(reference = ruleset(characters, root, parent, index, offset, rules, points, type, props = [], children = [], length, rulesets), rulesets);
-
-  						if (character === 123)
-  							if (offset === 0)
-  								parse(characters, root, reference, reference, props, rulesets, length, points, children);
-  							else {
-  								switch (atrule) {
-  									// c(ontainer)
-  									case 99:
-  										if (charat(characters, 3) === 110) break
-  									// l(ayer)
-  									case 108:
-  										if (charat(characters, 2) === 97) break
-  									default:
-  										offset = 0;
-  									// d(ocument) m(edia) s(upports)
-  									case 100: case 109: case 115:
-  								}
-  								if (offset) parse(value, reference, reference, rule && append(ruleset(value, reference, reference, 0, 0, rules, points, type, rules, props = [], length, children), children), rules, children, length, points, rule ? props : children);
-  								else parse(characters, reference, reference, reference, [''], children, 0, points, children);
-  							}
-  				}
-
-  				index = offset = property = 0, variable = ampersand = 1, type = characters = '', length = pseudo;
-  				break
-  			// :
-  			case 58:
-  				length = 1 + strlen(characters), property = previous;
-  			default:
-  				if (variable < 1)
-  					if (character == 123)
-  						--variable;
-  					else if (character == 125 && variable++ == 0 && prev() == 125)
-  						continue
-
-  				switch (characters += from(character), character * variable) {
-  					// &
-  					case 38:
-  						ampersand = offset > 0 ? 1 : (characters += '\f', -1);
-  						break
-  					// ,
-  					case 44:
-  						points[index++] = (strlen(characters) - 1) * ampersand, ampersand = 1;
-  						break
-  					// @
-  					case 64:
-  						// -
-  						if (peek() === 45)
-  							characters += delimit(next());
-
-  						atrule = peek(), offset = length = strlen(type = characters += identifier(caret())), character++;
-  						break
-  					// -
-  					case 45:
-  						if (previous === 45 && strlen(characters) == 2)
-  							variable = 0;
-  				}
-  		}
-
-  	return rulesets
-  }
-
-  /**
-   * @param {string} value
-   * @param {object} root
-   * @param {object?} parent
-   * @param {number} index
-   * @param {number} offset
-   * @param {string[]} rules
-   * @param {number[]} points
-   * @param {string} type
-   * @param {string[]} props
-   * @param {string[]} children
-   * @param {number} length
-   * @param {object[]} siblings
-   * @return {object}
-   */
-  function ruleset (value, root, parent, index, offset, rules, points, type, props, children, length, siblings) {
-  	var post = offset - 1;
-  	var rule = offset === 0 ? rules : [''];
-  	var size = sizeof(rule);
-
-  	for (var i = 0, j = 0, k = 0; i < index; ++i)
-  		for (var x = 0, y = substr(value, post + 1, post = abs(j = points[i])), z = value; x < size; ++x)
-  			if (z = trim(j > 0 ? rule[x] + ' ' + y : replace(y, /&\f/g, rule[x])))
-  				props[k++] = z;
-
-  	return node(value, root, parent, offset === 0 ? RULESET : type, props, children, length, siblings)
-  }
-
-  /**
-   * @param {number} value
-   * @param {object} root
-   * @param {object?} parent
-   * @param {object[]} siblings
-   * @return {object}
-   */
-  function comment (value, root, parent, siblings) {
-  	return node(value, root, parent, COMMENT, from(char()), substr(value, 2, -2), 0, siblings)
-  }
-
-  /**
-   * @param {string} value
-   * @param {object} root
-   * @param {object?} parent
-   * @param {number} length
-   * @param {object[]} siblings
-   * @return {object}
-   */
-  function declaration (value, root, parent, length, siblings) {
-  	return node(value, root, parent, DECLARATION, substr(value, 0, length), substr(value, length + 1, -1), length, siblings)
-  }
-
-  /**
-   * @param {string} value
-   * @param {number} length
-   * @param {object[]} children
-   * @return {string}
-   */
-  function prefix (value, length, children) {
-  	switch (hash(value, length)) {
-  		// color-adjust
-  		case 5103:
-  			return WEBKIT + 'print-' + value + value
-  		// animation, animation-(delay|direction|duration|fill-mode|iteration-count|name|play-state|timing-function)
-  		case 5737: case 4201: case 3177: case 3433: case 1641: case 4457: case 2921:
-  		// text-decoration, filter, clip-path, backface-visibility, column, box-decoration-break
-  		case 5572: case 6356: case 5844: case 3191: case 6645: case 3005:
-  		// background-clip, columns, column-(count|fill|gap|rule|rule-color|rule-style|rule-width|span|width)
-  		case 4215: case 6389: case 5109: case 5365: case 5621: case 3829:
-  		// mask, mask-image, mask-(mode|clip|size), mask-(repeat|origin), mask-position
-  		case 6391: case 5879: case 5623: case 6135: case 4599:
-  			return WEBKIT + value + value
-  		// mask-composite
-  		case 4855:
-  			return WEBKIT + value.replace('add', 'source-over').replace('substract', 'source-out').replace('intersect', 'source-in').replace('exclude', 'xor') + value
-  		// tab-size
-  		case 4789:
-  			return MOZ + value + value
-  		// appearance, user-select, transform, hyphens, text-size-adjust
-  		case 5349: case 4246: case 4810: case 6968: case 2756:
-  			return WEBKIT + value + MOZ + value + MS + value + value
-  		// writing-mode
-  		case 5936:
-  			switch (charat(value, length + 11)) {
-  				// vertical-l(r)
-  				case 114:
-  					return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, 'tb') + value
-  				// vertical-r(l)
-  				case 108:
-  					return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, 'tb-rl') + value
-  				// horizontal(-)tb
-  				case 45:
-  					return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, 'lr') + value
-  				// default: fallthrough to below
-  			}
-  		// flex, flex-direction, scroll-snap-type, writing-mode
-  		case 6828: case 4268: case 2903:
-  			return WEBKIT + value + MS + value + value
-  		// order
-  		case 6165:
-  			return WEBKIT + value + MS + 'flex-' + value + value
-  		// align-items
-  		case 5187:
-  			return WEBKIT + value + replace(value, /(\w+).+(:[^]+)/, WEBKIT + 'box-$1$2' + MS + 'flex-$1$2') + value
-  		// align-self
-  		case 5443:
-  			return WEBKIT + value + MS + 'flex-item-' + replace(value, /flex-|-self/g, '') + (!match(value, /flex-|baseline/) ? MS + 'grid-row-' + replace(value, /flex-|-self/g, '') : '') + value
-  		// align-content
-  		case 4675:
-  			return WEBKIT + value + MS + 'flex-line-pack' + replace(value, /align-content|flex-|-self/g, '') + value
-  		// flex-shrink
-  		case 5548:
-  			return WEBKIT + value + MS + replace(value, 'shrink', 'negative') + value
-  		// flex-basis
-  		case 5292:
-  			return WEBKIT + value + MS + replace(value, 'basis', 'preferred-size') + value
-  		// flex-grow
-  		case 6060:
-  			return WEBKIT + 'box-' + replace(value, '-grow', '') + WEBKIT + value + MS + replace(value, 'grow', 'positive') + value
-  		// transition
-  		case 4554:
-  			return WEBKIT + replace(value, /([^-])(transform)/g, '$1' + WEBKIT + '$2') + value
-  		// cursor
-  		case 6187:
-  			return replace(replace(replace(value, /(zoom-|grab)/, WEBKIT + '$1'), /(image-set)/, WEBKIT + '$1'), value, '') + value
-  		// background, background-image
-  		case 5495: case 3959:
-  			return replace(value, /(image-set\([^]*)/, WEBKIT + '$1' + '$`$1')
-  		// justify-content
-  		case 4968:
-  			return replace(replace(value, /(.+:)(flex-)?(.*)/, WEBKIT + 'box-pack:$3' + MS + 'flex-pack:$3'), /space-between/, 'justify') + WEBKIT + value + value
-  		// justify-self
-  		case 4200:
-  			if (!match(value, /flex-|baseline/)) return MS + 'grid-column-align' + substr(value, length) + value
-  			break
-  		// grid-template-(columns|rows)
-  		case 2592: case 3360:
-  			return MS + replace(value, 'template-', '') + value
-  		// grid-(row|column)-start
-  		case 4384: case 3616:
-  			if (children && children.some(function (element, index) { return length = index, match(element.props, /grid-\w+-end/) })) {
-  				return ~indexof(value + (children = children[length].value), 'span', 0) ? value : (MS + replace(value, '-start', '') + value + MS + 'grid-row-span:' + (~indexof(children, 'span', 0) ? match(children, /\d+/) : +match(children, /\d+/) - +match(value, /\d+/)) + ';')
-  			}
-  			return MS + replace(value, '-start', '') + value
-  		// grid-(row|column)-end
-  		case 4896: case 4128:
-  			return (children && children.some(function (element) { return match(element.props, /grid-\w+-start/) })) ? value : MS + replace(replace(value, '-end', '-span'), 'span ', '') + value
-  		// (margin|padding)-inline-(start|end)
-  		case 4095: case 3583: case 4068: case 2532:
-  			return replace(value, /(.+)-inline(.+)/, WEBKIT + '$1$2') + value
-  		// (min|max)?(width|height|inline-size|block-size)
-  		case 8116: case 7059: case 5753: case 5535:
-  		case 5445: case 5701: case 4933: case 4677:
-  		case 5533: case 5789: case 5021: case 4765:
-  			// stretch, max-content, min-content, fill-available
-  			if (strlen(value) - 1 - length > 6)
-  				switch (charat(value, length + 1)) {
-  					// (m)ax-content, (m)in-content
-  					case 109:
-  						// -
-  						if (charat(value, length + 4) !== 45)
-  							break
-  					// (f)ill-available, (f)it-content
-  					case 102:
-  						return replace(value, /(.+:)(.+)-([^]+)/, '$1' + WEBKIT + '$2-$3' + '$1' + MOZ + (charat(value, length + 3) == 108 ? '$3' : '$2-$3')) + value
-  					// (s)tretch
-  					case 115:
-  						return ~indexof(value, 'stretch', 0) ? prefix(replace(value, 'stretch', 'fill-available'), length, children) + value : value
-  				}
-  			break
-  		// grid-(column|row)
-  		case 5152: case 5920:
-  			return replace(value, /(.+?):(\d+)(\s*\/\s*(span)?\s*(\d+))?(.*)/, function (_, a, b, c, d, e, f) { return (MS + a + ':' + b + f) + (c ? (MS + a + '-span:' + (d ? e : +e - +b)) + f : '') + value })
-  		// position: sticky
-  		case 4949:
-  			// stick(y)?
-  			if (charat(value, length + 6) === 121)
-  				return replace(value, ':', ':' + WEBKIT) + value
-  			break
-  		// display: (flex|inline-flex|grid|inline-grid)
-  		case 6444:
-  			switch (charat(value, charat(value, 14) === 45 ? 18 : 11)) {
-  				// (inline-)?fle(x)
-  				case 120:
-  					return replace(value, /(.+:)([^;\s!]+)(;|(\s+)?!.+)?/, '$1' + WEBKIT + (charat(value, 14) === 45 ? 'inline-' : '') + 'box$3' + '$1' + WEBKIT + '$2$3' + '$1' + MS + '$2box$3') + value
-  				// (inline-)?gri(d)
-  				case 100:
-  					return replace(value, ':', ':' + MS) + value
-  			}
-  			break
-  		// scroll-margin, scroll-margin-(top|right|bottom|left)
-  		case 5719: case 2647: case 2135: case 3927: case 2391:
-  			return replace(value, 'scroll-', 'scroll-snap-') + value
-  	}
-
-  	return value
-  }
-
-  /**
-   * @param {object[]} children
-   * @param {function} callback
-   * @return {string}
-   */
-  function serialize (children, callback) {
-  	var output = '';
-
-  	for (var i = 0; i < children.length; i++)
-  		output += callback(children[i], i, children, callback) || '';
-
-  	return output
-  }
-
-  /**
-   * @param {object} element
-   * @param {number} index
-   * @param {object[]} children
-   * @param {function} callback
-   * @return {string}
-   */
-  function stringify (element, index, children, callback) {
-  	switch (element.type) {
-  		case LAYER: if (element.children.length) break
-  		case IMPORT: case NAMESPACE: case DECLARATION: return element.return = element.return || element.value
-  		case COMMENT: return ''
-  		case KEYFRAMES: return element.return = element.value + '{' + serialize(element.children, callback) + '}'
-  		case RULESET: if (!strlen(element.value = element.props.join(','))) return ''
-  	}
-
-  	return strlen(children = serialize(element.children, callback)) ? element.return = element.value + '{' + children + '}' : ''
-  }
-
-  /**
-   * @param {function[]} collection
-   * @return {function}
-   */
-  function middleware (collection) {
-  	var length = sizeof(collection);
-
-  	return function (element, index, children, callback) {
-  		var output = '';
-
-  		for (var i = 0; i < length; i++)
-  			output += collection[i](element, index, children, callback) || '';
-
-  		return output
-  	}
-  }
-
-  /**
-   * @param {function} callback
-   * @return {function}
-   */
-  function rulesheet (callback) {
-  	return function (element) {
-  		if (!element.root)
-  			if (element = element.return)
-  				callback(element);
-  	}
-  }
-
-  /**
-   * @param {object} element
-   * @param {number} index
-   * @param {object[]} children
-   * @param {function} callback
-   */
-  function prefixer (element, index, children, callback) {
-  	if (element.length > -1)
-  		if (!element.return)
-  			switch (element.type) {
-  				case DECLARATION: element.return = prefix(element.value, element.length, children);
-  					return
-  				case KEYFRAMES:
-  					return serialize([copy(element, {value: replace(element.value, '@', '@' + WEBKIT)})], callback)
-  				case RULESET:
-  					if (element.length)
-  						return combine(children = element.props, function (value) {
-  							switch (match(value, callback = /(::plac\w+|:read-\w+)/)) {
-  								// :read-(only|write)
-  								case ':read-only': case ':read-write':
-  									lift(copy(element, {props: [replace(value, /:(read-\w+)/, ':' + MOZ + '$1')]}));
-  									lift(copy(element, {props: [value]}));
-  									assign(element, {props: filter(children, callback)});
-  									break
-  								// :placeholder
-  								case '::placeholder':
-  									lift(copy(element, {props: [replace(value, /:(plac\w+)/, ':' + WEBKIT + 'input-$1')]}));
-  									lift(copy(element, {props: [replace(value, /:(plac\w+)/, ':' + MOZ + '$1')]}));
-  									lift(copy(element, {props: [replace(value, /:(plac\w+)/, MS + 'input-$1')]}));
-  									lift(copy(element, {props: [value]}));
-  									assign(element, {props: filter(children, callback)});
-  									break
-  							}
-
-  							return ''
-  						})
-  			}
-  }
-
-  var r,i;const c="undefined"!=typeof process&&void 0!==process.env&&(process.env.REACT_APP_SC_ATTR||process.env.SC_ATTR)||"data-styled",a="active",l="data-styled-version",u="6.4.2",h="/*!sc*/\n",d="undefined"!=typeof window&&"undefined"!=typeof document;function p(e){if("undefined"!=typeof process&&void 0!==process.env){const t=process.env[e];if(void 0!==t&&""!==t)return "false"!==t}}const f=Boolean("boolean"==typeof SC_DISABLE_SPEEDY?SC_DISABLE_SPEEDY:null!==(i=null!==(r=p("REACT_APP_SC_DISABLE_SPEEDY"))&&void 0!==r?r:p("SC_DISABLE_SPEEDY"))&&void 0!==i?i:"undefined"!=typeof process&&void 0!==process.env&&"production"!=="production"),m="sc-keyframes-";function v(e,...t){return new Error(`An error occurred. See https://github.com/styled-components/styled-components/blob/main/packages/styled-components/src/utils/errors.md#${e} for more information.${t.length>0?` Args: ${t.join(", ")}`:""}`)}let b=new Map,w=new Map,N=1;const C=e=>{if(b.has(e))return b.get(e);for(;w.has(N);)N++;const t=N++;return b.set(e,t),w.set(t,e),t},O=e=>w.get(e),E=(e,t)=>{N=t+1,b.set(e,t),w.set(t,e);},I=Object.freeze([]),$=Object.freeze({});function R(e,t,n=$){return e.theme!==n.theme&&e.theme||t||n.theme}const j=/[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~-]+/g,x=/(^-|-$)/g;function T(e){return e.replace(j,"-").replace(x,"")}const k=/(a)(d)/gi,D=e=>String.fromCharCode(e+(e>25?39:97));function V(e){let t,n="";for(t=Math.abs(e);t>52;t=t/52|0)n=D(t%52)+n;return (D(t%52)+n).replace(k,"$1-$2")}const M=5381,G=(e,t)=>{let n=t.length;for(;n;)e=33*e^t.charCodeAt(--n);return e},F=e=>G(M,e);function z(e){return V(F(e)>>>0)}function W(e){return e.displayName||e.name||"Component"}function L(e){return "string"==typeof e&&("production"==="production")}function B(e){return L(e)?`styled.${e}`:`Styled(${W(e)})`}const q=Symbol.for("react.memo"),H=Symbol.for("react.forward_ref"),Y={contextType:true,defaultProps:true,displayName:true,getDerivedStateFromError:true,getDerivedStateFromProps:true,propTypes:true,type:true},U={name:true,length:true,prototype:true,caller:true,callee:true,arguments:true,arity:true},J={$$typeof:true,compare:true,defaultProps:true,displayName:true,propTypes:true,type:true},X={[H]:{$$typeof:true,render:true,defaultProps:true,displayName:true,propTypes:true},[q]:J};function K(e){return ("type"in(t=e)&&t.type.$$typeof)===q?J:"$$typeof"in e?X[e.$$typeof]:Y;var t;}const Q=Object.defineProperty,Z=Object.getOwnPropertyNames,ee=Object.getOwnPropertySymbols,te=Object.getOwnPropertyDescriptor,ne=Object.getPrototypeOf,oe=Object.prototype;function se(e,t,n){if("string"!=typeof t){const o=ne(t);o&&o!==oe&&se(e,o,n);const s=Z(t).concat(ee(t)),r=K(e),i=K(t);for(let o=0;o<s.length;++o){const c=s[o];if(!(c in U||n&&n[c]||i&&c in i||r&&c in r)){const n=te(t,c);try{Q(e,c,n);}catch(e){}}}}return e}function re(e){return "function"==typeof e}const ie=Symbol.for("react.forward_ref");function ce(e){return null!=e&&("object"==typeof e||"function"==typeof e)&&e.$$typeof===ie&&"styledComponentId"in e}function ae(e,t){return e&&t?e+" "+t:e||t||""}function le(e,t){return e.join("")}function ue(e){return null!==e&&"object"==typeof e&&e.constructor.name===Object.name&&!("props"in e&&e.$$typeof)}function he(e,t,n=false){if(!n&&!ue(e)&&!Array.isArray(e))return t;if(Array.isArray(t))for(let n=0;n<t.length;n++)e[n]=he(e[n],t[n]);else if(ue(t))for(const n in t)e[n]=he(e[n],t[n]);return e}function de(e,t){Object.defineProperty(e,"toString",{value:t});}const pe=class{constructor(e){this.groupSizes=new Uint32Array(512),this.length=512,this.tag=e,this._cGroup=0,this._cIndex=0;}indexOfGroup(e){if(e===this._cGroup)return this._cIndex;let t=this._cIndex;if(e>this._cGroup)for(let n=this._cGroup;n<e;n++)t+=this.groupSizes[n];else for(let n=this._cGroup-1;n>=e;n--)t-=this.groupSizes[n];return this._cGroup=e,this._cIndex=t,t}insertRules(e,t){if(e>=this.groupSizes.length){const t=this.groupSizes,n=t.length;let o=n;for(;e>=o;)if(o<<=1,o<0)throw v(16,`${e}`);this.groupSizes=new Uint32Array(o),this.groupSizes.set(t),this.length=o;for(let e=n;e<o;e++)this.groupSizes[e]=0;}let n=this.indexOfGroup(e+1),o=0;for(let s=0,r=t.length;s<r;s++)this.tag.insertRule(n,t[s])&&(this.groupSizes[e]++,n++,o++);o>0&&this._cGroup>e&&(this._cIndex+=o);}clearGroup(e){if(e<this.length){const t=this.groupSizes[e],n=this.indexOfGroup(e),o=n+t;this.groupSizes[e]=0;for(let e=n;e<o;e++)this.tag.deleteRule(n);t>0&&this._cGroup>e&&(this._cIndex-=t);}}getGroup(e){let t="";if(e>=this.length||0===this.groupSizes[e])return t;const n=this.groupSizes[e],o=this.indexOfGroup(e),s=o+n;for(let e=o;e<s;e++)t+=this.tag.getRule(e)+h;return t}},fe=`style[${c}][${l}="${u}"]`,me=new RegExp(`^${c}\\.g(\\d+)\\[id="([\\w\\d-]+)"\\].*?"([^"]*)`),ye$1=e=>"undefined"!=typeof ShadowRoot&&e instanceof ShadowRoot||"host"in e&&11===e.nodeType,ge=e=>{if(!e)return document;if(ye$1(e))return e;if("getRootNode"in e){const t=e.getRootNode();if(ye$1(t))return t}return document},ve=(e,t,n)=>{const o=n.split(",");let s;for(let n=0,r=o.length;n<r;n++)(s=o[n])&&e.registerName(t,s);},Se=(e,t)=>{var n;const o=(null!==(n=t.textContent)&&void 0!==n?n:"").split(h),s=[];for(let t=0,n=o.length;t<n;t++){const n=o[t].trim();if(!n)continue;const r=n.match(me);if(r){const t=0|parseInt(r[1],10),n=r[2];0!==t&&(E(n,t),ve(e,n,r[3]),e.getTag().insertRules(t,s)),s.length=0;}else s.push(n);}},be=e=>{const t=ge(e.options.target).querySelectorAll(fe);for(let n=0,o=t.length;n<o;n++){const o=t[n];o&&o.getAttribute(c)!==a&&(Se(e,o),o.parentNode&&o.parentNode.removeChild(o));}};let we=false;function Ne(){if(false!==we)return we;if("undefined"!=typeof document){const e=document.head.querySelector('meta[property="csp-nonce"]');if(e)return we=e.nonce||e.getAttribute("content")||void 0;const t=document.head.querySelector('meta[name="sc-nonce"]');if(t)return we=t.getAttribute("content")||void 0}return we="undefined"!=typeof __webpack_nonce__?__webpack_nonce__:void 0}const Ce=(e,t)=>{const n=document.head,o=e||n,s=document.createElement("style"),r=(e=>{const t=Array.from(e.querySelectorAll(`style[${c}]`));return t[t.length-1]})(o),i=void 0!==r?r.nextSibling:null;s.setAttribute(c,a),s.setAttribute(l,u);const h=t||Ne();return h&&s.setAttribute("nonce",h),o.insertBefore(s,i),s},Oe=class{constructor(e,t){this.element=Ce(e,t),this.element.appendChild(document.createTextNode("")),this.sheet=(e=>{var t;if(e.sheet)return e.sheet;const n=null!==(t=e.getRootNode().styleSheets)&&void 0!==t?t:document.styleSheets;for(let t=0,o=n.length;t<o;t++){const o=n[t];if(o.ownerNode===e)return o}throw v(17)})(this.element),this.length=0;}insertRule(e,t){try{return this.sheet.insertRule(t,e),this.length++,!0}catch(e){return  false}}deleteRule(e){this.sheet.deleteRule(e),this.length--;}getRule(e){const t=this.sheet.cssRules[e];return t&&t.cssText?t.cssText:""}},Ee=class{constructor(e,t){this.element=Ce(e,t),this.nodes=this.element.childNodes,this.length=0;}insertRule(e,t){if(e<=this.length&&e>=0){const n=document.createTextNode(t);return this.element.insertBefore(n,this.nodes[e]||null),this.length++,true}return  false}deleteRule(e){this.element.removeChild(this.nodes[e]),this.length--;}getRule(e){return e<this.length?this.nodes[e].textContent:""}};let Ae=d;const Pe={isServer:!d,useCSSOMInjection:!f};class _e{static registerId(e){return C(e)}constructor(e=$,t={},n){this.options=Object.assign(Object.assign({},Pe),e),this.gs=t,this.keyframeIds=new Set,this.names=new Map(n),this.server=!!e.isServer,!this.server&&d&&Ae&&(Ae=false,be(this)),de(this,()=>(e=>{const t=e.getTag(),{length:n}=t;let o="";for(let s=0;s<n;s++){const n=O(s);if(void 0===n)continue;const r=e.names.get(n);if(void 0===r||!r.size)continue;const i=t.getGroup(s);if(0===i.length)continue;const a=c+".g"+s+'[id="'+n+'"]';let l="";for(const e of r)e.length>0&&(l+=e+",");o+=i+a+'{content:"'+l+'"}'+h;}return o})(this));}rehydrate(){!this.server&&d&&be(this);}reconstructWithOptions(e,t=true){const n=new _e(Object.assign(Object.assign({},this.options),e),this.gs,t&&this.names||void 0);return n.keyframeIds=new Set(this.keyframeIds),!this.server&&d&&e.target!==this.options.target&&ge(this.options.target)!==ge(e.target)&&be(n),n}allocateGSInstance(e){return this.gs[e]=(this.gs[e]||0)+1}getTag(){return this.tag||(this.tag=(e=(({useCSSOMInjection:e,target:t,nonce:n})=>e?new Oe(t,n):new Ee(t,n))(this.options),new pe(e)));var e;}hasNameForId(e,t){var n,o;return null!==(o=null===(n=this.names.get(e))||void 0===n?void 0:n.has(t))&&void 0!==o&&o}registerName(e,t){C(e),e.startsWith(m)&&this.keyframeIds.add(e);const n=this.names.get(e);n?n.add(t):this.names.set(e,new Set([t]));}insertRules(e,t,n){this.registerName(e,t),this.getTag().insertRules(C(e),n);}clearNames(e){this.names.has(e)&&this.names.get(e).clear();}clearRules(e){this.getTag().clearGroup(C(e)),this.clearNames(e);}clearTag(){this.tag=void 0;}}const Ie=new WeakSet,$e={animationIterationCount:1,aspectRatio:1,borderImageOutset:1,borderImageSlice:1,borderImageWidth:1,columnCount:1,columns:1,flex:1,flexGrow:1,flexShrink:1,gridRow:1,gridRowEnd:1,gridRowSpan:1,gridRowStart:1,gridColumn:1,gridColumnEnd:1,gridColumnSpan:1,gridColumnStart:1,fontWeight:1,lineHeight:1,opacity:1,order:1,orphans:1,scale:1,tabSize:1,widows:1,zIndex:1,zoom:1,WebkitLineClamp:1,fillOpacity:1,floodOpacity:1,stopOpacity:1,strokeDasharray:1,strokeDashoffset:1,strokeMiterlimit:1,strokeOpacity:1,strokeWidth:1};function Re(e,t){return null==t||"boolean"==typeof t||""===t?"":"number"!=typeof t||0===t||e in $e||e.startsWith("--")?String(t).trim():t+"px"}const je=47;function xe(e){if(45===e.charCodeAt(0)&&45===e.charCodeAt(1))return e;let t="";for(let n=0;n<e.length;n++){const o=e.charCodeAt(n);t+=o>=65&&o<=90?"-"+String.fromCharCode(o+32):e[n];}return t.startsWith("ms-")?"-"+t:t}const Te=Symbol.for("sc-keyframes");function ke(e){return "object"==typeof e&&null!==e&&Te in e}function De(e){return re(e)&&!(e.prototype&&e.prototype.isReactComponent)}const Ve=e=>null==e||false===e||""===e,Me=Symbol.for("react.client.reference");function Ge(e){return e.$$typeof===Me}function ze(e,t){for(const n in e){const o=e[n];e.hasOwnProperty(n)&&!Ve(o)&&(Array.isArray(o)&&Ie.has(o)||re(o)?t.push(xe(n)+":",o,";"):ue(o)?(t.push(n+" {"),ze(o,t),t.push("}")):t.push(xe(n)+": "+Re(n,o)+";"));}}function We(e,t,n,o,s=[]){if(Ve(e))return s;const r=typeof e;if("string"===r)return s.push(e),s;if("function"===r){if(Ge(e))return s;if(De(e)&&t){const r=e(t);return We(r,t,n,o,s)}return s.push(e),s}if(Array.isArray(e)){for(let r=0;r<e.length;r++)We(e[r],t,n,o,s);return s}return ce(e)?(s.push(`.${e.styledComponentId}`),s):ke(e)?(n?(e.inject(n,o),s.push(e.getName(o))):s.push(e),s):Ge(e)?(s):ue(e)?e.toString!==Object.prototype.toString?(s.push(e.toString()),s):(ze(e,s),s):(s.push(e.toString()),s)}const Le=F(u);class Be{constructor(e,t,n){this.rules=e,this.componentId=t,this.baseHash=G(Le,t),this.baseStyle=n,_e.registerId(t);}generateAndInjectStyles(e,t,n){let o=this.baseStyle?this.baseStyle.generateAndInjectStyles(e,t,n):"";{let s="";for(let o=0;o<this.rules.length;o++){const r=this.rules[o];if("string"==typeof r)s+=r;else if(r)if(De(r)){const o=r(e);"string"==typeof o?s+=o:null!=o&&false!==o&&(s+=le(We(o,e,t,n)));}else s+=le(We(r,e,t,n));}if(s){this.dynamicNameCache||(this.dynamicNameCache=new Map);const e=n.hash?n.hash+s:s;let r=this.dynamicNameCache.get(e);if(!r){if(r=V(G(G(this.baseHash,n.hash),s)>>>0),this.dynamicNameCache.size>=200){const e=this.dynamicNameCache.keys().next().value;void 0!==e&&this.dynamicNameCache.delete(e);}this.dynamicNameCache.set(e,r);}if(!t.hasNameForId(this.componentId,r)){const e=n(s,"."+r,void 0,this.componentId);t.insertRules(this.componentId,r,e);}o=ae(o,r);}}return o}}const qe=/&/g;function He(e,t){let n=0;for(;--t>=0&&92===e.charCodeAt(t);)n++;return !(1&~n)}function Ye(e){const t=e.length;let n="",o=0,s=0,r=0,i=false,c=false;for(let a=0;a<t;a++){const l=e.charCodeAt(a);if(0!==r||i||l!==je||42!==e.charCodeAt(a+1))if(i)42===l&&e.charCodeAt(a+1)===je&&(i=false,a++);else if(34!==l&&39!==l||He(e,a)){if(0===r)if(123===l)s++;else if(125===l){if(s--,s<0){c=true;let n=a+1;for(;n<t;){const t=e.charCodeAt(n);if(59===t||10===t)break;n++;}n<t&&59===e.charCodeAt(n)&&n++,s=0,a=n-1,o=n;continue}0===s&&(n+=e.substring(o,a+1),o=a+1);}else 59===l&&0===s&&(n+=e.substring(o,a+1),o=a+1);}else 0===r?r=l:r===l&&(r=0);else i=true,a++;}return c||0!==s||0!==r?(o<t&&0===s&&0===r&&(n+=e.substring(o)),n):e}function Ue(e,t){const n=t+" ",o=","+n;for(let s=0;s<e.length;s++){const r=e[s];if("rule"===r.type){r.value=(n+r.value).replaceAll(",",o);const e=r.props,t=[];for(let o=0;o<e.length;o++)t[o]=n+e[o];r.props=t;}Array.isArray(r.children)&&"@keyframes"!==r.type&&Ue(r.children,t);}return e}function Je({options:e=$,plugins:t=I}=$){let n,s,r;const i=(e,t,o)=>o.startsWith(s)&&o.endsWith(s)&&o.replaceAll(s,"").length>0?`.${n}`:e,c=t.slice();c.push(e=>{e.type===RULESET&&e.value.includes("&")&&(r||(r=new RegExp(`\\${s}\\b`,"g")),e.props[0]=e.props[0].replace(qe,s).replace(r,i));}),e.prefix&&c.push(prefixer),c.push(stringify);let a=[];const l=middleware(c.concat(rulesheet(e=>a.push(e)))),u=(t,i="",c="",u="&")=>{n=u,s=i,r=void 0;const h=function(e){const t=-1!==e.indexOf("//"),n=-1!==e.indexOf("}");if(!t&&!n)return e;if(!t)return Ye(e);const o=e.length;let s="",r=0,i=0,c=0,a=0,l=0,u=false;for(;i<o;){const t=e.charCodeAt(i);if(34!==t&&39!==t||He(e,i))if(0===c)if(t===je&&i+1<o&&42===e.charCodeAt(i+1)){for(i+=2;i+1<o&&(42!==e.charCodeAt(i)||e.charCodeAt(i+1)!==je);)i++;i+=2;}else if(40!==t)if(41!==t)if(a>0)i++;else if(42===t&&i+1<o&&e.charCodeAt(i+1)===je)s+=e.substring(r,i),i+=2,r=i,u=true;else if(t===je&&i+1<o&&e.charCodeAt(i+1)===je){for(s+=e.substring(r,i);i<o&&10!==e.charCodeAt(i);)i++;r=i,u=true;}else 123===t?l++:125===t&&l--,i++;else a>0&&a--,i++;else a++,i++;else i++;else 0===c?c=t:c===t&&(c=0),i++;}return u?(r<o&&(s+=e.substring(r)),0===l?s:Ye(s)):0===l?e:Ye(e)}(t);let d=compile(c||i?c+" "+i+" { "+h+" }":h);return e.namespace&&(d=Ue(d,e.namespace)),a=[],serialize(d,l),a},h=e;let d=M;for(let e=0;e<t.length;e++)t[e].name||v(15),d=G(d,t[e].name);return (null==h?void 0:h.namespace)&&(d=G(d,h.namespace)),(null==h?void 0:h.prefix)&&(d=G(d,"p")),u.hash=d!==M?d.toString():"",u}const Xe=new _e,Ke=Je(),Qe=React.createContext({shouldForwardProp:void 0,styleSheet:Xe,stylis:Ke,stylisPlugins:void 0});Qe.Consumer;function et(){return React.useContext(Qe)}const nt=React.createContext(void 0);nt.Consumer;const it=Object.prototype.hasOwnProperty,ct={};function at(e,t){const n="string"!=typeof e?"sc":T(e);ct[n]=(ct[n]||0)+1;const o=n+"-"+z(u+n+ct[n]);return t?t+"-"+o:o}function ut(o,s,r){const i=ce(o),c=o,a=!L(o),{attrs:l=I,componentId:u=at(s.displayName,s.parentComponentId),displayName:h=B(o)}=s,d=s.displayName&&s.componentId?T(s.displayName)+"-"+s.componentId:s.componentId||u,p=i&&c.attrs?c.attrs.concat(l).filter(Boolean):l;let{shouldForwardProp:f}=s;if(i&&c.shouldForwardProp){const e=c.shouldForwardProp;if(s.shouldForwardProp){const t=s.shouldForwardProp;f=(n,o)=>e(n,o)&&t(n,o);}else f=e;}const m=new Be(r,d,i?c.componentStyle:void 0);function y(o,s){return function(o,s,r){const{attrs:i,componentStyle:c,defaultProps:a,foldedComponentIds:l,styledComponentId:u,target:h}=o,d=React.useContext(nt),p=et(),f=o.shouldForwardProp||p.shouldForwardProp;const m=R(s,d,a)||$;let y,g;{const e=React.useRef(null),n=e.current;if(null!==n&&n[1]===m&&n[2]===p.styleSheet&&n[3]===p.stylis&&n[7]===c&&function(e,t,n){const o=e,s=t;let r=0;for(const e in s)if(it.call(s,e)&&(r++,o[e]!==s[e]))return  false;return r===n}(n[0],s,n[4]))y=n[5],g=n[6];else {y=function(e,t,n){const o=Object.assign(Object.assign({},t),{className:void 0,theme:n}),s=e.length>1;for(let n=0;n<e.length;n++){const r=e[n],i=re(r)?r(s?Object.assign({},o):o):r;for(const e in i)"className"===e?o.className=ae(o.className,i[e]):"style"===e?o.style=Object.assign(Object.assign({},o.style),i[e]):e in t&&void 0===t[e]||(o[e]=i[e]);}return "className"in t&&"string"==typeof t.className&&(o.className=ae(o.className,t.className)),o}(i,s,m),g=function(e,n,o,s){const r=e.generateAndInjectStyles(n,o,s);return r}(c,y,p.styleSheet,p.stylis);let n=0;for(const e in s)it.call(s,e)&&n++;e.current=[s,m,p.styleSheet,p.stylis,n,y,g,c];}}const v=y.as||h,S=function(t,n,o,s){const r={};for(const i in t) void 0===t[i]||"$"===i[0]||"as"===i||"theme"===i&&t.theme===o||("forwardedAs"===i?r.as=t.forwardedAs:s&&!s(i,n)||(r[i]=t[i],s||"development"!=="production"));return r}(y,v,m,f);let b=ae(l,u);return g&&(b+=" "+g),y.className&&(b+=" "+y.className),S[L(v)&&v.includes("-")?"class":"className"]=b,r&&(S.ref=r),React.createElement(v,S)}(g,o,s)}y.displayName=h;let g=React.forwardRef(y);return g.attrs=p,g.componentStyle=m,g.displayName=h,g.shouldForwardProp=f,g.foldedComponentIds=i?ae(c.foldedComponentIds,c.styledComponentId):"",g.styledComponentId=d,g.target=i?c.target:o,Object.defineProperty(g,"defaultProps",{get(){return this._foldedDefaultProps},set(e){this._foldedDefaultProps=i?function(e,...t){for(const n of t)he(e,n,true);return e}({},c.defaultProps,e):e;}}),de(g,()=>`.${g.styledComponentId}`),a&&se(g,o,{attrs:true,componentStyle:true,displayName:true,foldedComponentIds:true,shouldForwardProp:true,styledComponentId:true,target:true}),g}var ht=new Set(["a","abbr","address","area","article","aside","audio","b","bdi","bdo","blockquote","body","button","br","canvas","caption","cite","code","col","colgroup","data","datalist","dd","del","details","dfn","dialog","div","dl","dt","em","embed","fieldset","figcaption","figure","footer","form","h1","h2","h3","h4","h5","h6","header","hgroup","hr","html","i","iframe","img","input","ins","kbd","label","legend","li","main","map","mark","menu","meter","nav","object","ol","optgroup","option","output","p","picture","pre","progress","q","rp","rt","ruby","s","samp","search","section","select","slot","small","span","strong","sub","summary","sup","table","tbody","td","template","textarea","tfoot","th","thead","time","tr","u","ul","var","video","wbr","circle","clipPath","defs","ellipse","feBlend","feColorMatrix","feComponentTransfer","feComposite","feConvolveMatrix","feDiffuseLighting","feDisplacementMap","feDistantLight","feDropShadow","feFlood","feFuncA","feFuncB","feFuncG","feFuncR","feGaussianBlur","feImage","feMerge","feMergeNode","feMorphology","feOffset","fePointLight","feSpecularLighting","feSpotLight","feTile","feTurbulence","filter","foreignObject","g","image","line","linearGradient","marker","mask","path","pattern","polygon","polyline","radialGradient","rect","stop","svg","switch","symbol","text","textPath","tspan","use"]);function dt(e,t){const n=[e[0]];for(let o=0,s=t.length;o<s;o+=1)n.push(t[o],e[o+1]);return n}const pt=e=>(Ie.add(e),e);function ft(e,...t){if(re(e)||ue(e))return pt(We(dt(I,[e,...t])));const n=e;return 0===t.length&&1===n.length&&"string"==typeof n[0]?We(n):pt(We(dt(n,t)))}function mt(e,t,n=$){if(!t)throw v(1,t);const o=(o,...s)=>e(t,n,ft(o,...s));return o.attrs=o=>mt(e,t,Object.assign(Object.assign({},n),{attrs:Array.prototype.concat(n.attrs,o).filter(Boolean)})),o.withConfig=o=>mt(e,t,Object.assign(Object.assign({},n),o)),o}const yt=e=>mt(ut,e),gt=yt;ht.forEach(e=>{gt[e]=yt(e);});
 
   function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -53441,8 +57033,12 @@ export default theme;`;
     d: "M6 6h12v12H6z"
   }));
 
-  var PlayArrowIcon = createSvgIcon(/*#__PURE__*/jsxRuntimeExports.jsx("path", {
-    d: "M8 5v14l11-7z"
+  var FastRewindIcon = createSvgIcon(/*#__PURE__*/jsxRuntimeExports.jsx("path", {
+    d: "M11 18V6l-8.5 6zm.5-6 8.5 6V6z"
+  }));
+
+  var FastForwardIcon = createSvgIcon(/*#__PURE__*/jsxRuntimeExports.jsx("path", {
+    d: "m4 18 8.5-6L4 6zm9-12v12l8.5-6z"
   }));
 
   /**
@@ -54909,6 +58505,12 @@ export default theme;`;
       const isSpeakingRef = React.useRef(false);
       const [iteration, setIteration] = React.useState(1);
       const [errorMessage, setErrorMessage] = React.useState('');
+      /**
+       * 재생 중인 문장 위치. state가 아니라 ref인 이유는 `isSpeakingRef`와 같다 —
+       * async 루프가 최신 값을 읽어야 하고, 이전/다음 버튼이 루프 밖에서 이 값을 바꾼다.
+       * 화면 표시는 `playContentSplitIndex` state가 담당한다.
+       */
+      const playIndexRef = React.useRef(0);
       // 문장별로 목소리가 갈리므로, 선택된 목소리 중 하나라도 시스템 TTS면 speechSynthesis가 필요하다.
       const usedVoices = [props.voiceEn, props.voiceKo].filter(isNotNil);
       const needsSpeechSynthesis = usedVoices.some((voice) => voice.type !== 'Flite' && voice.type !== 'Kave');
@@ -54936,13 +58538,42 @@ export default theme;`;
           setIsSpeaking(false);
           isSpeakingRef.current = false;
           setPlayContentSplitIndex(-1);
-          setIteration(0);
+          // iteration은 그대로 둔다 — 0으로 되돌리면 정상 종료 후 "0 / 3회"로 보인다.
+          // 다시 재생하면 startSpeakingLoop가 1부터 다시 센다.
           // 오프라인 엔진은 자체 정지가 필요하다 (재생 대기 중인 promise도 함께 풀린다)
           fliteStop();
           kaveStop();
           if (isNil(window.speechSynthesis))
               return;
           speechSynthesis.cancel();
+      };
+      /**
+       * 재생 상태는 유지한 채 **현재 발화만** 끊는다.
+       * 이러면 `speakSentence`의 await가 곧바로 풀려 루프가 다음 문장으로 넘어간다.
+       * (`stop()`과 달리 `isSpeakingRef`를 건드리지 않는다.)
+       */
+      const cancelCurrentSpeech = () => {
+          fliteStop();
+          kaveStop();
+          if (isNotNil(window.speechSynthesis))
+              speechSynthesis.cancel();
+      };
+      /**
+       * 현재 문장에서 offset(±1)만큼 이동한다 (이전/다음 문장 버튼).
+       *
+       * 양 끝은 범위 안으로 고정한다 — 첫 문장에서 이전은 그 문장 다시 듣기,
+       * 마지막 문장에서 다음은 무시. 모바일 앱의 `jumpSentence`와 같은 규칙이다.
+       */
+      const jumpSentence = (offset) => {
+          if (contentSplit.length === 0 || !isSpeakingRef.current)
+              return;
+          const current = playIndexRef.current;
+          const target = Math.min(contentSplit.length - 1, Math.max(0, current + offset));
+          if (target === current && offset > 0)
+              return; // 마지막 문장에서 다음은 무시
+          playIndexRef.current = target;
+          setPlayContentSplitIndex(target);
+          cancelCurrentSpeech(); // 지금 읽던 문장을 끊어 즉시 이동한다
       };
       /**
        * 문장 언어에 맞는 목소리를 고른다.
@@ -54988,9 +58619,12 @@ export default theme;`;
               // 오프라인 엔진은 첫 합성에 수 초가 걸려 이 확인이 특히 중요하다.
               for (let i = 0; i < props.repeatTotal && isSpeakingRef.current; i++) {
                   setIteration(i + 1);
+                  playIndexRef.current = 0;
                   // 언어를 못 정하는 문장(숫자·기호뿐)은 직전 문장 언어를 따른다.
                   let lastLang = null;
-                  for (let playIndex = 0; playIndex < contentSplit.length && isSpeakingRef.current; playIndex++) {
+                  // for가 아니라 while인 이유: 이전/다음 버튼이 재생 중에 playIndexRef를 바꾼다.
+                  while (playIndexRef.current < contentSplit.length && isSpeakingRef.current) {
+                      const playIndex = playIndexRef.current;
                       setPlayContentSplitIndex(playIndex);
                       const sentence = contentSplit[playIndex];
                       // 명시적 타입 — lastLang과 서로를 참조해 추론이 순환한다
@@ -54998,9 +58632,11 @@ export default theme;`;
                       if (lang)
                           lastLang = lang;
                       const voice = pickVoice(lang);
-                      if (voice === undefined)
-                          continue; // 해당 언어 목소리가 없으면 건너뛴다
-                      await speakSentence(voice, sentence);
+                      if (voice !== undefined)
+                          await speakSentence(voice, sentence);
+                      // 발화 도중 이전/다음을 눌렀으면 그 위치를 존중하고, 아니면 다음 문장으로.
+                      if (playIndexRef.current === playIndex)
+                          playIndexRef.current = playIndex + 1;
                   }
               }
           }
@@ -55016,29 +58652,52 @@ export default theme;`;
           return (React.createElement(React.Fragment, null));
       if (needsSpeechSynthesis && isNil(window.speechSynthesis))
           return (React.createElement(React.Fragment, null));
-      return (React.createElement(Dialog, { open: true, fullScreen: true, sx: { pr: 0, pl: 1 } },
-          React.createElement(TitleContainer$1, null,
-              React.createElement(ArrowBackIosNewIcon, { sx: { mr: 0 }, onClick: () => {
-                      props.setIsOpened(false);
-                  } }),
-              React.createElement(DialogTitle, { sx: { fontWeight: 'bold', mr: 10 } }, "\uB4E3\uAE30")),
-          React.createElement("div", null,
-              isSpeaking ? React.createElement(Button, { variant: "outlined", className: 'm-2', sx: { marginLeft: '4px' }, onClick: () => { stop(); } },
-                  React.createElement(StopIcon, null))
-                  : React.createElement(Button, { variant: "outlined", className: 'm-2', sx: { marginLeft: '4px' }, onClick: () => { startSpeakingLoop().then(); } },
-                      React.createElement(PlayArrowIcon, null)),
-              React.createElement(TextField, { label: '현재 횟수', value: iteration, className: 'w-20', size: 'small', InputProps: { readOnly: true }, sx: { marginLeft: '20px' } }),
-              React.createElement(TextField, { label: '총 반복', value: props.repeatTotal, className: 'w-20', size: 'small', InputProps: { readOnly: true }, sx: { marginLeft: '4px' } })),
-          errorMessage.length > 0
-              ? React.createElement("div", { className: 'm-2 p-2 text-red-700' }, errorMessage)
-              : '',
-          React.createElement("div", { className: 'whitespace-pre-line p-2 border-2 border-black m-2' }, contentSplit.map((sentence, index) => (React.createElement("span", { key: `sentence-${index}`, id: 'sentence-' + index, className: '' + (index === playContentSplitIndex ? ' text-red-700' : '') }, sentence))))));
+      // 현재 위치 / 전체 문장 — 진행 바와 안내 문구에 함께 쓴다
+      const progress = contentSplit.length === 0 || playContentSplitIndex < 0
+          ? 0
+          : ((playContentSplitIndex + 1) / contentSplit.length) * 100;
+      return (React.createElement(Dialog, { open: true, fullScreen: true },
+          React.createElement(Stack, { sx: { height: '100%', bgcolor: 'background.default' } },
+              React.createElement(Stack, { direction: 'row', alignItems: 'center', spacing: 1, sx: { px: 1, py: 1.5, borderBottom: '1px solid', borderColor: 'divider' } },
+                  React.createElement(IconButton, { onClick: () => props.setIsOpened(false), "aria-label": '닫기' },
+                      React.createElement(ArrowBackIosNewIcon, { fontSize: 'small' })),
+                  React.createElement(Typography, { variant: 'h6', sx: { fontWeight: 700, flex: 1 } }, "\uB4E3\uAE30"),
+                  React.createElement(Chip, { size: 'small', variant: 'outlined', label: `${iteration} / ${props.repeatTotal}회` })),
+              React.createElement(LinearProgress, { variant: 'determinate', value: progress, sx: { height: 3 } }),
+              React.createElement(Stack, { direction: 'row', alignItems: 'center', spacing: 1.5, sx: { px: 2, py: 2 } },
+                  React.createElement(Tooltip, { title: '이전 문장' },
+                      React.createElement("span", null,
+                          React.createElement(IconButton, { color: 'primary', disabled: !isSpeaking, onClick: () => jumpSentence(-1), "aria-label": '이전 문장', sx: { border: '1px solid', borderColor: 'divider' } },
+                              React.createElement(FastRewindIcon, null)))),
+                  isSpeaking
+                      ? React.createElement(Button, { variant: "contained", color: 'inherit', size: 'large', startIcon: React.createElement(StopIcon, null), onClick: () => { stop(); } }, "\uC815\uC9C0")
+                      : React.createElement(Button, { variant: "contained", size: 'large', startIcon: React.createElement(PlayArrowIcon, null), onClick: () => { startSpeakingLoop().then(); } }, "\uC7AC\uC0DD"),
+                  React.createElement(Tooltip, { title: '다음 문장' },
+                      React.createElement("span", null,
+                          React.createElement(IconButton, { color: 'primary', disabled: !isSpeaking, onClick: () => jumpSentence(1), "aria-label": '다음 문장', sx: { border: '1px solid', borderColor: 'divider' } },
+                              React.createElement(FastForwardIcon, null)))),
+                  React.createElement(Typography, { variant: 'body2', color: 'text.secondary' }, contentSplit.length > 0 && playContentSplitIndex >= 0
+                      ? `${playContentSplitIndex + 1} / ${contentSplit.length}문장`
+                      : `${contentSplit.length}문장`)),
+              errorMessage.length > 0
+                  ? React.createElement(Alert, { severity: 'error', sx: { mx: 2, mb: 2 } }, errorMessage)
+                  : '',
+              React.createElement(Box, { sx: { flex: 1, overflowY: 'auto', px: 2, pb: 4 } },
+                  React.createElement(Typography, { component: 'div', sx: {
+                          whiteSpace: 'pre-line',
+                          maxWidth: '46rem',
+                          mx: 'auto',
+                          fontSize: { xs: '1.05rem', sm: '1.15rem' },
+                          lineHeight: 1.9,
+                          color: 'text.secondary',
+                      } }, contentSplit.map((sentence, index) => (React.createElement(Box, { key: `sentence-${index}`, component: 'span', id: 'sentence-' + index, sx: index === playContentSplitIndex ? {
+                          color: 'primary.main',
+                          fontWeight: 700,
+                          bgcolor: 'rgba(37, 99, 235, 0.10)',
+                          borderRadius: 1,
+                          boxShadow: '0 0 0 2px rgba(37, 99, 235, 0.10)',
+                      } : undefined }, sentence))))))));
   };
-  const TitleContainer$1 = gt.div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`;
 
   /**
    * 오프라인 한국어 엔진 '케이브' — 음절 연결 합성(concatenative).
@@ -55119,8 +58778,9 @@ export default theme;`;
           // 시스템 TTS 유무와 무관하게 각 목록 맨 아래에 붙는다 — sortVoices가 최후순위로 내린다.
           // 이전에 고른 목소리가 있으면 그것을, 없거나 사라졌으면 0(자동 선택된 최적 목소리)을 쓴다.
           const apply = (loaded) => {
-              const nextEn = filterVoicesByLang(loaded, 'en', FLITE_VOICES, localLang);
-              const nextKo = filterVoicesByLang(loaded, 'ko', KAVE_VOICES, localLang);
+              // 이름 부여는 정렬 뒤에 한다 — sortVoices가 원래 이름(Aaron/Samantha)을 보기 때문.
+              const nextEn = assignFriendlyNames(filterVoicesByLang(loaded, 'en', FLITE_VOICES, localLang), 'en');
+              const nextKo = assignFriendlyNames(filterVoicesByLang(loaded, 'ko', KAVE_VOICES, localLang), 'ko');
               setVoicesEn(nextEn);
               setVoicesKo(nextKo);
               setSelectedVoiceEnIndex(findVoiceIndexByKey(nextEn, loadSelectedVoiceKey('en')));
@@ -55225,95 +58885,120 @@ export default theme;`;
           patchQueryString({ contentDetail: contentDetailEncoded, voiceLang: contentLang });
           addHistoryListeningTrainerStorage({ detail: contentDetail, lang: contentLang });
       };
-      return (React.createElement("div", null,
-          React.createElement("div", null,
-              React.createElement(FormControl, { sx: { marginBottom: '15px' } },
+      const sentenceTotal = contentDetail.trim().length === 0 ? 0 : splitContent(contentDetail).length;
+      return (React.createElement(Paper, { variant: 'outlined', sx: { p: { xs: 2, sm: 3 }, borderRadius: '16px' } },
+          React.createElement(Stack, { direction: { xs: 'column', sm: 'row' }, spacing: 1.5, sx: { mb: 2 } },
+              React.createElement(FormControl, { size: 'small', sx: { flex: 1, minWidth: 0 } },
                   React.createElement(InputLabel, { id: "voice-en-select-label" }, "\uC601\uC5B4 \uBAA9\uC18C\uB9AC"),
-                  React.createElement(Select, { labelId: 'voice-en-select-label', value: voicesEn.length > 0 ? selectedVoiceEnIndex : '', label: "\uC601\uC5B4 \uBAA9\uC18C\uB9AC", className: 'h-10 w-48 mr-2', autoWidth: true, onChange: (event) => {
+                  React.createElement(Select, { labelId: 'voice-en-select-label', value: voicesEn.length > 0 ? selectedVoiceEnIndex : '', label: "\uC601\uC5B4 \uBAA9\uC18C\uB9AC", onChange: (event) => {
                           const index = Number(event.target.value);
                           setSelectedVoiceEnIndex(index);
                           if (voicesEn[index])
                               saveSelectedVoiceKey('en', voiceKey(voicesEn[index]));
                       } }, voicesEn.map((voice, index) => (React.createElement(MenuItem, { key: 'voice-en-' + index, value: index }, voiceLabel(voice)))))),
-              React.createElement(FormControl, { sx: { marginBottom: '15px' } },
+              React.createElement(FormControl, { size: 'small', sx: { flex: 1, minWidth: 0 } },
                   React.createElement(InputLabel, { id: "voice-ko-select-label" }, "\uD55C\uAD6D\uC5B4 \uBAA9\uC18C\uB9AC"),
-                  React.createElement(Select, { labelId: 'voice-ko-select-label', value: voicesKo.length > 0 ? selectedVoiceKoIndex : '', label: "\uD55C\uAD6D\uC5B4 \uBAA9\uC18C\uB9AC", className: 'h-10 w-48 mr-2', autoWidth: true, onChange: (event) => {
+                  React.createElement(Select, { labelId: 'voice-ko-select-label', value: voicesKo.length > 0 ? selectedVoiceKoIndex : '', label: "\uD55C\uAD6D\uC5B4 \uBAA9\uC18C\uB9AC", onChange: (event) => {
                           const index = Number(event.target.value);
                           setSelectedVoiceKoIndex(index);
                           if (voicesKo[index])
                               saveSelectedVoiceKey('ko', voiceKey(voicesKo[index]));
                       } }, voicesKo.map((voice, index) => (React.createElement(MenuItem, { key: 'voice-ko-' + index, value: index }, voiceLabel(voice))))))),
-          React.createElement("div", null,
-              React.createElement(Button, { variant: "contained", onClick: () => speak(), disabled: contentDetail.length === 0, sx: { marginRight: '4px', marginBottom: '15px' } }, "\uB4E3\uAE30"),
-              React.createElement(FormControl, null,
+          React.createElement(Stack, { direction: 'row', spacing: 1.5, alignItems: 'center', sx: { mb: 2 } },
+              React.createElement(Button, { variant: "contained", size: 'large', startIcon: React.createElement(PlayArrowIcon, null), onClick: () => speak(), disabled: contentDetail.length === 0, sx: { px: 3 } }, "\uB4E3\uAE30"),
+              React.createElement(FormControl, { size: 'small', sx: { width: 104 } },
                   React.createElement(InputLabel, { id: "repeat-total-label" }, "\uCD1D \uBC18\uBCF5"),
-                  React.createElement(Select, { labelId: 'repeat-total-label', value: repeatTotal, label: "\uCD1D \uBC18\uBCF5", className: 'h-10 w-24 mr-2', autoWidth: true, onChange: (event) => {
+                  React.createElement(Select, { labelId: 'repeat-total-label', value: repeatTotal, label: "\uCD1D \uBC18\uBCF5", onChange: (event) => {
                           if (typeof event.target.value !== 'number')
                               return;
                           setRepeatTotal(event.target.value);
                           saveRepeatTotal(event.target.value);
-                      } }, REPEAT_TOTAL_OPTIONS.map((option) => (React.createElement(MenuItem, { key: 'repeat-' + option, value: option }, option))))),
-              React.createElement(Button, { variant: "contained", sx: { marginTop: '0px', marginBottom: '15px' }, onClick: () => {
-                      const stored = loadListeningTrainerStorage();
-                      setHistory(stored.history);
-                      setHistoryDialogOpen(true);
-                  } },
-                  React.createElement(HistoryIcon, null))),
+                      } }, REPEAT_TOTAL_OPTIONS.map((option) => (React.createElement(MenuItem, { key: 'repeat-' + option, value: option },
+                      option,
+                      "\uD68C"))))),
+              React.createElement(Box, { sx: { flex: 1 } }),
+              React.createElement(Tooltip, { title: '히스토리 · 샘플' },
+                  React.createElement(IconButton, { color: 'primary', sx: { border: '1px solid', borderColor: 'divider' }, onClick: () => {
+                          const stored = loadListeningTrainerStorage();
+                          setHistory(stored.history);
+                          setHistoryDialogOpen(true);
+                      } },
+                      React.createElement(HistoryIcon, null)))),
           offlineOnly
-              ? React.createElement(Alert, { severity: "warning", sx: { marginBottom: '10px' } },
-                  React.createElement("div", null, "\uD604\uC7AC \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C\uB294 \uC800\uC74C\uC9C8\uB9CC \uAC00\uB2A5\uD569\uB2C8\uB2E4."),
-                  React.createElement("div", null, "\uCE74\uCE74\uC624\uD1A1 \uC6F9\uACFC \uAC19\uC740 \uC77C\uBD80 \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C \uBC1C\uC0DD\uD569\uB2C8\uB2E4. \uB354 \uC88B\uC740 \uC74C\uC9C8\uB85C \uB4E4\uC73C\uB824\uBA74 URL\uC744 \uBCF5\uC0AC\uD574 \uB2E4\uB978 \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C \uC5F4\uC5B4\uBCF4\uC138\uC694."),
-                  React.createElement(Button, { sx: { marginTop: '8px' }, size: 'small', onClick: () => copyShareUrl(), variant: "outlined" }, "URL \uBCF5\uC0AC"),
-                  copyMessage.length > 0 ? React.createElement("span", { className: 'ml-2' }, copyMessage) : '')
+              ? React.createElement(Alert, { severity: "warning", sx: { mb: 2 } },
+                  React.createElement(AlertTitle, { sx: { fontWeight: 700 } }, "\uD604\uC7AC \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C\uB294 \uC800\uC74C\uC9C8\uB9CC \uAC00\uB2A5\uD569\uB2C8\uB2E4."),
+                  "\uCE74\uCE74\uC624\uD1A1 \uC6F9\uACFC \uAC19\uC740 \uC77C\uBD80 \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C \uBC1C\uC0DD\uD569\uB2C8\uB2E4. \uB354 \uC88B\uC740 \uC74C\uC9C8\uB85C \uB4E4\uC73C\uB824\uBA74 URL\uC744 \uBCF5\uC0AC\uD574 \uB2E4\uB978 \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C \uC5F4\uC5B4\uBCF4\uC138\uC694.",
+                  React.createElement(Stack, { direction: 'row', spacing: 1.5, alignItems: 'center', sx: { mt: 1.5 } },
+                      React.createElement(Button, { size: 'small', color: 'warning', onClick: () => copyShareUrl(), variant: "outlined" }, "URL \uBCF5\uC0AC"),
+                      copyMessage.length > 0
+                          ? React.createElement(Typography, { variant: 'body2' }, copyMessage)
+                          : ''))
               : '',
-          React.createElement("div", null,
-              React.createElement(TextField, { label: "\uD3B8\uC9D1", multiline: true, rows: 20, fullWidth: true, placeholder: '들을 텍스트를 붙여넣거나 입력하세요. 히스토리 버튼에서 이전 기록과 샘플을 고를 수도 있습니다.', sx: {
-                      marginTop: '10px',
-                  }, onChange: (event) => {
-                      setContentDetail(event.target.value);
-                  }, key: 'editor', value: contentDetail }),
-              React.createElement(Button, { variant: 'outlined', sx: { marginTop: '10px' }, onClick: () => { setContentDetail(''); } }, "\uC9C0\uC6B0\uAE30")),
-          React.createElement(Dialog, { open: historyDialogOpen, sx: { pr: 1, pl: 1 }, PaperProps: { style: { minHeight: '90%', maxHeight: '90%' } } },
-              React.createElement(TitleContainer, null,
-                  React.createElement(ArrowBackIosNewIcon, { sx: { mr: 0, ml: 2 }, onClick: () => setHistoryDialogOpen(false) }),
-                  React.createElement(DialogTitle, { sx: { fontWeight: 'bold' } }, "\uB4E3\uAE30 \uD788\uC2A4\uD1A0\uB9AC")),
-              React.createElement(DialogContent, null,
-                  React.createElement(List, null,
-                      history.map((oneHistory, index) => (React.createElement(React.Fragment, null,
-                          React.createElement(Divider, null),
-                          React.createElement(ListItem, { key: `history-${index}`, disablePadding: true },
-                              React.createElement(ListItemButton, { onClick: async () => {
+          React.createElement(TextField, { label: "\uD3B8\uC9D1", multiline: true, rows: 16, fullWidth: true, placeholder: '들을 텍스트를 붙여넣거나 입력하세요. 히스토리 버튼에서 이전 기록과 샘플을 고를 수도 있습니다.', onChange: (event) => {
+                  setContentDetail(event.target.value);
+              }, key: 'editor', value: contentDetail }),
+          React.createElement(Stack, { direction: 'row', spacing: 1.5, alignItems: 'center', sx: { mt: 1.5 } },
+              React.createElement(Typography, { variant: 'body2', color: 'text.secondary' }, sentenceTotal > 0 ? `${sentenceTotal}문장` : '내용 없음'),
+              React.createElement(Box, { sx: { flex: 1 } }),
+              React.createElement(Button, { variant: 'text', color: 'inherit', disabled: contentDetail.length === 0, onClick: () => { setContentDetail(''); } }, "\uC9C0\uC6B0\uAE30")),
+          React.createElement(Dialog, { open: historyDialogOpen, fullWidth: true, maxWidth: 'sm', onClose: () => setHistoryDialogOpen(false), PaperProps: { sx: { minHeight: '90%', maxHeight: '90%', borderRadius: '16px' } } },
+              React.createElement(DialogTitle, { sx: { display: 'flex', alignItems: 'center', gap: 1, fontWeight: 700 } },
+                  React.createElement(IconButton, { size: 'small', onClick: () => setHistoryDialogOpen(false) },
+                      React.createElement(ArrowBackIosNewIcon, { fontSize: 'small' })),
+                  "\uB4E3\uAE30 \uD788\uC2A4\uD1A0\uB9AC"),
+              React.createElement(Divider, null),
+              React.createElement(DialogContent, { sx: { p: 0 } },
+                  React.createElement(List, { disablePadding: true },
+                      history.map((oneHistory, index) => (React.createElement(React.Fragment, { key: `history-${index}` },
+                          React.createElement(ListItem, { disablePadding: true },
+                              React.createElement(ListItemButton, { sx: { py: 1.5 }, onClick: async () => {
                                       setContentDetail(oneHistory.content.detail);
                                       await loadVoices();
                                       setHistoryDialogOpen(false);
                                   } },
-                                  React.createElement(ListItemText, { primary: oneHistory.content.detail.slice(0, 100) + ' ...', secondary: React.createElement("div", { className: 'mt-2' },
-                                          React.createElement(Chip, { className: 'mr-2', label: oneHistory.content.lang, variant: "outlined", size: "small" }),
-                                          oneHistory.created) })))))),
-                      LISTENING_TRAINER_SAMPLES.map((sample, index) => (React.createElement(React.Fragment, null,
-                          React.createElement(Divider, null),
-                          React.createElement(ListItem, { key: `sample-${index}`, disablePadding: true },
-                              React.createElement(ListItemButton, { onClick: async () => {
+                                  React.createElement(ListItemText, { primary: oneHistory.content.detail.slice(0, 100) + ' ...', primaryTypographyProps: { variant: 'body2' }, secondary: React.createElement(Stack, { direction: 'row', spacing: 1, alignItems: 'center', sx: { mt: 1 } },
+                                          React.createElement(Chip, { label: oneHistory.content.lang, variant: "outlined", size: "small" }),
+                                          React.createElement(Typography, { variant: 'caption', color: 'text.secondary' }, oneHistory.created)), secondaryTypographyProps: { component: 'div' } }))),
+                          React.createElement(Divider, null)))),
+                      LISTENING_TRAINER_SAMPLES.map((sample, index) => (React.createElement(React.Fragment, { key: `sample-${index}` },
+                          React.createElement(ListItem, { disablePadding: true },
+                              React.createElement(ListItemButton, { sx: { py: 1.5 }, onClick: async () => {
                                       const sampleContent = await loadSampleContent(sample.url);
                                       setContentDetail(sampleContent.detail);
                                       await loadVoices();
                                       setHistoryDialogOpen(false);
                                   } },
-                                  React.createElement(ListItemText, { primary: sample.short + ' ...', secondary: React.createElement("div", { className: 'mt-2' },
-                                          React.createElement(Chip, { className: 'mr-2', label: sample.lang, variant: "outlined", size: "small" }),
-                                          React.createElement(Chip, { className: 'mr-2', label: 'sample', variant: "outlined", size: "small" }),
-                                          React.createElement(Chip, { className: 'mr-2', label: sample.nameKo, variant: "outlined", size: "small" })) }))))))))),
+                                  React.createElement(ListItemText, { primary: sample.short + ' ...', primaryTypographyProps: { variant: 'body2' }, secondary: React.createElement(Stack, { direction: 'row', spacing: 1, sx: { mt: 1 } },
+                                          React.createElement(Chip, { label: sample.lang, variant: "outlined", size: "small" }),
+                                          React.createElement(Chip, { label: sample.nameKo, size: "small", color: 'primary', variant: "outlined" }),
+                                          React.createElement(Chip, { label: '샘플', size: "small", color: 'primary' })), secondaryTypographyProps: { component: 'div' } }))),
+                          React.createElement(Divider, null))))))),
           speakingDialogOpen ? React.createElement(SpeakingDialog, { isOpened: speakingDialogOpen, setIsOpened: setSpeakingDialogOpen, text: contentDetail, voiceEn: selectedVoiceEn, voiceKo: selectedVoiceKo, repeatTotal: repeatTotal }) : ''));
   };
-  const TitleContainer = gt.div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`;
 
+  /**
+   * 이 UMD는 다른 페이지(MkDocs 등) 안에 박혀 동작하므로 **호스트 페이지를 건드리지 않는다**.
+   * `CssBaseline`처럼 전역 리셋을 넣으면 감싸는 문서의 스타일까지 바꾸므로 쓰지 않고,
+   * 테마는 이 컴포넌트 트리 안에서만 적용한다.
+   */
+  const theme = createTheme({
+      palette: {
+          primary: { main: '#2563eb' },
+          text: { primary: '#1f2937', secondary: '#6b7280' },
+      },
+      shape: { borderRadius: 10 },
+      typography: {
+          fontFamily: '"Pretendard", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, "Malgun Gothic", sans-serif',
+          button: { textTransform: 'none', fontWeight: 600 },
+      },
+      components: {
+          MuiButton: { defaultProps: { disableElevation: true } },
+      },
+  });
   const ListeningTrainerPage = () => {
-      return React.createElement(Box, { sx: { display: 'block' } },
-          React.createElement(ListeningTrainerView, null));
+      return React.createElement(ThemeProvider, { theme: theme },
+          React.createElement(Box, { sx: { display: 'block' } },
+              React.createElement(ListeningTrainerView, null)));
   };
 
   exports.ListeningTrainerPage = ListeningTrainerPage;
