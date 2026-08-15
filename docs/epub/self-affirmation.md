@@ -18,11 +18,11 @@ hide:
 </div>
 
 <p style='display: flex; justify-content: center; gap: 50px;'>
-  <a href="https://www.yes24.com/Product/Goods/124718933">
+  <!-- <a href="https://www.yes24.com/Product/Goods/124718933">
     <img className='w-4' src="/assets/webs/images/epub/common/yes24_icon.svg" alt='Yes24Icon' style="width: 15px"/>
     <span>예스24 구매</span>
     <span class="material-icons" style="font-size:18px; vertical-align:middle;">open_in_new</span>
-  </a>
+  </a> -->
   <a href="https://play.google.com/store/books/details?id=jHnqEAAAQBAJ">
     <img className='w-4 ml-4' src="/assets/webs/images/epub/common/play_books_icon.svg" alt='PlayBooksIcon' style="width: 15px"/>
     <span>Play북 구매</span>
@@ -66,13 +66,13 @@ TTS를 활용하면 쉽게 『미쁨1문1답 영문 전치사』 전자책을 �
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
   </p>
-  <p style='display: flex; justify-content: center;'>
+  <!-- <p style='display: flex; justify-content: center;'>
     <a href="https://www.yes24.com/Product/Goods/124718933">
       <img src="/assets/webs/images/epub/common/yes24_icon.svg" alt='Yes24' style="width: 15px"/>
       <span>예스24 구매</span>
       <span class="material-icons" style="font-size:18px; vertical-align:middle;">open_in_new</span>
     </a>
-  </p>
+  </p> -->
   <p>
     예스24 eBook 앱은 자체 TTS 를 사용하기 때문에, 안드로이드와 아이폰의 차이가 없습니다.
   </p>

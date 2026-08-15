@@ -26,11 +26,11 @@ import Link from "@mui/material/Link"; -->
   <img src='/assets/webs/images/epub/preposition/example-14-answer.png' alt='Example14AnswerCoverImage' style="width: 33%; border: 2px solid #e5e7eb;" />
 </div>
 <p style='display: flex; justify-content: center; gap: 50px;'>
-  <a href="https://www.yes24.com/Product/Goods/126670604">
+  <!-- <a href="https://www.yes24.com/Product/Goods/126670604">
     <img className='w-4' src="/assets/webs/images/epub/common/yes24_icon.svg" alt='Yes24Icon' style="width: 15px"/>
     <span>예스24 구매</span>
     <span class="material-icons" style="font-size:18px; vertical-align:middle;">open_in_new</span>
-  </a>
+  </a> -->
   <a href="https://play.google.com/store/books/details?id=UGEQAAQBAJ">
     <img className='w-4 ml-4' src="/assets/webs/images/epub/common/play_books_icon.svg" alt='PlayBooksIcon' style="width: 15px"/>
     <span>Play북 구매</span>
@@ -64,13 +64,13 @@ TTS를 활용하면 쉽게 『미쁨1문1답 영문 전치사』 전자책을 �
   <p style='display: flex; justify-content: center;'>
     <iframe width="300" height="450" src="https://www.youtube.com/embed/I2Bd2m2pe6k?si=9S4WmFnJyCWDXe3c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </p>
-  <p style='display: flex; justify-content: center;'>
+  <!-- <p style='display: flex; justify-content: center;'>
     <a href="https://www.yes24.com/Product/Goods/126670604">
     <img className='w-4' src="/assets/webs/images/epub/common/yes24_icon.svg" alt='Yes24Icon' style="width: 15px"/>
     <span>예스24 구매</span>
     <span class="material-icons" style="font-size:18px; vertical-align:middle;">open_in_new</span>
   </a>
-  </p>
+  </p> -->
   <p>
     예스24 eBook 앱은 자체 TTS 를 사용하기 때문에,  <br />
     안드로이드와 아이폰의 차이가 없습니다.
