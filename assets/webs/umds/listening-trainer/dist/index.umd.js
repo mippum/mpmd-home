@@ -39477,15 +39477,17 @@ export default theme;`;
   /**
    * 특정 언어용 목소리 목록을 만든다 — 영어/한국어 선택을 분리하기 위한 것.
    *
-   * 해당 언어(`en-*` / `ko-*`)의 시스템 목소리만 골라 정렬하고, 그 언어의 오프라인 엔진을
-   * 맨 뒤에 붙인다(Selton=영어, 케이브=한국어). 오프라인 엔진은 시스템 목소리가 하나도
-   * 없는 환경에서도 재생을 가능하게 하는 "최후의 보루"라 항상 포함한다.
+   * 해당 언어(`en-*` / `ko-*`)의 시스템 목소리만 골라 정렬한다.
+   *
+   * **오프라인 엔진(Selton/케이브)은 그 언어에 쓸 시스템 목소리가 하나도 없을 때만 넣는다.**
+   * 저음질이라 쓸 만한 목소리가 있으면 목록에 보일 이유가 없고, 없을 때는 유일한 재생 수단이다.
+   * 판단은 **언어별로** 한다 — 한국어 목소리가 있어도 영어가 없으면 영어에는 Selton이 남는다.
    */
   const filterVoicesByLang = (voices, langPrefix, offlineVoices, localLang = 'ko-KR') => {
       const contentLang = langPrefix === 'ko' ? 'ko-KR' : 'en-US';
       const matched = voices.filter((voice) => voice.lang.toLowerCase().startsWith(langPrefix));
-      return [...matched, ...offlineVoices]
-          .sort((a, b) => sortVoices(a, b, localLang, contentLang));
+      const pool = matched.length > 0 ? matched : offlineVoices;
+      return [...pool].sort((a, b) => sortVoices(a, b, localLang, contentLang));
   };
   /**
    * 목소리 선택 목록에 표시할 문자열.
@@ -39507,6 +39509,30 @@ export default theme;`;
    */
   const hasOnlyOfflineVoices = (voices) => {
       return voices.length > 0 && voices.every(isOfflineVoice);
+  };
+  /**
+   * 저음질 경고 문구. 경고할 상황이 아니면 null.
+   *
+   * **한쪽 언어만 저음질이어도 알린다** — 그 언어 문장이 나올 때 실제로 음질이 떨어지기 때문이다.
+   * 원인이 다르므로 안내도 나눈다: 양쪽 다면 브라우저 문제(인앱 브라우저 등),
+   * 한쪽만이면 그 언어 음성이 기기에 없는 것이다.
+   */
+  const offlineOnlyWarning = (voicesEn, voicesKo) => {
+      const en = hasOnlyOfflineVoices(voicesEn);
+      const ko = hasOnlyOfflineVoices(voicesKo);
+      if (en && ko)
+          return {
+              title: '현재 브라우저에서는 저음질만 가능합니다.',
+              description: '카카오톡 웹과 같은 일부 브라우저에서 발생합니다.'
+                  + ' 더 좋은 음질로 들으려면 URL을 복사해 다른 브라우저에서 열어보세요.',
+          };
+      if (en || ko)
+          return {
+              title: `${en ? '영어' : '한국어'}는 저음질 목소리만 가능합니다.`,
+              description: `이 기기에 ${en ? '영어' : '한국어'} 음성이 설치돼 있지 않습니다.`
+                  + ' URL을 복사해 다른 브라우저나 기기에서 열어보세요.',
+          };
+      return null;
   };
   /**
    * 목소리를 세션 너머로 식별하는 값 — 선택을 저장/복원하는 데 쓴다.
@@ -58786,6 +58812,23 @@ export default theme;`;
               setSelectedVoiceEnIndex(findVoiceIndexByKey(nextEn, loadSelectedVoiceKey('en')));
               setSelectedVoiceKoIndex(findVoiceIndexByKey(nextKo, loadSelectedVoiceKey('ko')));
           };
+          // 1) 네이티브 앱이 주입한 Android 목소리가 있으면 **그것만** 쓴다.
+          //    앱 안에서는 재생도 네이티브가 하므로(§6) 브라우저 목소리를 섞으면 경로가 갈린다.
+          const deviceStored = getDeviceStored();
+          const androidVoices = isEmpty(deviceStored.tts) ? [] : deviceStored.tts.voices;
+          if (androidVoices.length > 0) {
+              apply(androidVoices.map((voice) => {
+                  return {
+                      originIndex: voice.originIndex,
+                      name: voice.name,
+                      lang: voice.lang,
+                      identifier: voice.identifier,
+                      type: 'AndroidTTS',
+                  };
+              }));
+              return;
+          }
+          // 2) 브라우저 목소리. getVoices()는 비동기로 채워지므로 백오프 폴링으로 기다린다.
           if (isNotNil(window.speechSynthesis)) {
               const delays = [1, 10, 100, 1000, 4000];
               for (const delay of delays) {
@@ -58797,27 +58840,13 @@ export default theme;`;
                   }
               }
           }
-          const deviceStored = getDeviceStored();
-          const voices = isEmpty(deviceStored.tts) ? [] : deviceStored.tts.voices;
-          if (voices.length > 0) {
-              apply(voices.map((voice) => {
-                  return {
-                      originIndex: voice.originIndex,
-                      name: voice.name,
-                      lang: voice.lang,
-                      identifier: voice.identifier,
-                      type: 'AndroidTTS',
-                  };
-              }));
-              return;
-          }
-          // 시스템 TTS가 아예 없는 환경(카카오톡 인앱 브라우저 등) — 오프라인 엔진만으로 동작시킨다.
+          // 3) 시스템 TTS가 아예 없는 환경(카카오톡 인앱 브라우저 등) — 오프라인 엔진만 남는다.
           apply([]);
       };
       const selectedVoiceEn = voicesEn[selectedVoiceEnIndex];
       const selectedVoiceKo = voicesKo[selectedVoiceKoIndex];
-      // 시스템 TTS를 못 쓰는 환경 — 재생은 되지만 오프라인 엔진뿐이라 음질이 낮다.
-      const offlineOnly = hasOnlyOfflineVoices([...voicesEn, ...voicesKo]);
+      // 어느 한쪽 언어라도 오프라인 엔진뿐이면 알린다 (양쪽 다인지에 따라 문구가 다르다).
+      const offlineWarning = offlineOnlyWarning(voicesEn, voicesKo);
       /**
        * 현재 본문을 담은 공유 URL을 클립보드에 복사한다.
        *
@@ -58924,10 +58953,10 @@ export default theme;`;
                           setHistoryDialogOpen(true);
                       } },
                       React.createElement(HistoryIcon, null)))),
-          offlineOnly
+          isNotNil(offlineWarning)
               ? React.createElement(Alert, { severity: "warning", sx: { mb: 2 } },
-                  React.createElement(AlertTitle, { sx: { fontWeight: 700 } }, "\uD604\uC7AC \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C\uB294 \uC800\uC74C\uC9C8\uB9CC \uAC00\uB2A5\uD569\uB2C8\uB2E4."),
-                  "\uCE74\uCE74\uC624\uD1A1 \uC6F9\uACFC \uAC19\uC740 \uC77C\uBD80 \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C \uBC1C\uC0DD\uD569\uB2C8\uB2E4. \uB354 \uC88B\uC740 \uC74C\uC9C8\uB85C \uB4E4\uC73C\uB824\uBA74 URL\uC744 \uBCF5\uC0AC\uD574 \uB2E4\uB978 \uBE0C\uB77C\uC6B0\uC800\uC5D0\uC11C \uC5F4\uC5B4\uBCF4\uC138\uC694.",
+                  React.createElement(AlertTitle, { sx: { fontWeight: 700 } }, offlineWarning.title),
+                  offlineWarning.description,
                   React.createElement(Stack, { direction: 'row', spacing: 1.5, alignItems: 'center', sx: { mt: 1.5 } },
                       React.createElement(Button, { size: 'small', color: 'warning', onClick: () => copyShareUrl(), variant: "outlined" }, "URL \uBCF5\uC0AC"),
                       copyMessage.length > 0
