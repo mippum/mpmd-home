@@ -109,23 +109,22 @@ docs/
 ## 명령어
 
 ```bash
-make mkdoc-window-serve  # 로컬 미리보기 (http://127.0.0.1:8000)
-make build-window        # site/ 로 정적 빌드
-make lint                # markdownlint + cspell
-make install-env         # .venv 생성 후 requirements.min.txt 설치
-make deploy-window       # gh-pages 배포 — 사람이 직접 실행
+make serve        # 로컬 미리보기 (http://127.0.0.1:8000)
+make build        # site/ 로 정적 빌드
+make lint         # markdownlint + cspell
+make install-env  # .venv 생성 후 requirements.min.txt 설치
+make deploy       # gh-pages 배포 — 사람이 직접 실행
 ```
 
-**`-window` 접미사 타깃을 기본으로 쓰세요.** `.venv/Scripts/mkdocs` 를 직접 호출합니다.
-접미사 없는 `serve` / `build` / `deploy-force` 는 `mkdocs` 가 시스템 PATH 에 있어야
-동작하며, 이 저장소의 표준 셋업(`make install-env` 로 `.venv` 생성)에서는
-`CreateProcess ... failed` 로 실패합니다.
+`mkdocs` 타깃은 모두 `$(MKDOCS)`(기본값 `.venv/Scripts/mkdocs` 또는 `.venv/bin/mkdocs`)를
+호출합니다. `mkdocs` 는 시스템 PATH 에 없으므로 가상환경 밖에서 맨 `mkdocs` 를
+직접 실행하지 마세요 — `make` 를 거치거나 `MKDOCS=` 로 넘기면 됩니다.
 
 ## 변경 후 확인
 
-1. `make build-window` 가 경고 없이 통과하는지 (특히 깨진 링크 경고)
+1. `make build` 가 경고 없이 통과하는지 (특히 깨진 링크 경고)
 2. `make lint` 통과
-3. 서비스 페이지를 건드렸다면 `make mkdoc-window-serve` 로 실제 렌더링 확인 —
+3. 서비스 페이지를 건드렸다면 `make serve` 로 실제 렌더링 확인 —
    빌드는 성공해도 스크립트 로드 순서가 틀리면 빈 화면이 됩니다
 4. 콘솔 에러 없는지
 

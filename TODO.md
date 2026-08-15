@@ -61,11 +61,8 @@
 - [ ] **`requirements.txt` vs `requirements.min.txt` 역할 문서화** —
       전자는 전체 freeze, 후자는 직접 의존성이며 `make install-env` 가 쓰는 것은
       후자입니다. README 에 한 줄 명시. *(README 에 반영 완료 시 체크)*
-- [ ] **Makefile 타깃 이중화 정리** — 현재 모든 타깃이 `serve`/`build`/`deploy-force`(PATH 의
-      `mkdocs`)와 `*-window`(`.venv/Scripts/mkdocs`) 두 벌로 존재하는데, 실제 셋업에서는
-      전자가 항상 실패합니다. Makefile 상단이 이미 OS 를 분기해 `SCRIPTS` 를 계산하므로
-      모든 타깃이 `$(SCRIPTS)/mkdocs` 를 쓰게 하면 타깃 수가 절반으로 줄고
-      `make build` 가 양쪽 OS 에서 그대로 동작합니다.
-      (`.vscode/tasks.json` 이 `mkdoc-window-serve` 를 참조하므로 함께 수정 필요)
+- [x] **Makefile 타깃 이중화 정리** — `*-window` 접미사 타깃을 없애고 모든 타깃이
+      `$(MKDOCS)`(기본값 `$(SCRIPTS)/mkdocs`)를 쓰도록 통합. 타깃 10개 → 7개.
+      `.vscode/tasks.json`, `launch.json` 의 참조도 함께 갱신.
 - [ ] **`make clean` 이식성** — `rm -rf site/` 라 Windows 기본 셸에서는 실패합니다.
       Bash 에서 실행하거나 OS 분기 추가.
