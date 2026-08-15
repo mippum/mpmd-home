@@ -16,13 +16,13 @@ MKDOCS ?= $(SCRIPTS)/mkdocs
 serve:
 	$(MKDOCS) serve
 
-# 정적 사이트 빌드 (site/ 폴더 생성)
+# 배포 전 build 검증 (strict: 경고가 있으면 실패, deploy 전 build 불필요)
 build:
-	$(MKDOCS) build
+	$(MKDOCS) build --strict
 
 # gh-pages 브랜치로 배포
 deploy:
-	$(MKDOCS) gh-deploy
+	$(MKDOCS) gh-deploy --strict
 
 # 강제 배포 (기존 gh-pages 브랜치 덮어쓰기)
 deploy-force:
