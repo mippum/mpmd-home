@@ -13,28 +13,28 @@
 ## 시작하기
 
 ```bash
-make install-env         # .venv 생성 + requirements.min.txt 설치
-make mkdoc-window-serve  # http://127.0.0.1:8000
+make install-env    # .venv 생성 + requirements.min.txt 설치
+make serve          # http://127.0.0.1:8000
 ```
-
-> **`-window` 접미사 타깃을 쓰세요.**
-> `serve` / `build` / `deploy-force` 같은 기본 타깃은 `mkdocs` 가 시스템 PATH 에
-> 설치되어 있을 때만 동작합니다. `make install-env` 로 만든 `.venv` 에만 설치한
-> 경우 `CreateProcess ... failed` 오류가 납니다.
-> 가상환경을 activate 한 상태라면 기본 타깃도 사용할 수 있습니다.
 
 ## 명령어
 
 | 명령 | 설명 |
 |---|---|
-| `make mkdoc-window-serve` | 로컬 서버 실행 (실시간 미리보기) |
-| `make build-window` | `site/` 로 정적 빌드 |
-| `make deploy-window` | `gh-pages` 브랜치로 배포 |
+| `make serve` | 로컬 서버 실행 (실시간 미리보기) |
+| `make build` | `site/` 로 정적 빌드 |
+| `make deploy` | `gh-pages` 브랜치로 배포 |
+| `make deploy-force` | 강제 배포 (기존 `gh-pages` 덮어쓰기) |
 | `make lint` | markdownlint + cspell 검사 (npm 전역 설치 사용) |
 | `make clean` | `site/` 삭제 (Bash 필요) |
 | `make install-env` | 가상환경 생성 및 의존성 설치 |
 
-각 타깃에는 PATH 의 `mkdocs` 를 쓰는 짝(`serve`, `build`, `deploy-force`)이 있습니다.
+`mkdocs` 관련 타깃은 모두 `.venv` 안의 실행 파일을 직접 호출하므로 가상환경을
+activate 하지 않아도 됩니다. 시스템 PATH 의 `mkdocs` 를 쓰려면 `MKDOCS` 를 넘기세요.
+
+```bash
+make build MKDOCS=mkdocs
+```
 
 lint 도구 설치:
 
@@ -66,11 +66,11 @@ site/                     # 빌드 산출물 (git 추적 안 함)
 `gh-pages` 브랜치를 통한 GitHub Pages 배포입니다. CI 가 없으므로 수동 실행합니다.
 
 ```bash
-mkdocs gh-deploy --remote-name origin
+make deploy
 ```
 
-배포 전 `make build-window` 와 `make lint` 를 통과시키고,
-서비스 페이지를 수정했다면 `make mkdoc-window-serve` 로 실제 렌더링까지 확인하세요.
+배포 전 `make build` 와 `make lint` 를 통과시키고,
+서비스 페이지를 수정했다면 `make serve` 로 실제 렌더링까지 확인하세요.
 빌드가 성공해도 스크립트 로드 순서가 틀리면 화면이 비어 있을 수 있습니다.
 
 ## 의존성 파일

@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run Make Window Serve",
+            "name": "Run Make Serve",
             "type": "node",
             "request": "launch",
             "program": "/bin/bash",
@@ -11,7 +11,7 @@
                 "echo 'Use preLaunchTask to run make serve'"
             ],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Make mkdoc-window-serve"
+            "preLaunchTask": "Make serve"
         }
     ]
 }
