@@ -15,8 +15,10 @@
 
 ## Claude Code 작업 시
 
-- 플랫폼은 Windows 입니다. `make` 타깃 중 `*-window` 계열이 `.venv/Scripts` 를 사용합니다.
-  `make clean` 은 `rm -rf` 를 쓰므로 PowerShell 이 아닌 Bash 에서 실행하세요.
+- 플랫폼은 Windows 이고 `mkdocs` 는 **PATH 에 없습니다.** `.venv/Scripts` 안에만 있으므로
+  반드시 `-window` 접미사 타깃을 쓰세요. 접미사 없는 `make build` / `make serve` 는
+  `CreateProcess ... failed` 로 실패합니다.
+- `make clean` 은 `rm -rf` 를 쓰므로 PowerShell 이 아닌 Bash 에서 실행하세요.
 - 문서를 새로 추가하면 `mkdocs.yml` 의 `nav` 갱신을 잊지 마세요.
 - **배포 명령(`gh-deploy`)은 요청받았을 때만 실행합니다.** 사용자가 명시적으로 요구하지
   않았다면 빌드까지만 하고 멈추세요.
@@ -27,9 +29,9 @@
 ## 검증
 
 ```bash
-make build   # 링크 경고 확인
-make lint    # markdownlint + cspell
-make serve   # 서비스 페이지 변경 시 실제 렌더링 확인 필수
+make build-window        # 링크 경고 확인
+make lint                # markdownlint + cspell
+make mkdoc-window-serve  # 서비스 페이지 변경 시 실제 렌더링 확인 필수
 ```
 
 CI 가 없으므로 검증은 전부 로컬입니다. 빌드 성공이 페이지 정상 동작을 보장하지 않습니다 —
