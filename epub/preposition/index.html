@@ -57,18 +57,8 @@
     
     
   
-  <script>
-    // 네이티브 앱(WebView) 여부를 <body> 파싱 전에 확정한다.
-    // 여기서 클래스를 붙여야 "앱설정" 메뉴가 웹에서 잠깐 보였다 사라지는 깜빡임이 없다.
-    //
-    // 판별에 localStorage['device'] 를 쓰면 안 된다 — 웹 번들의 getDeviceStored() 가
-    // 키가 없으면 userAgent 로 platform-os 를 채워 스스로 만들어 넣기 때문에
-    // 일반 모바일 브라우저에서도 존재한다.
-    // window.ReactNativeWebView 는 react-native-webview 가 페이지 스크립트보다 먼저 주입한다.
-    if (window.ReactNativeWebView) {
-      document.documentElement.classList.add('mp-in-app');
-    }
-  </script>
+  
+  <script src="../../assets/webs/js/app-native.js"></script>
 
   </head>
   
@@ -739,8 +729,6 @@ import Link from "@mui/material/Link"; -->
     
     
       <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
-      
-        <script src="../../assets/webs/js/app-native.js"></script>
       
     
   </body>
