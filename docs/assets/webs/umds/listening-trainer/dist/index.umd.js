@@ -58560,23 +58560,9 @@ export default theme;`;
           }
           await startSpeakingLoop();
       };
-      const stop = () => {
-          setIsSpeaking(false);
-          isSpeakingRef.current = false;
-          setPlayContentSplitIndex(-1);
-          // iteration은 그대로 둔다 — 0으로 되돌리면 정상 종료 후 "0 / 3회"로 보인다.
-          // 다시 재생하면 startSpeakingLoop가 1부터 다시 센다.
-          // 오프라인 엔진은 자체 정지가 필요하다 (재생 대기 중인 promise도 함께 풀린다)
-          fliteStop();
-          kaveStop();
-          if (isNil(window.speechSynthesis))
-              return;
-          speechSynthesis.cancel();
-      };
       /**
        * 재생 상태는 유지한 채 **현재 발화만** 끊는다.
        * 이러면 `speakSentence`의 await가 곧바로 풀려 루프가 다음 문장으로 넘어간다.
-       * (`stop()`과 달리 `isSpeakingRef`를 건드리지 않는다.)
        */
       const cancelCurrentSpeech = () => {
           fliteStop();
@@ -58585,21 +58571,36 @@ export default theme;`;
               speechSynthesis.cancel();
       };
       /**
+       * 재생을 멈춘다.
+       *
+       * **문장 위치는 지우지 않는다.** 정지해도 어디까지 들었는지 화면에 남고,
+       * 다시 재생하면 그 문장부터 이어 읽는다.
+       * `iteration`도 그대로 둔다 — 0으로 되돌리면 정상 종료 후 "0 / 3회"로 보인다.
+       */
+      const stop = () => {
+          setIsSpeaking(false);
+          isSpeakingRef.current = false;
+          cancelCurrentSpeech();
+      };
+      /**
        * 현재 문장에서 offset(±1)만큼 이동한다 (이전/다음 문장 버튼).
        *
+       * **정지 중에도 동작한다** — 위치만 옮겨두고, 재생을 누르면 그 문장부터 시작한다.
        * 양 끝은 범위 안으로 고정한다 — 첫 문장에서 이전은 그 문장 다시 듣기,
-       * 마지막 문장에서 다음은 무시. 모바일 앱의 `jumpSentence`와 같은 규칙이다.
+       * 마지막 문장에서 다음은 무시.
        */
       const jumpSentence = (offset) => {
-          if (contentSplit.length === 0 || !isSpeakingRef.current)
+          if (contentSplit.length === 0)
               return;
-          const current = playIndexRef.current;
+          const current = Math.max(0, playIndexRef.current);
           const target = Math.min(contentSplit.length - 1, Math.max(0, current + offset));
           if (target === current && offset > 0)
               return; // 마지막 문장에서 다음은 무시
           playIndexRef.current = target;
           setPlayContentSplitIndex(target);
-          cancelCurrentSpeech(); // 지금 읽던 문장을 끊어 즉시 이동한다
+          // 재생 중일 때만 끊는다 (정지 중이면 끊을 발화가 없다)
+          if (isSpeakingRef.current)
+              cancelCurrentSpeech();
       };
       /**
        * 문장 언어에 맞는 목소리를 고른다.
@@ -58640,12 +58641,14 @@ export default theme;`;
           setIteration(1);
           setErrorMessage('');
           isSpeakingRef.current = true;
+          // 정지했던 문장부터 이어 읽는다. 두 번째 반복부터는 처음부터.
+          const startIndex = Math.min(Math.max(0, playIndexRef.current), Math.max(0, contentSplit.length - 1));
           try {
               // 바깥 루프도 isSpeakingRef를 확인한다 — 정지 후 남은 반복이 헛돌지 않도록.
               // 오프라인 엔진은 첫 합성에 수 초가 걸려 이 확인이 특히 중요하다.
               for (let i = 0; i < props.repeatTotal && isSpeakingRef.current; i++) {
                   setIteration(i + 1);
-                  playIndexRef.current = 0;
+                  playIndexRef.current = i === 0 ? startIndex : 0;
                   // 언어를 못 정하는 문장(숫자·기호뿐)은 직전 문장 언어를 따른다.
                   let lastLang = null;
                   // for가 아니라 while인 이유: 이전/다음 버튼이 재생 중에 playIndexRef를 바꾼다.
@@ -58670,6 +58673,11 @@ export default theme;`;
               console.log('Error >>', err);
               setErrorMessage('음성 합성에 실패했습니다. 네트워크 상태를 확인하거나 다른 목소리를 선택해 보세요.');
           }
+          // 끝까지 다 읽었으면(정지로 빠져나온 게 아니면) 다음 재생은 처음부터.
+          if (isSpeakingRef.current) {
+              playIndexRef.current = 0;
+              setPlayContentSplitIndex(0);
+          }
           stop();
       };
       if (!props.isOpened)
@@ -58693,14 +58701,14 @@ export default theme;`;
               React.createElement(Stack, { direction: 'row', alignItems: 'center', spacing: 1.5, sx: { px: 2, py: 2 } },
                   React.createElement(Tooltip, { title: '이전 문장' },
                       React.createElement("span", null,
-                          React.createElement(IconButton, { color: 'primary', disabled: !isSpeaking, onClick: () => jumpSentence(-1), "aria-label": '이전 문장', sx: { border: '1px solid', borderColor: 'divider' } },
+                          React.createElement(IconButton, { color: 'primary', disabled: contentSplit.length === 0, onClick: () => jumpSentence(-1), "aria-label": '이전 문장', sx: { border: '1px solid', borderColor: 'divider' } },
                               React.createElement(FastRewindIcon, null)))),
                   isSpeaking
                       ? React.createElement(Button, { variant: "contained", color: 'inherit', size: 'large', startIcon: React.createElement(StopIcon, null), onClick: () => { stop(); } }, "\uC815\uC9C0")
                       : React.createElement(Button, { variant: "contained", size: 'large', startIcon: React.createElement(PlayArrowIcon, null), onClick: () => { startSpeakingLoop().then(); } }, "\uC7AC\uC0DD"),
                   React.createElement(Tooltip, { title: '다음 문장' },
                       React.createElement("span", null,
-                          React.createElement(IconButton, { color: 'primary', disabled: !isSpeaking, onClick: () => jumpSentence(1), "aria-label": '다음 문장', sx: { border: '1px solid', borderColor: 'divider' } },
+                          React.createElement(IconButton, { color: 'primary', disabled: contentSplit.length === 0, onClick: () => jumpSentence(1), "aria-label": '다음 문장', sx: { border: '1px solid', borderColor: 'divider' } },
                               React.createElement(FastForwardIcon, null)))),
                   React.createElement(Typography, { variant: 'body2', color: 'text.secondary' }, contentSplit.length > 0 && playContentSplitIndex >= 0
                       ? `${playContentSplitIndex + 1} / ${contentSplit.length}문장`
@@ -58889,16 +58897,23 @@ export default theme;`;
           const nativeVoice = contentLang === 'ko' ? selectedVoiceKo : selectedVoiceEn;
           if (isNotNil(nativeVoice) && nativeVoice.type === 'AndroidTTS') {
               const reactNativeWebView = window.ReactNativeWebView;
+              // 문장별 전환용 선택 필드. AndroidTTS 목소리만 네이티브가 재생할 수 있다.
+              const toBridgeVoice = (voice) => isNotNil(voice) && voice.type === 'AndroidTTS'
+                  ? { name: voice.name, identifier: voice.identifier }
+                  : undefined;
               const webviewMessage = {
                   type: 'listening-trainer.speak-open',
                   message: {
                       text: contentDetail,
+                      // 구버전 앱을 위해 기존 필드도 계속 채운다 (§6.3)
                       voiceName: nativeVoice.name,
                       voiceIndex: nativeVoice.originIndex,
                       // AndroidTTS 음성은 localStorage['device'].tts.voices에서만 오고
                       // 그쪽 IVoice.identifier는 필수라 항상 존재합니다.
                       voiceIdentifier: nativeVoice.identifier,
                       repeatTotal: repeatTotal,
+                      voiceEn: toBridgeVoice(selectedVoiceEn),
+                      voiceKo: toBridgeVoice(selectedVoiceKo),
                   }
               };
               isNotNil(reactNativeWebView) && reactNativeWebView.postMessage(JSON.stringify(webviewMessage));
