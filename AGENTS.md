@@ -83,21 +83,49 @@ docs/
 `md.mippum.com` 은 브라우저에서도 열리고, Expo WebView 래퍼 앱([mp-webapp](https://github.com/greenyant/mp-webapp))
 안에서도 열립니다. 앱설정 메뉴는 **앱에서만** 보여야 합니다.
 
-**판별은 `window.ReactNativeWebView` 로 합니다.** react-native-webview 가 페이지 스크립트보다
+**앱 판별은 `window.ReactNativeWebView` 로 합니다.** react-native-webview 가 페이지 스크립트보다
 먼저 주입하므로 동기적으로 읽을 수 있습니다.
 
-> `localStorage['device']` 로 판별하면 안 됩니다. 웹 번들의 `getDeviceStored()` 가 키가 없으면
-> userAgent 로 `platform-os` 를 채워 **스스로 만들어 넣기** 때문에 일반 모바일 브라우저에도 존재합니다.
+> `localStorage['device']` 의 존재 여부로 판별하면 안 됩니다. 웹 번들의 `getDeviceStored()` 가
+> 키가 없으면 userAgent 로 `platform-os` 를 채워 **스스로 만들어 넣기** 때문에
+> 일반 모바일 브라우저에도 존재합니다.
+
+`<html>` 에 붙는 상태 클래스는 두 가지입니다.
+
+| 클래스 | 의미 |
+|---|---|
+| `.mp-in-app` | 네이티브 앱 안 (버전 무관) |
+| `.mp-app-setting` | 앱설정을 지원하는 앱 (1.0.4+) |
 
 동작 순서:
 
-1. `overrides/main.html` 의 `extrahead` 스크립트가 `<body>` 파싱 전에 `<html>` 에 `.mp-in-app` 을 붙입니다
-2. `assets/webs/css/app-native.css` 가 `html:not(.mp-in-app)` 일 때 앱 전용 요소를 숨깁니다
+1. `overrides/main.html` 이 `<head>` 에서 `app-native.js` 를 **동기 로드**합니다.
+   `extra_javascript` 는 문서 끝에 붙어 메뉴가 깜빡이므로 쓰지 않습니다
+2. 스크립트가 `<body>` 파싱 전에 위 클래스를 확정합니다
+3. `assets/webs/css/app-native.css` 가 `html:not(.mp-app-setting)` 일 때 앱설정을 숨깁니다
    (기본이 숨김이라 웹에서 깜빡이지 않습니다)
-3. `assets/webs/js/app-native.js` 가 `:has()` 미지원 브라우저와 활성 nav 링크를 폴백으로 처리합니다
+4. 같은 스크립트가 `:has()` 미지원 브라우저와 활성 nav 링크를 폴백으로 처리합니다
 
 페이지 안에서는 `.mp-app-only` / `.mp-web-only` 클래스로 노출을 나눕니다.
 앱 전용 페이지를 추가하면 `app-native.js` 의 `APP_ONLY_PATHS` 에도 경로를 넣으세요.
+
+### 앱 버전으로 기능 가르기
+
+**웹은 즉시 전체 배포되지만 앱은 스토어를 거칩니다.** 구버전 앱에 핸들러가 없는 기능은
+버전으로 걸러야 눌러도 반응 없는 버튼이 생기지 않습니다.
+
+앱 버전은 `localStorage['device']['app-version']` 에서 읽습니다. 값은 앱의
+PUSH_CODED_VERSION 형식입니다 — `A1.0.4AJ` = 플랫폼(`A`/`I`) + 앱 버전 + 2글자 카운터.
+`app-native.js` 의 `readAppVersion()` 이 여기서 `[1, 0, 4]` 를 뽑고,
+`APP_SETTING_MIN_VERSION` 과 자리별 숫자로 비교합니다(문자열 비교는 `'10' < '9'` 라 쓸 수 없음).
+
+주의할 점 두 가지:
+
+- **이 값은 페이지 로드 *후* 주입됩니다.** 앱의 `injectedJavaScript` 가 `onLoadEnd` 시점에
+  돌기 때문입니다. localStorage 가 유지되므로 보통 두 번째 페이지부터는 이미 있지만,
+  앱 최초 실행의 첫 페이지에서는 비어 있을 수 있어 `RECHECK_DELAYS` 로 잠시 재확인합니다.
+- **앱 쪽에서 `.env` 의 PUSH_CODED_VERSION 을 올려야 게이트가 열립니다.**
+  스토어 빌드를 새로 냈는데 이 값을 그대로 두면 웹은 여전히 구버전으로 판단합니다.
 
 ### 네이티브로 메시지 보내기
 

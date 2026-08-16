@@ -6,8 +6,8 @@ hide:
 # 앱설정
 
 <div class="mp-web-only mp-setting-notice">
-  이 페이지는 <strong>미쁨에듀 온라인 앱</strong>에서만 사용할 수 있습니다.
-  앱으로 열어주세요.
+  이 페이지는 <strong>미쁨에듀 온라인 앱 1.0.4 이상</strong>에서만 사용할 수 있습니다.
+  앱으로 열거나, 앱을 최신 버전으로 업데이트해 주세요.
 </div>
 
 <div class="mp-app-only mp-setting-grid">
