@@ -16,6 +16,7 @@
 ## 디렉터리 구조
 
 ```
+overrides/main.html              # 테마 오버라이드. 네이티브 앱 판별 스크립트가 들어있음
 docs/
 ├─ index.md                      # 홈. 콘텐츠 바로가기 카드 그리드
 ├─ index.en.md                   # (미완성) i18n 미사용 상태라 독립 페이지로 빌드됨
@@ -26,11 +27,14 @@ docs/
 ├─ epub/
 │  ├─ self-affirmation.md        # 전자책 소개 (정적 HTML 페이지)
 │  └─ preposition.md
+├─ app-setting/index.md          # 앱설정. 네이티브 앱에서만 노출 (아래 참고)
 └─ assets/webs/
    ├─ libs/                      # 벤더 UMD (react, react-dom, tailwind, emotion)
    ├─ umds/<app>/dist/index.umd.js  # 각 서비스 앱 번들 (외부 빌드 결과물)
    ├─ content/                   # 서비스가 런타임에 로드하는 JSON 데이터
    ├─ images/                    # 페이지 이미지
+   ├─ css/app-native.css         # 앱 전용 노출 제어 + 앱설정 페이지 스타일
+   ├─ js/app-native.js           # 브릿지 헬퍼 (window.mpApp)
    └─ admin/                     # 별개 SPA. 어디에서도 링크되지 않음 (TODO.md 참고)
 ```
 
@@ -73,6 +77,37 @@ docs/
 `docs/index.md` 의 듣기 카드는 현재 `contentDetail` 에 수천 자짜리 인코딩 문자열을
 직접 박아 두었습니다. 손으로 편집할 수 없는 값이므로 **건드리지 마세요.**
 내용 변경이 필요하면 `fileUrl` 방식으로 바꾸는 편이 낫습니다(`TODO.md` 참고).
+
+## 네이티브 앱 전용 노출
+
+`md.mippum.com` 은 브라우저에서도 열리고, Expo WebView 래퍼 앱([mp-webapp](https://github.com/greenyant/mp-webapp))
+안에서도 열립니다. 앱설정 메뉴는 **앱에서만** 보여야 합니다.
+
+**판별은 `window.ReactNativeWebView` 로 합니다.** react-native-webview 가 페이지 스크립트보다
+먼저 주입하므로 동기적으로 읽을 수 있습니다.
+
+> `localStorage['device']` 로 판별하면 안 됩니다. 웹 번들의 `getDeviceStored()` 가 키가 없으면
+> userAgent 로 `platform-os` 를 채워 **스스로 만들어 넣기** 때문에 일반 모바일 브라우저에도 존재합니다.
+
+동작 순서:
+
+1. `overrides/main.html` 의 `extrahead` 스크립트가 `<body>` 파싱 전에 `<html>` 에 `.mp-in-app` 을 붙입니다
+2. `assets/webs/css/app-native.css` 가 `html:not(.mp-in-app)` 일 때 앱 전용 요소를 숨깁니다
+   (기본이 숨김이라 웹에서 깜빡이지 않습니다)
+3. `assets/webs/js/app-native.js` 가 `:has()` 미지원 브라우저와 활성 nav 링크를 폴백으로 처리합니다
+
+페이지 안에서는 `.mp-app-only` / `.mp-web-only` 클래스로 노출을 나눕니다.
+앱 전용 페이지를 추가하면 `app-native.js` 의 `APP_ONLY_PATHS` 에도 경로를 넣으세요.
+
+### 네이티브로 메시지 보내기
+
+```js
+window.mpApp.post('app-setting.version-open', {}); // 앱이 아니면 false 반환
+```
+
+메시지 타입은 mp-webapp 의 `src/util/webview-message-handler/IWebviewMessage.tsx` 에
+정의돼 있습니다. **웹과 앱은 독립 배포되므로 어느 쪽이 먼저 올라가도 동작해야 합니다** —
+새 타입을 쓰는 웹이 먼저 배포되면 구버전 앱은 그 메시지를 무시합니다.
 
 ## 작업 규칙
 
