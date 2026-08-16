@@ -1,0 +1,64 @@
+/*
+ * 네이티브 앱(WebView) 전용 노출 제어.
+ *
+ * <html> 의 .mp-in-app 클래스는 overrides/main.html 의 extrahead 스크립트가
+ * body 파싱 전에 붙인다. 기본값이 "숨김" 이라 웹에서는 깜빡임이 없다.
+ */
+
+/* 앱설정 메뉴 — 사이드바 항목과 이전/다음 푸터 링크 */
+html:not(.mp-in-app) .md-nav__item:has(> .md-nav__link[href*="app-setting"]),
+html:not(.mp-in-app) .md-footer__link[href*="app-setting"],
+/* :has() 미지원 브라우저 폴백. app-native.js 가 같은 대상에 클래스를 붙인다. */
+html:not(.mp-in-app) .mp-app-only {
+  display: none !important;
+}
+
+/* 앱에서만 감출 것 (예: "앱에서 열어주세요" 안내) */
+html.mp-in-app .mp-web-only {
+  display: none !important;
+}
+
+/* ── 앱설정 페이지 ───────────────────────────────────────────────── */
+
+.mp-setting-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  margin: 1.2rem 0;
+}
+
+.mp-setting-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 8px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mp-setting-item:active {
+  background: var(--md-default-fg-color--lightest);
+}
+
+.mp-setting-item svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+  opacity: 0.75;
+}
+
+.mp-setting-notice {
+  padding: 16px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
+}
