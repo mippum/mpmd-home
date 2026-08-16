@@ -24,8 +24,8 @@ nav:
 extra_css:
   - assets/webs/css/app-native.css
 
-extra_javascript:
-  - assets/webs/js/app-native.js
+# app-native.js 는 여기가 아니라 overrides/main.html 이 <head> 에서 동기 로드합니다.
+# extra_javascript 는 문서 끝에 붙어서 메뉴가 깜빡입니다.
 
 markdown_extensions:
   - toc:
