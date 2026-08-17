@@ -1,0 +1,19 @@
+{#-
+  mkdocs 기본 sitemap.xml 에 noindex 제외만 추가한 버전.
+  (원본: .venv/Lib/site-packages/mkdocs/templates/sitemap.xml)
+
+  front matter 에 noindex: true 인 페이지는 사이트맵에서 뺀다 — 검색에 올릴 이유가 없는
+  앱 전용·미완성 페이지가 사이트맵에 들어가면 제출 품질만 떨어진다.
+  mkdocs 를 올릴 때 원본이 바뀌었는지 확인할 것.
+-#}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for file in pages -%}
+    {% if not file.page.is_link and (file.page.abs_url or file.page.canonical_url) and not (file.page.meta and file.page.meta.noindex) %}
+    <url>
+         <loc>{% if file.page.canonical_url %}{{ file.page.canonical_url|e }}{% else %}{{ file.page.abs_url|e }}{% endif %}</loc>
+         {% if file.page.update_date %}<lastmod>{{file.page.update_date}}</lastmod>{% endif %}
+    </url>
+    {%- endif -%}
+{% endfor %}
+</urlset>
