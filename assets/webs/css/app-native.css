@@ -60,6 +60,95 @@ html.mp-app-setting .mp-web-only {
   opacity: 0.75;
 }
 
+/* ── 미쁨에듀 소개 팝업 ────────────────────────────────────────────
+   스토어 심사용 임시 블록. 심사 종료 후 이 규칙들도 함께 삭제하세요.
+
+   dialog[open] 을 직접 배치하는 이유: showModal() 이 없는 구형 웹뷰에서
+   open 속성만 세워도 같은 모양으로 보이게 하기 위함. */
+.mp-modal[open] {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  width: min(92vw, 34rem);
+  max-height: 82vh;
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.mp-modal::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.mp-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 8px 14px 18px;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.mp-modal-head h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.mp-modal-close {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mp-modal-close:active {
+  background: var(--md-default-fg-color--lightest);
+}
+
+.mp-modal-body {
+  overflow-y: auto;
+  padding: 4px 18px 20px;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.mp-modal-body ul {
+  padding-left: 1.1rem;
+}
+
+.mp-about-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  margin: 1rem 0 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+}
+
+.mp-about-meta dt {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mp-about-meta dd {
+  margin: 0;
+}
+
 .mp-setting-notice {
   padding: 16px;
   border: 1px solid var(--md-default-fg-color--lightest);
