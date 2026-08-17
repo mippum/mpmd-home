@@ -40,7 +40,13 @@ hide:
   한시적으로 둡니다. (TODO.md 의 «앱설정 화면 확장» 항목 참고)
 
   버전과 달리 네이티브 브릿지를 쓰지 않고 웹이 직접 띄웁니다 — 앱 변경이 필요 없습니다.
+
+  바깥 div 로 감싼 이유: Python-Markdown 의 블록 요소 목록에 dialog 가 없어서
+  인라인으로 취급하고, 여는 태그와 닫는 태그를 각각 문단으로 감싸버립니다.
+  그러면 DOM 이 깨지고 IDE 도 script 범위를 잘못 잡습니다.
+  블록으로 인식되는 div 안에 두면 내용이 그대로 통과합니다. 이 래퍼를 벗기지 마세요.
 ──────────────────────────────────────────────────────────────── -->
+<div class="mp-modal-host">
 <dialog class="mp-modal" id="mp-about-modal">
 
   <div class="mp-modal-head">
@@ -74,9 +80,14 @@ hide:
 
   </div>
 </dialog>
+</div>
 <!-- ── 임시 블록 끝 ──────────────────────────────────────────────── -->
 
 <script>
+  // 이 블록 안에는 빈 줄을 넣지 마세요.
+  // 마크다운 처리기와 IDE 모두 빈 줄에서 raw HTML 블록을 끊습니다. 그러면 IDE 가
+  // 주입하는 JS 조각이 })(); 없이 잘려 "} 누락" 같은 엉뚱한 오류를 냅니다.
+  // 구분이 필요하면 빈 줄 대신 주석 줄을 쓰세요.
   (function () {
     var versionButton = document.getElementById('mp-setting-version');
     if (versionButton) {
@@ -89,7 +100,7 @@ hide:
         }
       });
     }
-
+    //
     // ── 임시 — 심사 종료 후 이 블록도 함께 지우세요 ──────────────────
     // 소개는 웹이 아는 내용뿐이라 브릿지를 타지 않고 여기서 직접 띄운다.
     var aboutButton = document.getElementById('mp-setting-about');
@@ -105,7 +116,7 @@ hide:
         if (typeof aboutModal.close === 'function') aboutModal.close();
         else aboutModal.removeAttribute('open');
       };
-
+      //
       aboutButton.addEventListener('click', openModal);
       aboutModal.querySelector('[data-mp-close]').addEventListener('click', closeModal);
       aboutModal.addEventListener('click', function (event) {
