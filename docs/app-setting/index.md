@@ -44,7 +44,6 @@ hide:
 <dialog class="mp-modal" id="mp-about-modal">
 
   <div class="mp-modal-head">
-    <h2>미쁨에듀 소개</h2>
     <button type="button" class="mp-modal-close" data-mp-close aria-label="닫기">&times;</button>
   </div>
 
@@ -71,8 +70,6 @@ hide:
     <dl class="mp-about-meta">
       <dt>상호</dt><dd>미쁨에듀 (Mippum Edu Corporation)</dd>
       <dt>홈페이지</dt><dd><a href="https://mippum.com">mippum.com</a></dd>
-      <dt>문의</dt><dd>(이메일 주소를 넣으세요)</dd>
-      <dt>사업자등록번호</dt><dd>(번호를 넣으세요)</dd>
     </dl>
 
   </div>
