@@ -1,4 +1,6 @@
 ---
+description: 『영어로 하는 미쁨 자기긍정확언』 전자책 소개입니다. TTS(음성으로 읽기)를 활용해 확언 문장을 눈과 귀로 반복 학습할 수 있도록 만들었습니다. 구글 Play북에서 볼 수 있습니다.
+image: assets/webs/images/epub/self-affirmation/cover.png
 hide:
   - toc
 ---

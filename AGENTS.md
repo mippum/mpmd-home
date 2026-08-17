@@ -160,6 +160,26 @@ window.mpApp.post('app-setting.version-open', {}); // 앱이 아니면 false 반
 - UMD 번들 내부 수정
 - `docs/` 하위 자산 경로를 상대경로로 변경
 
+## 검색 노출 (SEO)
+
+`mkdocs.yml` 의 **`site_url` 을 지우지 마세요.** 이 값이 없으면 sitemap.xml 이 빈 파일이 되고
+canonical·OG 태그도 생성되지 않습니다.
+
+`overrides/main.html` 이 페이지 front matter 를 읽어 다음을 처리합니다.
+
+| front matter | 효과 |
+|---|---|
+| `description:` | `<meta name="description">` 과 OG·트위터 설명. **새 페이지에는 꼭 넣으세요** — 없으면 `site_description` 이 그대로 쓰여 모든 페이지 스니펫이 같아집니다 |
+| `image:` | OG 이미지 경로 (`docs/` 기준 상대경로). 없으면 기본 이미지 |
+| `noindex: true` | `<meta name="robots" content="noindex, follow">` + **사이트맵에서 제외** |
+
+- 색인 제외는 `robots.txt` 의 `Disallow` 가 아니라 `noindex` 로 합니다. 크롤링을 막으면
+  로봇이 `noindex` 태그를 읽지 못해 오히려 URL 만 검색결과에 남을 수 있습니다.
+- `overrides/sitemap.xml` 은 mkdocs 기본 템플릿에 `noindex` 제외만 더한 것입니다.
+  mkdocs 를 올릴 때 원본이 바뀌었는지 확인하세요.
+- 서비스 페이지는 React UMD 로 그려져 HTML 에 텍스트가 거의 없습니다.
+  검색 유입을 늘리려면 마크다운에 정적 설명을 덧붙여야 합니다 (TODO.md 3순위).
+
 ## 문서 작성 컨벤션
 
 - 언어는 한국어. `mkdocs.yml` 의 `theme.language: ko`.

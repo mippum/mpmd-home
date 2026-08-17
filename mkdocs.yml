@@ -1,5 +1,7 @@
 site_name: 미쁨Edu ONLINE
-site_description: Mippum's Home from MD Files
+# site_url 은 sitemap.xml 과 canonical/OG 태그 생성에 필요합니다. 빼면 sitemap 이 빈 파일이 됩니다.
+site_url: https://md.mippum.com/
+site_description: 반복 듣기로 문장을 외우는 듣기 트레이너와 한 문제씩 풀어보는 퀴즈, TTS 반복학습 전자책을 제공합니다.
 site_author: mippum
 
 theme:

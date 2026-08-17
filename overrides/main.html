@@ -2,10 +2,48 @@
 
 {% block extrahead %}
   {{ super() }}
+
   {#
     앱 전용 노출 제어. <body> 파싱 전에 <html> 클래스를 확정해야
     "앱설정" 메뉴가 웹에서 잠깐 보였다 사라지는 깜빡임이 없다.
     그래서 extra_javascript(문서 끝 로드)가 아니라 여기서 동기 로드한다.
   #}
   <script src="{{ 'assets/webs/js/app-native.js' | url }}"></script>
+
+  {#
+    검색 색인 제외. front matter 에 noindex: true 를 넣은 페이지에만 붙는다.
+    robots.txt 의 Disallow 로 막지 않는 이유는 그쪽 파일에 적어두었다.
+    overrides/sitemap.xml 도 같은 값을 보고 해당 페이지를 사이트맵에서 뺀다.
+  #}
+  {% if page and page.meta and page.meta.noindex %}
+    <meta name="robots" content="noindex, follow">
+  {% endif %}
+
+  {#
+    공유 미리보기(OG / 트위터 카드). Material 이 기본으로 넣지 않는다.
+    이게 없으면 카톡·네이버 등에 링크를 붙여도 제목·이미지가 뜨지 않는다.
+    페이지별로 front matter 의 description / image 로 덮어쓸 수 있다.
+  #}
+  {% set og_title = (page.title ~ ' - ' ~ config.site_name) if (page and page.title and not page.is_homepage) else config.site_name %}
+  {% set og_description = page.meta.description if (page and page.meta and page.meta.description) else config.site_description %}
+  {% set og_image_path = page.meta.image if (page and page.meta and page.meta.image) else 'assets/webs/images/home/listening-trainer-play.png' %}
+
+  <meta property="og:type" content="{{ 'website' if (page and page.is_homepage) else 'article' }}">
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="{{ og_title }}">
+  <meta property="og:description" content="{{ og_description }}">
+  {% if page and page.canonical_url %}
+    <meta property="og:url" content="{{ page.canonical_url }}">
+  {% endif %}
+  {% if config.site_url %}
+    <meta property="og:image" content="{{ config.site_url }}{{ og_image_path }}">
+  {% endif %}
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ og_title }}">
+  <meta name="twitter:description" content="{{ og_description }}">
+  {% if config.site_url %}
+    <meta name="twitter:image" content="{{ config.site_url }}{{ og_image_path }}">
+  {% endif %}
 {% endblock %}

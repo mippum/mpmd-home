@@ -1,4 +1,6 @@
 ---
+description: 『미쁨1문1답 영문 전치사』 전자책 소개입니다. 위치·움직임·시간을 나타내는 전치사 표현을 1문1답과 TTS 반복학습으로 익힐 수 있습니다. 구글 Play북에서 볼 수 있습니다.
+image: assets/webs/images/epub/preposition/cover.png
 hide:
   - toc
 ---

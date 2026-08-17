@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# 네이버 검색 로봇
+User-agent: Yeti
+Allow: /
+
+# 색인에서 빼는 페이지는 여기서 막지 않습니다.
+# Disallow 로 크롤링을 막으면 로봇이 페이지의 noindex 태그를 읽지 못해
+# 오히려 URL 만 검색결과에 남을 수 있습니다.
+# 제외는 각 페이지 front matter 의 noindex 로 처리합니다.
+
+Sitemap: https://md.mippum.com/sitemap.xml
